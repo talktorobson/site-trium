@@ -51,7 +51,7 @@ function App() {
   const onMenu = () => setToast('Menu mobile — navegue pelas seções rolando a página.');
 
   const {
-    Header, Hero, NumbersStrip, Pain, Services, Segments, Steps, Compare, Team, Faq, Contact, Footer,
+    Header, Hero, NumbersStrip, Pain, Services, PortalShowcase, Segments, Steps, Compare, Team, Faq, Contact, Footer,
   } = window;
 
   return (
@@ -62,6 +62,7 @@ function App() {
       <Pain />
       <Services servicesLayout={t.servicesLayout} />
       <Steps />
+      <PortalShowcase />
       <Compare compareStyle={t.compareStyle} />
       {t.servicesLayout !== 'split' && <Segments />}
       <Team teamStyle={t.teamStyle} />

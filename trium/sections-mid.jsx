@@ -86,6 +86,47 @@ function Services({ servicesLayout }) {
   );
 }
 
+function PortalShowcase() {
+  const I = window.TriumIcons;
+  const points = [
+    ['fileText', 'Aprovação da folha em 1 clique', 'Revise a prévia, confira custos e encargos e aprove o fechamento sem trocar planilha por e-mail.'],
+    ['clock', 'Calendário de obrigações', 'eSocial, FGTS Digital, DCTFWeb e pagamentos com os prazos sempre à vista, nada passa batido.'],
+    ['users', 'Portal do colaborador', 'Holerites, informes e documentos disponíveis para o seu time, sem sobrecarregar o seu dia.'],
+  ];
+  return (
+    <section className="sec portal-show" id="portal"><div className="wrap-wide">
+      <div className="sec-head center reveal">
+        <span className="tag">Conheça o portal</span>
+        <h2>Toda a sua folha em um só lugar</h2>
+        <p>O portal digital vem incluído no contrato. Você acompanha o fechamento, aprova a folha e dá acesso ao time — sem instalar nada.</p>
+      </div>
+      <div className="portal-frame reveal">
+        <div className="pf-bar">
+          <span className="pf-dot"></span><span className="pf-dot"></span><span className="pf-dot"></span>
+          <span className="pf-url">portal.triumbpo.com.br</span>
+        </div>
+        <img src="trium/portal-shot.png" loading="lazy" decoding="async" width="1600" height="1073"
+          alt="Tela do portal do cliente TRIUM: prévia da folha de pagamento com custos, encargos, líquido a pagar e calendário de obrigações." />
+        <span className="pf-tagimg">Imagem ilustrativa</span>
+      </div>
+      <div className="portal-points reveal">
+        {points.map(([ic, t, d]) => {
+          const Ico = I[ic];
+          return (
+            <div className="pp" key={t}>
+              <span className="pp-ico"><Ico size={20} color="#00A87E" /></span>
+              <div><h4>{t}</h4><p>{d}</p></div>
+            </div>
+          );
+        })}
+      </div>
+      <div className="portal-cta reveal">
+        <a className="btn btn-navy" href="#contato">Pedir meu diagnóstico gratuito</a>
+      </div>
+    </div></section>
+  );
+}
+
 function Segments() {
   const I = window.TriumIcons;
   return (

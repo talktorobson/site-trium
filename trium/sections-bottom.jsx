@@ -190,7 +190,7 @@ function Footer({ onWa, onPortal }) {
         <div>
           <h4>Serviços</h4>
           <a href="#servicos">FOPA Folha de pagamento</a><a href="#servicos">Departamento pessoal</a>
-          <a href="#servicos">eSocial e obrigações</a><a href="#servicos">Portal digital</a>
+          <a href="#servicos">eSocial e obrigações</a><a href="#portal">Portal digital</a>
         </div>
         <div>
           <h4>A TRIUM</h4>
