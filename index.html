@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TRIUM BPO | Folha de pagamento e departamento pessoal terceirizados</title>
+<meta name="description" content="A TRIUM assume a folha de pagamento e o departamento pessoal da sua empresa com compliance garantido, eSocial nativo e portal digital incluído. Para empresas de 10 a 99 colaboradores.">
+<meta property="og:title" content="TRIUM BPO | Folha e departamento pessoal sem dor de cabeça">
+<meta property="og:description" content="Terceirize a folha e o DP com tecnologia premium incluída. Diagnóstico gratuito.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0B2540;
+    --navy-2:#0F3155;
+    --ink:#13293F;
+    --teal:#00C896;
+    --teal-dark:#00A87E;
+    --amber:#F2B441;
+    --bg:#F6F9FC;
+    --white:#FFFFFF;
+    --grey:#5C6F82;
+    --line:#E3EAF1;
+    --radius:18px;
+    --shadow:0 10px 40px rgba(11,37,64,.10);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',sans-serif;color:var(--ink);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased}
+  h1,h2,h3,h4{font-family:'Sora',sans-serif;line-height:1.18;color:var(--navy)}
+  img{max-width:100%}
+  a{text-decoration:none;color:inherit}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+  .tag{display:inline-block;font-size:.78rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--teal-dark);background:rgba(0,200,150,.10);border:1px solid rgba(0,200,150,.25);padding:.35rem .9rem;border-radius:999px;margin-bottom:1.1rem}
+  .btn{display:inline-flex;align-items:center;gap:.55rem;font-family:'Sora',sans-serif;font-weight:600;font-size:.95rem;padding:.85rem 1.6rem;border-radius:12px;transition:all .2s ease;cursor:pointer;border:none}
+  .btn-primary{background:var(--teal);color:var(--navy)}
+  .btn-primary:hover{background:var(--teal-dark);color:#fff;transform:translateY(-2px)}
+  .btn-ghost{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.35)}
+  .btn-ghost:hover{border-color:var(--teal);color:var(--teal)}
+  .btn-navy{background:var(--navy);color:#fff}
+  .btn-navy:hover{background:var(--navy-2);transform:translateY(-2px)}
+
+  /* LOGO — monograma T: três barras, uma por sócia */
+  .logo{display:flex;align-items:center;gap:.65rem;color:#fff}
+  .logo .mark{flex-shrink:0}
+  .logo .word{font-family:'Sora',sans-serif;font-weight:800;font-size:1.3rem;letter-spacing:.04em;line-height:1}
+  .logo .word small{display:block;font-weight:400;font-size:.62rem;letter-spacing:.42em;color:var(--teal);margin-top:3px}
+
+  /* HEADER */
+  header{position:sticky;top:0;z-index:50;background:rgba(11,37,64,.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.07)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:74px;gap:1rem}
+  .nav-links{display:flex;gap:1.7rem;align-items:center}
+  .nav-links a{color:rgba(255,255,255,.78);font-size:.92rem;font-weight:500;transition:color .2s;white-space:nowrap}
+  .nav-links a:hover{color:var(--teal)}
+  .nav .btn{padding:.6rem 1.2rem;font-size:.88rem}
+  .btn-portal{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.3);display:inline-flex;align-items:center;gap:.45rem}
+  .btn-portal:hover{border-color:var(--amber);color:var(--amber)}
+  .burger{display:none;background:none;border:none;cursor:pointer;width:40px;height:40px}
+  .burger span{display:block;width:22px;height:2px;background:#fff;margin:5px auto;transition:.3s}
+
+  /* HERO */
+  .hero{background:linear-gradient(150deg,var(--navy) 0%,#0D2C4E 55%,#0A3A52 100%);color:#fff;padding:90px 0 110px;position:relative;overflow:hidden}
+  .hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:56px 56px;-webkit-mask-image:radial-gradient(ellipse 90% 80% at 70% 20%,#000 0%,transparent 70%);mask-image:radial-gradient(ellipse 90% 80% at 70% 20%,#000 0%,transparent 70%)}
+  .hero::after{content:"";position:absolute;right:-180px;top:-180px;width:560px;height:560px;border-radius:50%;background:radial-gradient(circle,rgba(0,200,150,.16),transparent 65%)}
+  .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center;position:relative;z-index:2}
+  .hero h1{color:#fff;font-size:clamp(2rem,4.2vw,3.1rem);font-weight:800;margin-bottom:1.3rem}
+  .hero h1 em{font-style:normal;color:var(--teal)}
+  .hero p.lead{font-size:1.13rem;color:rgba(255,255,255,.82);max-width:540px;margin-bottom:2.2rem}
+  .hero-ctas{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:2.4rem}
+  .hero-points{display:flex;gap:1.6rem;flex-wrap:wrap}
+  .hero-points div{display:flex;align-items:center;gap:.5rem;font-size:.88rem;color:rgba(255,255,255,.75)}
+  .hero-points svg{flex-shrink:0}
+
+  /* mock card */
+  .mock{position:relative}
+  .holerite{background:#fff;border-radius:20px;box-shadow:0 30px 70px rgba(0,0,0,.35);padding:1.6rem;color:var(--ink);max-width:380px;margin-left:auto;transform:rotate(2deg)}
+  .holerite .hrow{display:flex;justify-content:space-between;align-items:center;padding:.55rem 0;border-bottom:1px dashed var(--line);font-size:.88rem}
+  .holerite .hrow:last-child{border:none}
+  .holerite .htitle{font-family:'Sora',sans-serif;font-weight:700;color:var(--navy);margin-bottom:.4rem;display:flex;justify-content:space-between;align-items:center}
+  .pill{font-size:.68rem;font-weight:600;background:rgba(0,200,150,.14);color:var(--teal-dark);padding:.2rem .6rem;border-radius:999px}
+  .mock .float{position:absolute;background:#fff;border-radius:14px;box-shadow:var(--shadow);padding:.8rem 1.1rem;font-size:.8rem;display:flex;gap:.6rem;align-items:center}
+  .float.f1{left:-10px;top:-26px;transform:rotate(-3deg)}
+  .float.f2{left:6px;bottom:-22px;transform:rotate(-2deg)}
+  .float b{font-family:'Sora',sans-serif;color:var(--navy)}
+  .dotok{width:34px;height:34px;border-radius:10px;background:rgba(0,200,150,.15);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+
+  /* NUMBERS STRIP */
+  .strip{background:var(--navy);border-top:1px solid rgba(255,255,255,.06)}
+  .strip .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;padding-top:30px;padding-bottom:30px}
+  .strip .item{text-align:center;color:rgba(255,255,255,.75);font-size:.85rem;line-height:1.4}
+  .strip .item b{display:block;color:var(--teal);font-family:'Sora',sans-serif;font-size:1.5rem;font-weight:800;margin-bottom:.15rem}
+
+  section{padding:96px 0}
+  .center{text-align:center}
+  .sec-head{max-width:680px;margin:0 auto 56px}
+  .sec-head h2{font-size:clamp(1.6rem,3vw,2.3rem);font-weight:700;margin-bottom:1rem}
+  .sec-head p{color:var(--grey);font-size:1.05rem}
+
+  /* PAIN */
+  .pain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .pain{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:1.8rem;transition:transform .25s,box-shadow .25s}
+  .pain:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+  .pain .ico{width:46px;height:46px;border-radius:12px;background:rgba(242,180,65,.16);display:flex;align-items:center;justify-content:center;margin-bottom:1.1rem}
+  .pain h3{font-size:1.05rem;margin-bottom:.55rem}
+  .pain p{font-size:.92rem;color:var(--grey)}
+
+  /* FOPA */
+  .fopa{background:var(--navy);color:#fff}
+  .fopa .sec-head h2{color:#fff}
+  .fopa .sec-head p{color:rgba(255,255,255,.75)}
+  .fopa-badge{display:inline-flex;align-items:center;gap:.7rem;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:999px;padding:.5rem 1.3rem;margin-bottom:1.4rem}
+  .fopa-badge b{font-family:'Sora',sans-serif;font-size:1.05rem;color:var(--teal);letter-spacing:.06em}
+  .fopa-badge span{font-size:.8rem;color:rgba(255,255,255,.7)}
+  .serv-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+  .serv{background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.10);border-radius:var(--radius);padding:2rem;transition:border-color .25s,background .25s}
+  .serv:hover{border-color:rgba(0,200,150,.5);background:rgba(255,255,255,.07)}
+  .serv .ico{width:50px;height:50px;border-radius:13px;background:rgba(0,200,150,.14);display:flex;align-items:center;justify-content:center;margin-bottom:1.2rem}
+  .serv h3{color:#fff;font-size:1.18rem;margin-bottom:.7rem}
+  .serv p{color:rgba(255,255,255,.72);font-size:.94rem;margin-bottom:1rem}
+  .serv ul{list-style:none}
+  .serv ul li{font-size:.88rem;color:rgba(255,255,255,.85);padding:.32rem 0 .32rem 1.6rem;position:relative}
+  .serv ul li::before{content:"";position:absolute;left:0;top:.62rem;width:14px;height:14px;background:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%2300C896" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>') no-repeat center/contain}
+
+  /* STEPS */
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .step{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:2.2rem 1.8rem;position:relative}
+  .step .num{font-family:'Sora',sans-serif;font-weight:800;font-size:2.6rem;color:rgba(0,200,150,.25);line-height:1;margin-bottom:1rem}
+  .step h3{font-size:1.1rem;margin-bottom:.6rem}
+  .step p{font-size:.92rem;color:var(--grey)}
+  .step .badge-time{position:absolute;top:1.4rem;right:1.4rem;font-size:.72rem;font-weight:600;color:var(--teal-dark);background:rgba(0,200,150,.10);padding:.25rem .7rem;border-radius:999px}
+
+  /* COMPARE */
+  .compare{overflow-x:auto;background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
+  table{width:100%;border-collapse:collapse;min-width:640px}
+  th,td{padding:1.05rem 1.4rem;text-align:left;font-size:.93rem;border-bottom:1px solid var(--line)}
+  thead th{font-family:'Sora',sans-serif;font-size:.95rem;color:var(--navy);background:#FBFCFE}
+  thead th:nth-child(2){color:var(--teal-dark)}
+  tbody tr:last-child td{border-bottom:none}
+  td.yes{color:var(--teal-dark);font-weight:600}
+  td.no{color:#B8552F}
+  td:first-child{color:var(--ink);font-weight:500}
+
+  /* SEGMENTS */
+  .seg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .seg{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:1.7rem;display:flex;gap:1rem;align-items:flex-start;transition:transform .25s,box-shadow .25s}
+  .seg:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+  .seg .ico{width:46px;height:46px;border-radius:12px;background:rgba(0,200,150,.12);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .seg h3{font-size:1rem;margin-bottom:.3rem}
+  .seg p{font-size:.87rem;color:var(--grey)}
+
+  /* TEAM */
+  .team{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:980px;margin:0 auto}
+  .member{background:var(--bg);border:1px solid var(--line);border-radius:var(--radius);padding:2.2rem 1.8rem;text-align:center}
+  .avatar{width:84px;height:84px;border-radius:50%;margin:0 auto 1.2rem;display:flex;align-items:center;justify-content:center;font-family:'Sora',sans-serif;font-weight:800;font-size:1.7rem;color:#fff;background:linear-gradient(140deg,var(--navy),#0A3A52);border:3px solid var(--teal)}
+  .member.alt .avatar{border-color:var(--amber)}
+  .member h3{font-size:1.1rem;margin-bottom:.25rem}
+  .member .role{font-size:.82rem;font-weight:600;color:var(--teal-dark);letter-spacing:.04em;text-transform:uppercase;display:block;margin-bottom:.7rem}
+  .member p{font-size:.9rem;color:var(--grey)}
+  .member.creed{background:var(--navy);border-color:var(--navy)}
+  .member.creed h3{color:#fff}
+  .member.creed p{color:rgba(255,255,255,.78)}
+  .member.creed .avatar{background:rgba(255,255,255,.08);border-color:var(--teal)}
+
+  /* FAQ */
+  .faq-list{max-width:760px;margin:0 auto}
+  .faq-item{background:#fff;border:1px solid var(--line);border-radius:14px;margin-bottom:14px;overflow:hidden}
+  .faq-q{width:100%;display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1.2rem 1.5rem;background:none;border:none;cursor:pointer;text-align:left;font-family:'Sora',sans-serif;font-weight:600;font-size:1rem;color:var(--navy)}
+  .faq-q svg{flex-shrink:0;transition:transform .3s}
+  .faq-item.open .faq-q svg{transform:rotate(45deg)}
+  .faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease}
+  .faq-a p{padding:0 1.5rem 1.3rem;color:var(--grey);font-size:.95rem}
+
+  /* CONTACT */
+  .contact{background:linear-gradient(150deg,var(--navy),#0A3A52);color:#fff}
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+  .contact h2{color:#fff;font-size:clamp(1.6rem,3vw,2.2rem);margin-bottom:1.1rem}
+  .contact .sub{color:rgba(255,255,255,.78);margin-bottom:2rem;max-width:440px}
+  .contact-points{list-style:none;margin-bottom:2.2rem}
+  .contact-points li{display:flex;gap:.8rem;align-items:flex-start;padding:.5rem 0;color:rgba(255,255,255,.85);font-size:.95rem}
+  .contact-points svg{margin-top:3px;flex-shrink:0}
+  .wa-direct{display:inline-flex;align-items:center;gap:.7rem;background:#1FB35B;color:#fff;font-family:'Sora',sans-serif;font-weight:600;padding:.95rem 1.7rem;border-radius:12px;transition:all .2s}
+  .wa-direct:hover{background:#178A46;transform:translateY(-2px)}
+  form{background:#fff;border-radius:var(--radius);padding:2.2rem;box-shadow:0 30px 70px rgba(0,0,0,.3)}
+  form h3{font-size:1.15rem;margin-bottom:1.4rem}
+  .field{margin-bottom:1.1rem}
+  .field label{display:block;font-size:.82rem;font-weight:600;color:var(--navy);margin-bottom:.4rem}
+  .field input,.field select,.field textarea{width:100%;padding:.78rem .95rem;border:1.5px solid var(--line);border-radius:10px;font-family:'Inter',sans-serif;font-size:.93rem;color:var(--ink);background:#FBFCFE;transition:border-color .2s}
+  .field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--teal)}
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+  .consent{display:flex;gap:.6rem;align-items:flex-start;font-size:.78rem;color:var(--grey);margin-bottom:1rem;cursor:pointer}
+  .consent input{width:auto;margin-top:3px}
+  form .btn{width:100%;justify-content:center;margin-top:.4rem}
+  .form-note{font-size:.74rem;color:var(--grey);margin-top:.9rem;text-align:center}
+  .form-ok{display:none;text-align:center;padding:2rem 0}
+  .form-ok svg{margin-bottom:1rem}
+  .form-ok h3{margin-bottom:.5rem}
+  .form-ok p{color:var(--grey);font-size:.92rem}
+
+  /* FOOTER */
+  footer{background:#081A2E;color:rgba(255,255,255,.6);padding:56px 0 32px;font-size:.88rem}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px}
+  footer h4{color:#fff;font-size:.95rem;margin-bottom:1rem}
+  footer a{display:block;padding:.25rem 0;color:rgba(255,255,255,.6);transition:color .2s}
+  footer a:hover{color:var(--teal)}
+  .foot-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:.8rem;font-size:.8rem}
+
+  /* WhatsApp float */
+  .wa-float{position:fixed;right:22px;bottom:22px;z-index:60;width:58px;height:58px;border-radius:50%;background:#1FB35B;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(0,0,0,.3);transition:transform .2s}
+  .wa-float:hover{transform:scale(1.08)}
+
+  /* toast */
+  .toast{position:fixed;left:50%;bottom:96px;transform:translateX(-50%) translateY(20px);background:var(--navy);color:#fff;font-size:.88rem;padding:.8rem 1.4rem;border-radius:12px;box-shadow:var(--shadow);opacity:0;pointer-events:none;transition:opacity .3s,transform .3s;z-index:70;max-width:90vw;text-align:center}
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  @media(max-width:920px){
+    .hero-grid{grid-template-columns:1fr;gap:48px}
+    .mock{max-width:420px;margin:0 auto}
+    .serv-grid,.pain-grid,.steps,.seg-grid,.team-grid{grid-template-columns:1fr}
+    .strip .wrap{grid-template-columns:repeat(2,1fr)}
+    .contact-grid{grid-template-columns:1fr}
+    .foot-grid{grid-template-columns:1fr 1fr}
+    .nav-links{position:fixed;inset:74px 0 auto 0;background:var(--navy);flex-direction:column;padding:1.6rem;gap:1.2rem;transform:translateY(-130%);transition:transform .3s;border-bottom:1px solid rgba(255,255,255,.1)}
+    .nav-links.openm{transform:none}
+    .burger{display:block}
+  }
+  @media(max-width:560px){
+    section{padding:64px 0}
+    .hero{padding:64px 0 80px}
+    .two-col{grid-template-columns:1fr}
+    .foot-grid{grid-template-columns:1fr}
+    .strip .wrap{grid-template-columns:1fr 1fr}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#topo" aria-label="TRIUM BPO">
+      <!-- Monograma T: três barras no topo, uma por sócia -->
+      <svg class="mark" width="38" height="38" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+        <rect x="4" y="7" width="11" height="8" rx="2.5" fill="#FFFFFF"/>
+        <rect x="18.5" y="7" width="11" height="8" rx="2.5" fill="#00C896"/>
+        <rect x="33" y="7" width="11" height="8" rx="2.5" fill="#F2B441"/>
+        <rect x="18.5" y="18" width="11" height="23" rx="2.5" fill="#00C896"/>
+      </svg>
+      <span class="word">TRIUM<small>B P O</small></span>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#servicos">Serviços</a>
+      <a href="#como-funciona">Como funciona</a>
+      <a href="#segmentos">Segmentos</a>
+      <a href="#equipe">Equipe</a>
+      <a href="#faq">Perguntas</a>
+      <a href="#" class="btn btn-portal" data-portal>
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        Portal do Cliente
+      </a>
+      <a href="#contato" class="btn btn-primary">Diagnóstico gratuito</a>
+    </nav>
+    <button class="burger" id="burger" aria-label="Abrir menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<section class="hero" id="topo">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="tag">BPO de folha de pagamento e departamento pessoal</span>
+      <h1>Sua folha sem erro, sem multa e <em>sem ocupar o seu dia</em></h1>
+      <p class="lead">A TRIUM assume a folha de pagamento e o departamento pessoal da sua empresa com compliance garantido, eSocial nativo e portal digital incluído. Você cuida do negócio. A burocracia fica com a gente.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="#contato">Pedir diagnóstico gratuito</a>
+        <a class="btn btn-ghost" href="#" data-wa>Falar no WhatsApp</a>
+      </div>
+      <div class="hero-points">
+        <div><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00C896" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Implantação em até 30 dias</div>
+        <div><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00C896" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Portal do colaborador incluído</div>
+        <div><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00C896" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>100% aderente ao eSocial</div>
+      </div>
+    </div>
+    <div class="mock">
+      <div class="float f1"><div class="dotok"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00A87E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><div><b>eSocial enviado</b><br>Todos os eventos no prazo</div></div>
+      <div class="holerite">
+        <div class="htitle">Folha de junho <span class="pill">Fechada</span></div>
+        <div class="hrow"><span>Colaboradores ativos</span><b>47</b></div>
+        <div class="hrow"><span>Admissões no mês</span><b>3</b></div>
+        <div class="hrow"><span>Férias programadas</span><b>2</b></div>
+        <div class="hrow"><span>Encargos calculados</span><b>INSS FGTS IRRF</b></div>
+        <div class="hrow"><span>Holerites no portal</span><b style="color:#00A87E">Disponíveis</b></div>
+      </div>
+      <div class="float f2"><div class="dotok"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00A87E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8z"/></svg></div><div><b>Holerite no WhatsApp</b><br>Colaborador recebe no celular</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="strip">
+  <div class="wrap">
+    <div class="item"><b>30 dias</b>para implantar sem parar sua operação</div>
+    <div class="item"><b>100%</b>dos eventos do eSocial no prazo</div>
+    <div class="item"><b>10 a 99</b>colaboradores: nosso foco total</div>
+    <div class="item"><b>1 dia útil</b>para responder qualquer demanda</div>
+  </div>
+</div>
+
+<section id="dores">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <span class="tag">O problema</span>
+      <h2>A folha da sua empresa merece mais que um anexo de planilha</h2>
+      <p>Na maioria das empresas do nosso porte, a folha é um serviço agregado do escritório contábil. Feita no prazo apertado, sem prévia, sem portal e sem ninguém monitorando o que muda na lei.</p>
+    </div>
+    <div class="pain-grid">
+      <div class="pain reveal">
+        <div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#D98E1B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
+        <h3>Risco de multa silencioso</h3>
+        <p>Prazos de eSocial, FGTS Digital e obrigações mensais mudam o tempo todo. Quando o erro aparece, a multa já é retroativa e o problema virou seu.</p>
+      </div>
+      <div class="pain reveal">
+        <div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#D98E1B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+        <h3>Seu tempo escorrendo pelo ralo</h3>
+        <p>Admissão, férias, atestado, rescisão, benefício. Sem um DP estruturado, tudo isso para na mesa do dono ou de um administrativo sobrecarregado.</p>
+      </div>
+      <div class="pain reveal">
+        <div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#D98E1B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg></div>
+        <h3>Zero visibilidade</h3>
+        <p>Você recebe a folha pronta, sem prévia para conferir e sem relatório de custo. O colaborador pede holerite por mensagem e espera dias pela resposta.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="fopa" id="servicos">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <div class="fopa-badge"><b>FOPA</b><span>o serviço de folha da TRIUM</span></div>
+      <h2>Folha e departamento pessoal completos, de ponta a ponta</h2>
+      <p>FOPA é a primeira linha de serviços da TRIUM. Tudo que envolve o ciclo do colaborador na sua empresa, operado por especialistas com tecnologia premium incluída no contrato.</p>
+    </div>
+    <div class="serv-grid">
+      <div class="serv reveal">
+        <div class="ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#00C896" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="18" rx="2"/><line x1="7" y1="8" x2="17" y2="8"/><line x1="7" y1="12" x2="17" y2="12"/><line x1="7" y1="16" x2="12" y2="16"/></svg></div>
+        <h3>Folha de pagamento</h3>
+        <p>Cálculo mensal completo, com prévia para sua aprovação antes do fechamento.</p>
+        <ul>
+          <li>Salários, horas extras, adicionais e descontos</li>
+          <li>Décimo terceiro, férias e médias</li>
+          <li>INSS, FGTS, IRRF e demais encargos</li>
+          <li>Relatório gerencial de custo de pessoal</li>
+        </ul>
+      </div>
+      <div class="serv reveal">
+        <div class="ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#00C896" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <h3>Departamento pessoal</h3>
+        <p>Toda a rotina do colaborador, da admissão ao desligamento, sem parar na sua mesa.</p>
+        <ul>
+          <li>Admissão digital com documentos pelo celular</li>
+          <li>Férias, afastamentos e controle de prazos</li>
+          <li>Rescisões, homologações e cálculos finais</li>
+          <li>Gestão de benefícios como VT, VR e plano de saúde</li>
+        </ul>
+      </div>
+      <div class="serv reveal">
+        <div class="ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#00C896" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <h3>eSocial e obrigações</h3>
+        <p>Compliance trabalhista monitorado todos os dias, não só no fechamento.</p>
+        <ul>
+          <li>Envio de todos os eventos do eSocial no prazo</li>
+          <li>FGTS Digital e DCTFWeb sob controle</li>
+          <li>Acompanhamento de convenções coletivas</li>
+          <li>Alertas de mudança na legislação que afeta sua folha</li>
+        </ul>
+      </div>
+      <div class="serv reveal">
+        <div class="ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#00C896" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div>
+        <h3>Portal digital incluído</h3>
+        <p>Tecnologia premium sem custo à parte. Seu colaborador resolve sozinho pelo celular.</p>
+        <ul>
+          <li>Holerite e informe de rendimentos no celular</li>
+          <li>Solicitações de férias e documentos online</li>
+          <li>Comunicação direta pelo WhatsApp</li>
+          <li>Painel do gestor com custos e indicadores</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="como-funciona">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <span class="tag">Como funciona</span>
+      <h2>Da primeira conversa à folha rodando em três passos</h2>
+      <p>Migrar de fornecedor de folha parece arriscado. Nosso processo foi desenhado para a transição acontecer sem nenhum colaborador perceber.</p>
+    </div>
+    <div class="steps">
+      <div class="step reveal">
+        <span class="badge-time">Gratuito</span>
+        <div class="num">01</div>
+        <h3>Diagnóstico da sua folha</h3>
+        <p>Analisamos sua folha atual e apontamos riscos de compliance, erros de cálculo e oportunidades de economia. Você recebe o relatório mesmo se não fechar com a gente.</p>
+      </div>
+      <div class="step reveal">
+        <span class="badge-time">Até 30 dias</span>
+        <div class="num">02</div>
+        <h3>Implantação assistida</h3>
+        <p>Migramos cadastros, históricos e rodamos uma folha em paralelo com a atual para validar tudo. Sem interrupção, sem retrabalho para o seu time.</p>
+      </div>
+      <div class="step reveal">
+        <span class="badge-time">Mês a mês</span>
+        <div class="num">03</div>
+        <h3>Operação contínua</h3>
+        <p>Calendário mensal definido, prévia para aprovação, fechamento no prazo e canal direto no WhatsApp com quem realmente opera a sua folha.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="porque" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <span class="tag">Por que a TRIUM</span>
+      <h2>O que muda quando a folha sai do contador e vai para um especialista</h2>
+      <p>Respeitamos o seu contador e trabalhamos junto com ele. Mas folha de pagamento é uma disciplina própria, e tratar como serviço agregado custa caro.</p>
+    </div>
+    <div class="compare reveal">
+      <table>
+        <thead>
+          <tr><th>O que você recebe</th><th>TRIUM BPO</th><th>Folha no escritório contábil</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Prévia da folha antes do fechamento</td><td class="yes">Sempre, todo mês</td><td class="no">Raramente</td></tr>
+          <tr><td>Portal e holerite digital para o colaborador</td><td class="yes">Incluído no contrato</td><td class="no">Não oferece ou cobra à parte</td></tr>
+          <tr><td>Monitoramento de prazos e legislação</td><td class="yes">Diário e proativo</td><td class="no">Reativo, no fechamento</td></tr>
+          <tr><td>Acompanhamento de convenção coletiva</td><td class="yes">Por sindicato e categoria</td><td class="no">Quando o cliente avisa</td></tr>
+          <tr><td>Canal de atendimento</td><td class="yes">WhatsApp direto com o especialista</td><td class="no">Email com fila de espera</td></tr>
+          <tr><td>Relatório gerencial de custo de pessoal</td><td class="yes">Todo mês</td><td class="no">Sob demanda</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section id="segmentos" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <span class="tag">Para quem trabalhamos</span>
+      <h2>Segmentos que conhecemos de perto</h2>
+      <p>Cada setor tem sindicato, convenção coletiva e rotina próprios. Operamos a folha com as particularidades de cada um, sem tratamento genérico.</p>
+    </div>
+    <div class="seg-grid">
+      <div class="seg reveal">
+        <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00A87E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></div>
+        <div><h3>Comércio e varejo</h3><p>Escalas, domingos e feriados, comissões e alta rotatividade sob controle.</p></div>
+      </div>
+      <div class="seg reveal">
+        <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00A87E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
+        <div><h3>Serviços e escritórios</h3><p>Da agência à prestadora técnica, com benefícios e jornadas bem definidos.</p></div>
+      </div>
+      <div class="seg reveal">
+        <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00A87E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+        <div><h3>Clínicas e saúde</h3><p>Plantões, adicionais noturnos e categorias profissionais com piso próprio.</p></div>
+      </div>
+      <div class="seg reveal">
+        <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00A87E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/></svg></div>
+        <div><h3>Restaurantes e food service</h3><p>Escala 6x1, gorjetas, turnos quebrados e a convenção do setor em dia.</p></div>
+      </div>
+      <div class="seg reveal">
+        <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00A87E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8l-7 5V8l-7 5V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2z"/></svg></div>
+        <div><h3>Indústria leve</h3><p>Turnos, insalubridade, periculosidade e adicionais calculados sem erro.</p></div>
+      </div>
+      <div class="seg reveal">
+        <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00A87E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
+        <div><h3>Transporte e logística</h3><p>Jornadas especiais, diárias e horas de espera tratadas conforme a lei.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="team" id="equipe">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <span class="tag">Quem cuida da sua folha</span>
+      <h2>Sócias à frente, especialistas dedicados na operação</h2>
+      <p>A TRIUM combina a liderança direta das sócias com uma célula de analistas de folha dedicados. Você sempre sabe quem opera a sua carteira e fala direto com essa pessoa.</p>
+    </div>
+    <div class="team-grid">
+      <!-- PLACEHOLDER: ajustar sobrenomes e minibios das sócias antes de publicar -->
+      <div class="member reveal">
+        <div class="avatar">R</div>
+        <h3>Roberta</h3>
+        <span class="role">Sócia · Operação de DP</span>
+        <p>Especialista em departamento pessoal. Lidera a célula de analistas, define o padrão de qualidade e supervisiona cada fechamento antes de chegar a você.</p>
+      </div>
+      <div class="member alt reveal">
+        <div class="avatar">L</div>
+        <h3>Larissa</h3>
+        <span class="role">Sócia · Jurídico e compliance trabalhista</span>
+        <p>Advogada. Responsável pelo compliance trabalhista, pelos contratos e pela leitura jurídica de convenções coletivas e mudanças na lei que afetam a sua folha.</p>
+      </div>
+      <div class="member creed reveal">
+        <div class="avatar"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#00C896" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <h3>Célula de analistas de folha</h3>
+        <p>Analistas plenos e juniores dedicados por carteira de clientes, sob supervisão direta da Roberta. Modelo boutique: poucos clientes por analista, prévia todo mês e resposta em até um dia útil.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <span class="tag">Perguntas frequentes</span>
+      <h2>O que todo mundo pergunta antes de contratar</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item reveal">
+        <button class="faq-q">Preciso trocar de contador para contratar a TRIUM?<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00A87E" stroke-width="2.6" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+        <div class="faq-a"><p>Não. A TRIUM assume apenas a folha e o departamento pessoal. Seu contador continua cuidando da contabilidade e do fiscal, e nós entregamos a ele todos os relatórios e integrações que precisar. Na prática, o trabalho dele fica mais fácil.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q">Minha empresa é pequena. Vale a pena terceirizar?<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00A87E" stroke-width="2.6" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+        <div class="faq-a"><p>Nosso foco são empresas de 10 a 99 colaboradores, justamente as que não têm RH interno. É nesse porte que a terceirização traz mais retorno, porque o custo de um erro de folha ou de uma multa é proporcionalmente muito maior.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q">Como funciona o preço?<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00A87E" stroke-width="2.6" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+        <div class="faq-a"><p>O valor é por colaborador ativo por mês, com o portal digital já incluído, sem cobranças surpresa. Cada proposta é montada sob medida após o diagnóstico gratuito, de acordo com o porte e a complexidade da sua operação.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q">O que é o Portal do Cliente?<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00A87E" stroke-width="2.6" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+        <div class="faq-a"><p>É o ambiente digital onde você acompanha sua folha: prévia para aprovação, relatórios de custo, documentos, solicitações e calendário de obrigações. Seu colaborador também acessa holerites e informes pelo celular. O acesso é liberado na implantação do contrato.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q">Meus dados e os dos colaboradores ficam seguros?<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00A87E" stroke-width="2.6" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+        <div class="faq-a"><p>Sim. Dados de folha são dados sensíveis pela LGPD e tratamos como tal. Operamos com acordo de tratamento de dados em todos os contratos, acesso segregado por cliente e processos desenhados para a lei brasileira de proteção de dados.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q">E se eu já tiver um sistema de folha?<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00A87E" stroke-width="2.6" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+        <div class="faq-a"><p>Sem problema. No diagnóstico avaliamos o que você já usa e definimos juntos o melhor caminho. Podemos operar a folha no nosso ambiente ou avaliar a operação sobre a sua ferramenta atual.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contato">
+  <div class="wrap contact-grid">
+    <div class="reveal">
+      <span class="tag">Vamos conversar</span>
+      <h2>Peça seu diagnóstico gratuito de folha</h2>
+      <p class="sub">Em uma conversa de 30 minutos, entendemos sua operação e devolvemos um relatório com riscos, custos e o que dá para melhorar. Sem compromisso.</p>
+      <ul class="contact-points">
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00C896" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Resposta em até 1 dia útil</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00C896" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Relatório de diagnóstico é seu, feche ou não com a gente</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00C896" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Conversa direto com quem vai operar a sua folha</li>
+      </ul>
+      <a class="wa-direct" href="#" data-wa>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.297-.497.1-.198.05-.371-.025-.52-.074-.149-.668-1.612-.916-2.207-.242-.579-.487-.5-.668-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.064 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+        Chamar no WhatsApp agora
+      </a>
+    </div>
+    <form id="leadForm" class="reveal" novalidate>
+      <div id="formFields">
+        <h3>Ou deixe seus dados que a gente chama você</h3>
+        <div class="two-col">
+          <div class="field"><label for="nome">Nome</label><input id="nome" name="nome" type="text" required placeholder="Seu nome"></div>
+          <div class="field"><label for="empresa">Empresa</label><input id="empresa" name="empresa" type="text" required placeholder="Nome da empresa"></div>
+        </div>
+        <div class="two-col">
+          <div class="field"><label for="whats">WhatsApp</label><input id="whats" name="whats" type="tel" required placeholder="(15) 99999 9999"></div>
+          <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" placeholder="voce@empresa.com.br"></div>
+        </div>
+        <div class="field">
+          <label for="porte">Quantos colaboradores CLT?</label>
+          <select id="porte" name="porte" required>
+            <option value="">Selecione</option>
+            <option>Menos de 10</option>
+            <option>10 a 30</option>
+            <option>31 a 60</option>
+            <option>61 a 99</option>
+            <option>100 ou mais</option>
+          </select>
+        </div>
+        <div class="field"><label for="msg">Conte rapidamente como é sua folha hoje</label><textarea id="msg" name="msg" rows="3" placeholder="Ex: contador cuida da folha, 45 funcionários, sem portal"></textarea></div>
+        <label class="consent"><input type="checkbox" id="lgpd" required><span>Autorizo o uso dos meus dados apenas para este contato, conforme a LGPD.</span></label>
+        <button type="submit" class="btn btn-navy" id="formBtn">Quero meu diagnóstico gratuito</button>
+        <p class="form-note">Você também pode enviar os mesmos dados direto pelo WhatsApp.</p>
+      </div>
+      <div class="form-ok" id="formOk">
+        <svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="#00A87E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="8 12.5 11 15.5 16 9.5"/></svg>
+        <h3>Recebemos seu pedido</h3>
+        <p>Vamos chamar você em até 1 dia útil. Se preferir adiantar, é só clicar no botão do WhatsApp.</p>
+      </div>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="logo" style="margin-bottom:1rem">
+          <svg class="mark" width="32" height="32" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+            <rect x="4" y="7" width="11" height="8" rx="2.5" fill="#FFFFFF"/>
+            <rect x="18.5" y="7" width="11" height="8" rx="2.5" fill="#00C896"/>
+            <rect x="33" y="7" width="11" height="8" rx="2.5" fill="#F2B441"/>
+            <rect x="18.5" y="18" width="11" height="23" rx="2.5" fill="#00C896"/>
+          </svg>
+          <span class="word" style="font-size:1.05rem">TRIUM<small>B P O</small></span>
+        </div>
+        <p style="max-width:300px">Terceirização de folha de pagamento e departamento pessoal para empresas que não têm RH interno. Tecnologia premium incluída.</p>
+      </div>
+      <div>
+        <h4>Serviços</h4>
+        <a href="#servicos">FOPA Folha de pagamento</a>
+        <a href="#servicos">Departamento pessoal</a>
+        <a href="#servicos">eSocial e obrigações</a>
+        <a href="#servicos">Portal digital</a>
+      </div>
+      <div>
+        <h4>A TRIUM</h4>
+        <a href="#equipe">Equipe</a>
+        <a href="#segmentos">Segmentos atendidos</a>
+        <a href="#faq">Perguntas frequentes</a>
+        <a href="#" data-portal>Portal do Cliente</a>
+      </div>
+      <div>
+        <h4>Contato</h4>
+        <a href="#" data-wa>WhatsApp</a>
+        <a href="mailto:contato@triumbpo.com.br">contato@triumbpo.com.br</a>
+        <a href="#contato">Diagnóstico gratuito</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 TRIUM BPO. Todos os direitos reservados.</span>
+      <span>triumbpo.com.br · fopa.com.br · Comprometidos com a LGPD</span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-float" href="#" data-wa aria-label="Falar no WhatsApp">
+  <svg width="30" height="30" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.297-.497.1-.198.05-.371-.025-.52-.074-.149-.668-1.612-.916-2.207-.242-.579-.487-.5-.668-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.064 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+</a>
+
+<div class="toast" id="toast"></div>
+
+<script>
+  // ============ CONFIGURACAO — trocar antes de publicar ============
+  const WA_NUMBER   = "5515999999999"; // PLACEHOLDER: numero comercial, formato internacional sem espacos
+  const WA_GREETING = "Ola! Vim pelo site da TRIUM e quero saber mais sobre o BPO de folha.";
+  const PORTAL_URL  = "#";             // PLACEHOLDER: URL do Portal do Cliente quando existir (ex: https://portal.triumbpo.com.br)
+  const FORM_EMAIL  = "contato@triumbpo.com.br"; // destino do formulario via FormSubmit (confirmar email no primeiro envio)
+  // =================================================================
+
+  function waLink(text){
+    return "https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(text);
+  }
+  document.querySelectorAll("[data-wa]").forEach(function(el){
+    el.addEventListener("click", function(e){
+      e.preventDefault();
+      window.open(waLink(WA_GREETING), "_blank");
+    });
+  });
+
+  // Toast
+  function showToast(msg){
+    const t = document.getElementById("toast");
+    t.textContent = msg;
+    t.classList.add("show");
+    setTimeout(function(){ t.classList.remove("show"); }, 3200);
+  }
+
+  // Portal do Cliente
+  document.querySelectorAll("[data-portal]").forEach(function(el){
+    if(PORTAL_URL && PORTAL_URL !== "#"){
+      el.setAttribute("href", PORTAL_URL);
+      el.setAttribute("target", "_blank");
+      el.setAttribute("rel", "noopener");
+    } else {
+      el.addEventListener("click", function(e){
+        e.preventDefault();
+        showToast("Portal do Cliente em implantação. Clientes recebem o acesso na ativação do contrato.");
+      });
+    }
+  });
+
+  // Formulario: envia por email (FormSubmit) e cai para WhatsApp se falhar
+  document.getElementById("leadForm").addEventListener("submit", async function(e){
+    e.preventDefault();
+    const f = e.target;
+    if(!f.nome.value || !f.empresa.value || !f.whats.value || !f.porte.value || !document.getElementById("lgpd").checked){
+      showToast("Preencha nome, empresa, WhatsApp, porte e o aceite da LGPD.");
+      return;
+    }
+    const btn = document.getElementById("formBtn");
+    btn.disabled = true; btn.textContent = "Enviando...";
+    const payload = {
+      Nome: f.nome.value,
+      Empresa: f.empresa.value,
+      WhatsApp: f.whats.value,
+      Email: f.email.value || "nao informado",
+      Colaboradores: f.porte.value,
+      Situacao: f.msg.value || "nao informado",
+      _subject: "Novo lead site TRIUM: " + f.empresa.value,
+      _template: "table",
+      _captcha: "false"
+    };
+    try{
+      const r = await fetch("https://formsubmit.co/ajax/" + FORM_EMAIL, {
+        method: "POST",
+        headers: {"Content-Type":"application/json","Accept":"application/json"},
+        body: JSON.stringify(payload)
+      });
+      if(!r.ok) throw new Error("fail");
+      document.getElementById("formFields").style.display = "none";
+      document.getElementById("formOk").style.display = "block";
+    }catch(err){
+      // fallback: abre WhatsApp com os dados preenchidos
+      const text =
+        "Ola! Quero um diagnostico gratuito de folha.\n" +
+        "Nome: " + f.nome.value + "\n" +
+        "Empresa: " + f.empresa.value + "\n" +
+        "WhatsApp: " + f.whats.value + "\n" +
+        (f.email.value ? "Email: " + f.email.value + "\n" : "") +
+        "Colaboradores: " + f.porte.value + "\n" +
+        (f.msg.value ? "Situacao atual: " + f.msg.value : "");
+      window.open(waLink(text), "_blank");
+      btn.disabled = false; btn.textContent = "Quero meu diagnóstico gratuito";
+    }
+  });
+
+  // FAQ accordion
+  document.querySelectorAll(".faq-q").forEach(function(btn){
+    btn.addEventListener("click", function(){
+      const item = btn.parentElement;
+      const ans = item.querySelector(".faq-a");
+      const open = item.classList.contains("open");
+      document.querySelectorAll(".faq-item.open").forEach(function(o){
+        o.classList.remove("open");
+        o.querySelector(".faq-a").style.maxHeight = null;
+      });
+      if(!open){
+        item.classList.add("open");
+        ans.style.maxHeight = ans.scrollHeight + "px";
+      }
+    });
+  });
+
+  // Menu mobile
+  const burger = document.getElementById("burger");
+  const navLinks = document.getElementById("navLinks");
+  burger.addEventListener("click", function(){ navLinks.classList.toggle("openm"); });
+  navLinks.querySelectorAll("a").forEach(function(a){
+    a.addEventListener("click", function(){ navLinks.classList.remove("openm"); });
+  });
+
+  // Reveal on scroll
+  const obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if(en.isIntersecting){ en.target.classList.add("in"); obs.unobserve(en.target); }
+    });
+  }, {threshold:.12});
+  document.querySelectorAll(".reveal").forEach(function(el){ obs.observe(el); });
+</script>
+</body>
+</html>
