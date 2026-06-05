@@ -364,4 +364,6 @@
   .strip .wrap{grid-template-columns:1fr 1fr}
   .team-row .member{flex-direction:column;text-align:center;gap:.8rem}
   .team-row .avatar{margin:0 auto}
+  .tag{white-space:normal}
+  .hero-grid>*{min-width:0}
 }
