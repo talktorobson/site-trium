@@ -1,0 +1,72 @@
+/* TRIUM BPO — Color tokens
+   Brand built on a deep corporate navy, a confident teal accent, and a
+   warm amber highlight (the third bar of the logo monogram — one bar per
+   founding partner). Surfaces stay cool and clinical; teal carries trust
+   and "done/ok" states; amber flags attention; a brick red marks negatives. */
+
+:root {
+  /* ---- Brand: Navy (authority, backgrounds, headings) ---- */
+  --navy:        #0B2540;  /* primary brand navy — dark sections, headings */
+  --navy-2:      #0F3155;  /* lifted navy — hover on navy surfaces */
+  --navy-3:      #0A3A52;  /* teal-leaning navy — gradient end stop */
+  --navy-deep:   #081A2E;  /* footer, deepest surface */
+  --ink:         #13293F;  /* default body text on light */
+
+  /* ---- Brand: Teal (accent, trust, success/ok) ---- */
+  --teal:        #00C896;  /* primary accent — buttons, marks, highlights */
+  --teal-dark:   #00A87E;  /* accessible teal for text & hover */
+
+  /* ---- Brand: Amber (warm highlight, third partner bar) ---- */
+  --amber:       #F2B441;  /* highlight, secondary accent on dark */
+  --amber-dark:  #D98E1B;  /* amber for icons/text on light (warning ico) */
+
+  /* ---- Semantic status ---- */
+  --success:     #00A87E;  /* = teal-dark */
+  --warning:     #D98E1B;  /* = amber-dark */
+  --danger:      #B8552F;  /* brick red — "no" cells, negatives */
+  --whatsapp:    #1FB35B;  /* WhatsApp brand green (CTA) */
+  --whatsapp-dk: #178A46;  /* WhatsApp hover */
+
+  /* ---- Neutrals / surfaces ---- */
+  --bg:          #F6F9FC;  /* page background — cool off-white */
+  --surface:     #FFFFFF;  /* cards, forms, raised surfaces */
+  --surface-alt: #FBFCFE;  /* subtle inset (table head, inputs) */
+  --grey:        #5C6F82;  /* secondary text, captions */
+  --line:        #E3EAF1;  /* hairline borders, dividers */
+  --white:       #FFFFFF;
+
+  /* ---- Teal tints (derived, for soft fills) ---- */
+  --teal-tint-10: rgba(0, 200, 150, .10); /* chips, icon wells, pills */
+  --teal-tint-14: rgba(0, 200, 150, .14);
+  --teal-tint-25: rgba(0, 200, 150, .25); /* chip borders */
+  --amber-tint:   rgba(242, 180, 65, .16); /* warning icon well */
+
+  /* ---- On-dark text alphas (over navy) ---- */
+  --on-dark:      rgba(255, 255, 255, .82); /* lead paragraphs on navy */
+  --on-dark-soft: rgba(255, 255, 255, .72); /* body on navy */
+  --on-dark-mute: rgba(255, 255, 255, .60); /* footer text */
+  --on-dark-line: rgba(255, 255, 255, .12); /* borders on navy */
+
+  /* ====================================================================
+     Semantic aliases — prefer these in components
+     ==================================================================== */
+  --color-bg:            var(--bg);
+  --color-surface:       var(--surface);
+  --surface-card:        var(--surface);
+  --surface-sunken:      var(--surface-alt);
+  --surface-inverse:     var(--navy);
+
+  --text-heading:        var(--navy);
+  --text-body:           var(--ink);
+  --text-muted:          var(--grey);
+  --text-on-inverse:     var(--white);
+  --text-accent:         var(--teal-dark);
+
+  --border-default:      var(--line);
+  --border-strong:       #CDD8E4;
+
+  --accent:              var(--teal);
+  --accent-hover:        var(--teal-dark);
+  --accent-contrast:     var(--navy); /* text/icon on a teal button */
+  --highlight:           var(--amber);
+}

@@ -1,0 +1,6 @@
+/* TRIUM BPO — Webfonts
+   Sora  → headings, logo, numbers, UI labels (display family)
+   Inter → body copy, form fields, paragraphs (text family)
+   Both loaded from Google Fonts, matching the production site. */
+
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap');

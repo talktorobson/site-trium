@@ -1,0 +1,46 @@
+/* TRIUM BPO — Typography tokens
+   Two families: Sora (display/UI) + Inter (text). Headings are tight
+   (line-height 1.18), confident weights (700/800). Body is comfortable
+   (1.6). Uppercase tracked labels ("tags") are a recurring brand device. */
+
+:root {
+  /* ---- Families ---- */
+  --font-display: 'Sora', system-ui, sans-serif;   /* headings, logo, numbers, buttons */
+  --font-text:    'Inter', system-ui, sans-serif;  /* body, paragraphs, form fields */
+
+  /* ---- Weights ---- */
+  --fw-regular:   400;  /* @kind font */
+  --fw-medium:    500;  /* @kind font */
+  --fw-semibold:  600;  /* @kind font */
+  --fw-bold:      700;  /* @kind font */
+  --fw-extrabold: 800;  /* @kind font */
+
+  /* ---- Type scale (rem) ---- */
+  --fs-display:   3.1rem;   /* hero h1 (clamp top) */
+  --fs-h1:        2.3rem;   /* section h2 (clamp top) */
+  --fs-h2:        1.5rem;   /* strip numbers / large stat */
+  --fs-h3:        1.18rem;  /* card titles */
+  --fs-lead:      1.13rem;  /* hero lead / section intro */
+  --fs-body:      1rem;     /* base body */
+  --fs-sm:        .92rem;   /* card body, secondary */
+  --fs-xs:        .82rem;   /* meta, captions */
+  --fs-2xs:       .72rem;   /* badge time, tiny labels */
+
+  /* fluid display sizes (match production clamps) */
+  --fs-display-fluid: clamp(2rem, 4.2vw, 3.1rem); /* @kind font */
+  --fs-h1-fluid:      clamp(1.6rem, 3vw, 2.3rem);  /* @kind font */
+
+  /* ---- Line heights ---- */
+  --lh-tight:   1.18;  /* @kind font */
+  --lh-snug:    1.4;   /* @kind font */
+  --lh-body:    1.6;   /* @kind font */
+
+  /* ---- Letter spacing ---- */
+  --ls-tag:    .12em;  /* uppercase eyebrow tags @kind font */
+  --ls-label:  .04em;  /* role labels, logo word @kind font */
+  --ls-logo:   .42em;  /* "B P O" subscript @kind font */
+
+  /* ---- Semantic aliases ---- */
+  --text-eyebrow-size:  var(--fs-xs);
+  --text-eyebrow-track: var(--ls-tag);
+}

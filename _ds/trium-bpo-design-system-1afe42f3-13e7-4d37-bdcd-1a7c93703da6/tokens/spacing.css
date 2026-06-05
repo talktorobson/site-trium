@@ -1,0 +1,55 @@
+/* TRIUM BPO — Spacing, radii, shadows, layout
+   Generous section rhythm (96px desktop sections), soft 18px card radius,
+   pill (999px) chips, one signature soft navy-tinted shadow. */
+
+:root {
+  /* ---- Spacing scale ---- */
+  --space-1:   4px;
+  --space-2:   8px;
+  --space-3:   12px;
+  --space-4:   16px;
+  --space-5:   24px;   /* gutter / card padding base */
+  --space-6:   32px;
+  --space-7:   40px;
+  --space-8:   56px;   /* section-head bottom margin */
+  --space-9:   72px;
+  --space-10:  96px;   /* section vertical padding (desktop) */
+
+  /* component-level padding */
+  --pad-card:    1.8rem;   /* standard card */
+  --pad-card-lg: 2.2rem;   /* feature card / form */
+  --gap-grid:    24px;     /* grid gap between cards */
+
+  /* ---- Radii ---- */
+  --radius-sm:    10px;  /* inputs, small buttons */
+  --radius-md:    12px;  /* buttons, icon wells */
+  --radius-lg:    14px;  /* faq item, float chips */
+  --radius:       18px;  /* default card radius */
+  --radius-xl:    20px;  /* hero mock card */
+  --radius-pill:  999px; /* tags, chips, pills */
+  --radius-round: 50%;   /* avatars, fab */
+
+  /* ---- Shadows ---- */
+  --shadow-sm:    0 4px 14px rgba(11, 37, 64, .06);
+  --shadow:       0 10px 40px rgba(11, 37, 64, .10);  /* signature card lift */
+  --shadow-float: 0 8px 24px rgba(0, 0, 0, .30);       /* WA fab, on-dark floats */
+  --shadow-pop:   0 30px 70px rgba(0, 0, 0, .30);      /* hero mock / form over navy */
+
+  /* ---- Layout ---- */
+  --container:     1160px; /* max content width */
+  --container-pad: 24px;   /* horizontal page padding */
+  --header-h:      74px;   /* sticky header height */
+
+  /* ---- Motion ---- */
+  --ease:        ease; /* @kind other */
+  --dur-fast:    .2s;   /* @kind other */
+  --dur-mid:     .25s;  /* @kind other */
+  --dur-slow:    .35s;  /* @kind other */
+  --dur-reveal:  .6s;   /* @kind other */
+  --lift:        translateY(-2px); /* @kind other */
+  --lift-card:   translateY(-5px); /* @kind other */
+
+  /* ---- Semantic aliases ---- */
+  --surface-radius: var(--radius);
+  --surface-shadow: var(--shadow);
+}
