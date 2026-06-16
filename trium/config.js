@@ -4,9 +4,8 @@ window.TRIUM = {
   // PLACEHOLDER: número comercial do WhatsApp, formato internacional sem espaços.
   WA_NUMBER: "5515999999999",
   WA_GREETING: "Olá! Vim pelo site da TRIUM e quero saber mais sobre o BPO de folha.",
-  // PLACEHOLDER: URL do Portal do Cliente quando existir (ex: https://portal.triumbpo.com.br).
-  // Enquanto for "#", o botão mostra o aviso de "em implantação".
-  PORTAL_URL: "#",
+  // URL do Portal do Cliente. Enquanto for "#", o botão mostra o aviso de "em implantação".
+  PORTAL_URL: "https://portal.triumbpo.com.br",
   // Destino do formulário via FormSubmit (confirmar e-mail no primeiro envio).
   FORM_EMAIL: "contato@triumbpo.com.br",
   waLink: function (text) {
