@@ -75,7 +75,7 @@ section[id]{scroll-margin-top:calc(var(--header-h) + 12px)}
 .burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 
 /* ---- Mobile menu ---- */
-.mnav{position:fixed;top:var(--header-h);left:0;right:0;z-index:49;background:linear-gradient(170deg,#0A2036 0%,var(--navy) 100%);border-bottom:1px solid rgba(255,255,255,.08);box-shadow:0 30px 60px rgba(4,14,26,.5);padding:.6rem 1.5rem 1.6rem;display:none;flex-direction:column;opacity:0;transform:translateY(-10px);pointer-events:none;transition:opacity .28s ease,transform .28s ease}
+.mnav{position:fixed;top:var(--header-h);left:0;right:0;z-index:49;background:linear-gradient(170deg,#0A2036 0%,var(--navy) 100%);border-bottom:1px solid rgba(255,255,255,.08);box-shadow:0 30px 60px rgba(4,14,26,.5);padding:.6rem 1.5rem 1.6rem;display:none;flex-direction:column;opacity:0;transform:translateY(-10px);pointer-events:none;transition:opacity .28s ease,transform .28s ease;max-height:calc(100vh - var(--header-h));max-height:calc(100dvh - var(--header-h));overflow-y:auto;overscroll-behavior:contain}
 .mnav.open{opacity:1;transform:none;pointer-events:auto}
 .mnav a{font-family:var(--font-display);font-weight:600;font-size:1.06rem;color:rgba(255,255,255,.88);padding:.85rem .2rem;border-bottom:1px solid rgba(255,255,255,.07)}
 .mnav a:active{color:var(--teal)}
@@ -493,6 +493,16 @@ section[id]{scroll-margin-top:calc(var(--header-h) + 12px)}
   .engine-rail-logo{justify-self:start}
   .engine-rail-thesis{max-width:none}
 }
+@media(max-width:1320px) and (min-width:1121px){
+  .nav-links{gap:1rem}
+  .nav-links a{font-size:.85rem}
+  .nav .btn{padding:.5rem .85rem;font-size:.8rem}
+}
+@media(max-width:1120px){
+  .nav-links{display:none}
+  .burger{display:block}
+  .mnav{display:flex}
+}
 @media(max-width:860px){
   .serv-grid,.pain-grid,.pain-grid.pain-grid-4,.steps,.seg-grid,.team-grid,.ind-grid,.portal-points,.portal-points.portal-points-6{grid-template-columns:1fr}
   .shot-grid.desks{grid-template-columns:1fr;max-width:420px}
@@ -507,9 +517,6 @@ section[id]{scroll-margin-top:calc(var(--header-h) + 12px)}
   .strip .item:nth-child(2)::after{display:none}
   .contact-grid{grid-template-columns:1fr}
   .foot-grid{grid-template-columns:1fr 1fr}
-  .nav-links{display:none}
-  .burger{display:block}
-  .mnav{display:flex}
   .vs-grid{grid-template-columns:1fr;gap:14px}
   .vs-col.lose{margin-left:0}
   .vs-mid{margin:0 auto}

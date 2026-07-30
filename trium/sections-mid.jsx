@@ -1,5 +1,5 @@
 /* TRIUM BPO — mid sections: Services + Modules + Industries, Steps, Portal, Compare */
-const { useState: useStateM, useEffect: useEffectM } = React;
+const { useState: useStateM, useEffect: useEffectM, useRef: useRefM } = React;
 
 const SERVS = [
   ['fileText', 'Folha de pagamento', 'Cálculo mensal completo no motor TOTVS Protheus, com prévia para sua aprovação antes do fechamento.',
@@ -220,19 +220,35 @@ function ShotFrame({ shot }) {
 }
 
 function PersonaGallery() {
-  /* journeys always mounted once in view; desk tabs for RH / compliance stills */
+  /* videos only mount when the gallery scrolls into view (and motion is ok);
+     leaving the viewport swaps them back to the poster to stop decode */
   const [deskTab, setDeskTab] = useStateM('rh');
-  const [journeysOn, setJourneysOn] = useStateM(true);
+  const [motionOk, setMotionOk] = useStateM(true);
+  const [inView, setInView] = useStateM(false);
+  const pairRef = useRefM(null);
   const desk = DESK_TABS.find((t) => t.id === deskTab) || DESK_TABS[0];
 
   useEffectM(() => {
     if (!window.matchMedia) return;
     const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
-    const apply = () => setJourneysOn(!mq.matches);
+    const apply = () => setMotionOk(!mq.matches);
     apply();
     mq.addEventListener?.('change', apply);
     return () => mq.removeEventListener?.('change', apply);
   }, []);
+
+  useEffectM(() => {
+    const el = pairRef.current;
+    if (!el) return;
+    if (!('IntersectionObserver' in window)) { setInView(true); return; }
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((en) => setInView(en.isIntersecting));
+    }, { rootMargin: '240px 0px' });
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
+  const journeysOn = motionOk && inView;
 
   return (
     <div className="persona-gallery reveal" id="telas">
@@ -242,7 +258,7 @@ function PersonaGallery() {
         <p>Colaborador CLT e prestador PJ — cada um no seu app. Gravado no produto, dados de demonstração.</p>
       </div>
 
-      <div className="journey-pair">
+      <div className="journey-pair" ref={pairRef}>
         {JOURNEYS.map((j) => (
           <JourneyPhone key={j.id} j={j} active={journeysOn} />
         ))}
