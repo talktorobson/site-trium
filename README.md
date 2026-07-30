@@ -1,6 +1,29 @@
 # Site TRIUM BPO
 
-Landing page e Portal do Cliente da TRIUM BPO (triumbpo.com.br). Terceirização de folha de pagamento e departamento pessoal para empresas de 10 a 99 colaboradores. FOPA é a linha de serviço de folha.
+Landing page e prévia do Portal do Cliente da TRIUM BPO (triumbpo.com.br).
+
+**Escopo de conteúdo (v3 + módulos):** FOPA (folha, DP, eSocial, portal digital) como núcleo; módulos opcionais alinhados ao `trium-portal` — Solução de Ponto, Recrutamento, Canal de Denúncias, Gestão de Riscos NR-1 e Gestão de PJs. Sem tabela de preços pública (PEPM/tiers ficam só na proposta).
+
+**Product media**
+
+- `trium/video/` — jornadas webm (marketing, ~400KB cada):
+  - `colab-pf.webm` — app colaborador CLT (PF)
+  - `prestador-pj.webm` — app prestador PJ
+  - posters `*-poster.jpg`
+- `trium/shots/` — stills do portal RH / NR-1 / denúncias
+
+**Re-gravar jornadas** (em `trium-portal`, stack local + seed):
+
+```sh
+# Colaborador PF
+DRY=1 node demo/record-employee.mjs
+node demo/record-employee.mjs
+# comprimir para o site:
+ffmpeg -y -i demo/…-employee-pwa.webm -an -c:v libvpx-vp9 -b:v 0 -crf 38 -vf scale=390:-2 \
+  ../site-trium/trium/video/colab-pf.webm
+```
+
+Prestador PJ: use / regrave o fluxo do portal do prestador (ver `demo/*gestao-pj-portal-prestador.webm`) e comprima para `prestador-pj.webm`.
 
 ## Estrutura (v3)
 
