@@ -1,4 +1,5 @@
-/* TRIUM BPO — mid sections: Services + Modules + Industries, Steps, Compare */
+/* TRIUM BPO — mid sections: Services + Modules + Industries, Steps, Portal, Compare */
+const { useState: useStateM } = React;
 
 const SERVS = [
   ['fileText', 'Folha de pagamento', 'Cálculo mensal completo, com prévia para sua aprovação antes do fechamento.',
@@ -118,6 +119,109 @@ function Services({ servicesLayout }) {
   );
 }
 
+/* Persona screenshot gallery — real product captures (demo tenants) */
+const SHOT_TABS = [
+  {
+    id: 'rh',
+    label: 'Gestor RH',
+    blurb: 'Portal web do cliente: home, folha, recrutamento e NR-1 no mesmo login.',
+    shots: [
+      { src: 'trium/shots/web-rh-home.png', alt: 'Home do portal do gestor RH com indicadores de folha, colaboradores e obrigações', cap: 'Home do gestor', kind: 'desktop' },
+      { src: 'trium/shots/web-rh-folha.png', alt: 'Prévia da folha de pagamento no portal do cliente', cap: 'Prévia da folha', kind: 'desktop' },
+      { src: 'trium/shots/web-rh-nr1-hub.png', alt: 'Hub de Gestão de Riscos NR-1 com checklist de adequação', cap: 'Hub NR-1', kind: 'desktop' },
+      { src: 'trium/shots/web-rh-nr1-matriz.png', alt: 'Matriz de risco psicossocial por célula organizacional', cap: 'Matriz de risco', kind: 'desktop' },
+      { src: 'trium/shots/web-rh-recrutamento.png', alt: 'Recrutamento no portal do cliente com vagas e pipeline', cap: 'Recrutamento', kind: 'desktop' },
+    ],
+  },
+  {
+    id: 'colab',
+    label: 'Colaborador',
+    blurb: 'App PWA do colaborador: holerites, documentos e férias no celular — sem instalar loja de apps.',
+    shots: [
+      { src: 'trium/shots/pwa-colab-holerites.png', alt: 'App do colaborador com lista de holerites para download', cap: 'Holerites', kind: 'phone' },
+      { src: 'trium/shots/pwa-colab-documentos.png', alt: 'App do colaborador com documentos disponíveis', cap: 'Documentos', kind: 'phone' },
+      { src: 'trium/shots/pwa-colab-ferias.png', alt: 'App do colaborador com saldo e solicitação de férias', cap: 'Férias', kind: 'phone' },
+    ],
+  },
+  {
+    id: 'prest',
+    label: 'Prestador PJ',
+    blurb: 'App PWA do prestador (trilho separado do CLT): contratos, financeiro e documentos.',
+    shots: [
+      { src: 'trium/shots/pwa-prestador-home.png', alt: 'App do prestador PJ com contratos ativos e status do mês', cap: 'Home do prestador', kind: 'phone' },
+      { src: 'trium/shots/pwa-prestador-contratos.png', alt: 'Lista de contratos no app do prestador', cap: 'Contratos', kind: 'phone' },
+    ],
+  },
+  {
+    id: 'compliance',
+    label: 'Ouvidor e psicólogo',
+    blurb: 'Canal de denúncias (Lei 14.457) com acompanhamento por protocolo, e NR-1 com RT/psicólogo independente nomeado pelo cliente.',
+    shots: [
+      { src: 'trium/shots/web-ouvidor-acompanhar.png', alt: 'Página pública para acompanhar denúncia com protocolo e chave de acesso', cap: 'Acompanhar denúncia', kind: 'desktop' },
+      { src: 'trium/shots/web-psi-responsaveis.png', alt: 'Onboarding NR-1 com nomeação de responsável técnico e psicólogo independente para relatos críticos', cap: 'Psicólogo / RT independente', kind: 'desktop' },
+      { src: 'trium/shots/web-rh-relatos.png', alt: 'Tela de relatos NR-1 com distinção do canal de denúncias formal', cap: 'Relatos × denúncias', kind: 'desktop' },
+    ],
+  },
+];
+
+function ShotFrame({ shot }) {
+  if (shot.kind === 'phone') {
+    return (
+      <figure className="shot-card phone">
+        <div className="phone-chrome">
+          <span className="phone-notch" aria-hidden="true"></span>
+          <img src={shot.src} loading="lazy" decoding="async" alt={shot.alt} />
+        </div>
+        <figcaption>{shot.cap}</figcaption>
+      </figure>
+    );
+  }
+  return (
+    <figure className="shot-card desktop">
+      <div className="desk-chrome">
+        <div className="pf-bar">
+          <span className="pf-dot"></span><span className="pf-dot"></span><span className="pf-dot"></span>
+          <span className="pf-url">portal.triumbpo.com.br</span>
+        </div>
+        <img src={shot.src} loading="lazy" decoding="async" alt={shot.alt} />
+      </div>
+      <figcaption>{shot.cap}</figcaption>
+    </figure>
+  );
+}
+
+function PersonaGallery() {
+  const [tab, setTab] = useStateM('rh');
+  const active = SHOT_TABS.find((t) => t.id === tab) || SHOT_TABS[0];
+  const phone = active.shots[0] && active.shots[0].kind === 'phone';
+  return (
+    <div className="persona-gallery reveal" id="telas">
+      <div className="sec-head center">
+        <span className="tag">Telas reais do produto</span>
+        <h2>O mesmo ambiente, vários papéis</h2>
+        <p>Capturas do portal e dos apps PWA (ambientes de demonstração). Gestor RH, colaborador, prestador PJ, e o fluxo de ouvidoria / psicólogo independente na NR-1.</p>
+      </div>
+      <div className="shot-tabs" role="tablist" aria-label="Personas do produto">
+        {SHOT_TABS.map((t) => (
+          <button
+            key={t.id}
+            type="button"
+            role="tab"
+            aria-selected={tab === t.id}
+            className={'shot-tab' + (tab === t.id ? ' active' : '')}
+            onClick={() => setTab(t.id)}
+          >{t.label}</button>
+        ))}
+      </div>
+      <p className="shot-blurb">{active.blurb}</p>
+      <div className={'shot-grid' + (phone ? ' phones' : ' desks')}>
+        {active.shots.map((s) => <ShotFrame key={s.src} shot={s} />)}
+      </div>
+      <p className="shot-note">Imagens ilustrativas de ambientes de demonstração · dados fictícios</p>
+    </div>
+  );
+}
+
 function PortalShowcase() {
   const I = window.TriumIcons;
   const points = [
@@ -140,7 +244,7 @@ function PortalShowcase() {
           <span className="pf-dot"></span><span className="pf-dot"></span><span className="pf-dot"></span>
           <span className="pf-url">portal.triumbpo.com.br</span>
         </div>
-        <img src="trium/portal-shot.png" loading="lazy" decoding="async" width="1600" height="1073"
+        <img src="trium/shots/web-rh-folha.png" loading="lazy" decoding="async" width="1280" height="858"
           alt="Tela do portal do cliente TRIUM: prévia da folha de pagamento com custos, encargos, líquido a pagar e calendário de obrigações." />
         <span className="pf-tagimg">Imagem ilustrativa</span>
       </div>
@@ -155,6 +259,7 @@ function PortalShowcase() {
           );
         })}
       </div>
+      <PersonaGallery />
       <div className="portal-cta reveal">
         <a className="btn btn-navy" href="#contato">Pedir meu diagnóstico gratuito</a>
       </div>

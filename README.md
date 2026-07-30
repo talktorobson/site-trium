@@ -4,6 +4,8 @@ Landing page e prévia do Portal do Cliente da TRIUM BPO (triumbpo.com.br).
 
 **Escopo de conteúdo (v3 + módulos):** FOPA (folha, DP, eSocial, portal digital) como núcleo; módulos opcionais alinhados ao `trium-portal` — Solução de Ponto, Recrutamento, Canal de Denúncias, Gestão de Riscos NR-1 e Gestão de PJs. Sem tabela de preços pública (PEPM/tiers ficam só na proposta).
 
+**Screenshots:** `trium/shots/` — capturas do portal RH, PWA colaborador, PWA prestador, acompanhamento de denúncia e nomeação de RT/psicólogo independente (NR-1). Origem: demos do `trium-portal` + página pública `/denuncia`.
+
 ## Estrutura (v3)
 
 Site React renderizado no navegador (sem etapa de build), via React 18 + Babel standalone carregados por CDN. Sem `npm install`.
