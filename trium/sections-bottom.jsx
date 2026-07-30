@@ -193,7 +193,7 @@ function Footer({ onWa, onPortal }) {
         <div>
           <h4>Serviços</h4>
           <a href="#servicos">FOPA · Folha e DP</a><a href="#servicos">eSocial e obrigações</a>
-          <a href="#portal">Portal e app do colaborador</a><a href="#telas">Telas por persona</a>
+          <a href="#portal">Portal do cliente</a><a href="#telas">Apps PF e PJ</a>
           <a href="#modulos">Ponto · Recrutamento · Denúncias · NR-1 · PJs</a>
         </div>
         <div>

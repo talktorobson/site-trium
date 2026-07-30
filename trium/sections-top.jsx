@@ -3,7 +3,7 @@
 function Header({ onWa, onPortal, onMenu, scrolled }) {
   const I = window.TriumIcons;
   const links = [
-  ['Serviços', '#servicos'], ['Módulos', '#modulos'], ['Telas', '#telas'], ['Como funciona', '#como-funciona'],
+  ['Serviços', '#servicos'], ['Módulos', '#modulos'], ['Apps', '#telas'], ['Como funciona', '#como-funciona'],
   ['Segmentos', '#segmentos'], ['Equipe', '#equipe'], ['Perguntas', '#faq']];
 
   return (

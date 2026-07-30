@@ -1,5 +1,5 @@
 /* TRIUM BPO — mid sections: Services + Modules + Industries, Steps, Portal, Compare */
-const { useState: useStateM } = React;
+const { useState: useStateM, useEffect: useEffectM } = React;
 
 const SERVS = [
   ['fileText', 'Folha de pagamento', 'Cálculo mensal completo, com prévia para sua aprovação antes do fechamento.',
@@ -119,63 +119,88 @@ function Services({ servicesLayout }) {
   );
 }
 
-/* Persona screenshot gallery — real product captures (demo tenants) */
-const SHOT_TABS = [
+/* App journeys (webm) + desktop stills — demo tenants */
+const JOURNEYS = [
+  {
+    id: 'colab',
+    badge: 'Colaborador PF',
+    title: 'App do colaborador CLT',
+    blurb: 'Acesso sem senha, holerites, documentos, férias e perfil — instalável no celular.',
+    steps: ['Acesso', 'Holerites', 'Documentos', 'Férias', 'Perfil'],
+    video: 'trium/video/colab-pf.webm',
+    poster: 'trium/video/colab-pf-poster.jpg',
+    aria: 'Jornada no app do colaborador CLT: acesso, holerites, documentos e férias',
+  },
+  {
+    id: 'prest',
+    badge: 'Prestador PJ',
+    title: 'App do prestador',
+    blurb: 'Trilho separado do CLT: contratos, financeiro e documentos no PWA do prestador.',
+    steps: ['Acesso', 'Home', 'Contratos', 'Financeiro'],
+    video: 'trium/video/prestador-pj.webm',
+    poster: 'trium/video/prestador-pj-poster.jpg',
+    aria: 'Jornada no app do prestador PJ: acesso, contratos e financeiro',
+  },
+];
+
+const DESK_TABS = [
   {
     id: 'rh',
     label: 'Gestor RH',
     blurb: 'Portal web do cliente: home, folha, recrutamento e NR-1 no mesmo login.',
     shots: [
-      { src: 'trium/shots/web-rh-home.png', alt: 'Home do portal do gestor RH com indicadores de folha, colaboradores e obrigações', cap: 'Home do gestor', kind: 'desktop' },
-      { src: 'trium/shots/web-rh-folha.png', alt: 'Prévia da folha de pagamento no portal do cliente', cap: 'Prévia da folha', kind: 'desktop' },
-      { src: 'trium/shots/web-rh-nr1-hub.png', alt: 'Hub de Gestão de Riscos NR-1 com checklist de adequação', cap: 'Hub NR-1', kind: 'desktop' },
-      { src: 'trium/shots/web-rh-nr1-matriz.png', alt: 'Matriz de risco psicossocial por célula organizacional', cap: 'Matriz de risco', kind: 'desktop' },
-      { src: 'trium/shots/web-rh-recrutamento.png', alt: 'Recrutamento no portal do cliente com vagas e pipeline', cap: 'Recrutamento', kind: 'desktop' },
-    ],
-  },
-  {
-    id: 'colab',
-    label: 'Colaborador',
-    blurb: 'App PWA do colaborador: holerites, documentos e férias no celular — sem instalar loja de apps.',
-    shots: [
-      { src: 'trium/shots/pwa-colab-holerites.png', alt: 'App do colaborador com lista de holerites para download', cap: 'Holerites', kind: 'phone' },
-      { src: 'trium/shots/pwa-colab-documentos.png', alt: 'App do colaborador com documentos disponíveis', cap: 'Documentos', kind: 'phone' },
-      { src: 'trium/shots/pwa-colab-ferias.png', alt: 'App do colaborador com saldo e solicitação de férias', cap: 'Férias', kind: 'phone' },
-    ],
-  },
-  {
-    id: 'prest',
-    label: 'Prestador PJ',
-    blurb: 'App PWA do prestador (trilho separado do CLT): contratos, financeiro e documentos.',
-    shots: [
-      { src: 'trium/shots/pwa-prestador-home.png', alt: 'App do prestador PJ com contratos ativos e status do mês', cap: 'Home do prestador', kind: 'phone' },
-      { src: 'trium/shots/pwa-prestador-contratos.png', alt: 'Lista de contratos no app do prestador', cap: 'Contratos', kind: 'phone' },
+      { src: 'trium/shots/web-rh-home.png', alt: 'Home do portal do gestor RH', cap: 'Home do gestor', kind: 'desktop' },
+      { src: 'trium/shots/web-rh-folha.png', alt: 'Prévia da folha no portal do cliente', cap: 'Prévia da folha', kind: 'desktop' },
+      { src: 'trium/shots/web-rh-nr1-hub.png', alt: 'Hub NR-1 com checklist de adequação', cap: 'Hub NR-1', kind: 'desktop' },
+      { src: 'trium/shots/web-rh-recrutamento.png', alt: 'Recrutamento no portal do cliente', cap: 'Recrutamento', kind: 'desktop' },
     ],
   },
   {
     id: 'compliance',
     label: 'Ouvidor e psicólogo',
-    blurb: 'Canal de denúncias (Lei 14.457) com acompanhamento por protocolo, e NR-1 com RT/psicólogo independente nomeado pelo cliente.',
+    blurb: 'Canal de denúncias (Lei 14.457) e NR-1 com RT/psicólogo independente nomeado pelo cliente.',
     shots: [
-      { src: 'trium/shots/web-ouvidor-acompanhar.png', alt: 'Página pública para acompanhar denúncia com protocolo e chave de acesso', cap: 'Acompanhar denúncia', kind: 'desktop' },
-      { src: 'trium/shots/web-psi-responsaveis.png', alt: 'Onboarding NR-1 com nomeação de responsável técnico e psicólogo independente para relatos críticos', cap: 'Psicólogo / RT independente', kind: 'desktop' },
-      { src: 'trium/shots/web-rh-relatos.png', alt: 'Tela de relatos NR-1 com distinção do canal de denúncias formal', cap: 'Relatos × denúncias', kind: 'desktop' },
+      { src: 'trium/shots/web-ouvidor-acompanhar.png', alt: 'Acompanhar denúncia com protocolo e chave', cap: 'Acompanhar denúncia', kind: 'desktop' },
+      { src: 'trium/shots/web-psi-responsaveis.png', alt: 'Nomeação de RT e psicólogo independente na NR-1', cap: 'Psicólogo / RT independente', kind: 'desktop' },
+      { src: 'trium/shots/web-rh-relatos.png', alt: 'Relatos NR-1 vs canal de denúncias', cap: 'Relatos × denúncias', kind: 'desktop' },
     ],
   },
 ];
 
+function JourneyPhone({ j, active }) {
+  return (
+    <figure className="journey-card">
+      <div className="journey-meta">
+        <span className="journey-badge">{j.badge}</span>
+        <h3>{j.title}</h3>
+        <p>{j.blurb}</p>
+        <ul className="journey-steps" aria-label="Passos da jornada">
+          {j.steps.map((s) => <li key={s}>{s}</li>)}
+        </ul>
+      </div>
+      <div className="phone-chrome journey-phone">
+        <span className="phone-notch" aria-hidden="true"></span>
+        {active ? (
+          <video
+            key={j.video}
+            src={j.video}
+            poster={j.poster}
+            playsInline
+            muted
+            loop
+            autoPlay
+            preload="metadata"
+            aria-label={j.aria}
+          />
+        ) : (
+          <img src={j.poster} alt={j.aria} loading="lazy" decoding="async" />
+        )}
+      </div>
+    </figure>
+  );
+}
+
 function ShotFrame({ shot }) {
-  if (shot.kind === 'phone') {
-    return (
-      <figure className="shot-card phone">
-        <div className="phone-chrome">
-          <span className="phone-notch" aria-hidden="true"></span>
-          <img src={shot.src} loading="lazy" decoding="async" alt={shot.alt} />
-        </div>
-        <figcaption>{shot.cap}</figcaption>
-      </figure>
-    );
-  }
   return (
     <figure className="shot-card desktop">
       <div className="desk-chrome">
@@ -191,33 +216,53 @@ function ShotFrame({ shot }) {
 }
 
 function PersonaGallery() {
-  const [tab, setTab] = useStateM('rh');
-  const active = SHOT_TABS.find((t) => t.id === tab) || SHOT_TABS[0];
-  const phone = active.shots[0] && active.shots[0].kind === 'phone';
+  /* journeys always mounted once in view; desk tabs for RH / compliance stills */
+  const [deskTab, setDeskTab] = useStateM('rh');
+  const [journeysOn, setJourneysOn] = useStateM(true);
+  const desk = DESK_TABS.find((t) => t.id === deskTab) || DESK_TABS[0];
+
+  useEffectM(() => {
+    if (!window.matchMedia) return;
+    const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const apply = () => setJourneysOn(!mq.matches);
+    apply();
+    mq.addEventListener?.('change', apply);
+    return () => mq.removeEventListener?.('change', apply);
+  }, []);
+
   return (
     <div className="persona-gallery reveal" id="telas">
       <div className="sec-head center">
-        <span className="tag">Telas reais do produto</span>
-        <h2>O mesmo ambiente, vários papéis</h2>
-        <p>Capturas do portal e dos apps PWA (ambientes de demonstração). Gestor RH, colaborador, prestador PJ, e o fluxo de ouvidoria / psicólogo independente na NR-1.</p>
+        <span className="tag">Apps e portal em ação</span>
+        <h2>Jornadas reais: colaborador PF e prestador PJ</h2>
+        <p>Vídeos gravados no produto (ambiente de demonstração). Dois apps no celular — CLT e PJ — e o portal web do gestor no mesmo ecossistema.</p>
       </div>
-      <div className="shot-tabs" role="tablist" aria-label="Personas do produto">
-        {SHOT_TABS.map((t) => (
-          <button
-            key={t.id}
-            type="button"
-            role="tab"
-            aria-selected={tab === t.id}
-            className={'shot-tab' + (tab === t.id ? ' active' : '')}
-            onClick={() => setTab(t.id)}
-          >{t.label}</button>
+
+      <div className="journey-pair">
+        {JOURNEYS.map((j) => (
+          <JourneyPhone key={j.id} j={j} active={journeysOn} />
         ))}
       </div>
-      <p className="shot-blurb">{active.blurb}</p>
-      <div className={'shot-grid' + (phone ? ' phones' : ' desks')}>
-        {active.shots.map((s) => <ShotFrame key={s.src} shot={s} />)}
+      <p className="shot-note">Jornadas em loop, sem áudio · dados fictícios de demonstração</p>
+
+      <div className="desk-block">
+        <div className="shot-tabs" role="tablist" aria-label="Portal web">
+          {DESK_TABS.map((t) => (
+            <button
+              key={t.id}
+              type="button"
+              role="tab"
+              aria-selected={deskTab === t.id}
+              className={'shot-tab' + (deskTab === t.id ? ' active' : '')}
+              onClick={() => setDeskTab(t.id)}
+            >{t.label}</button>
+          ))}
+        </div>
+        <p className="shot-blurb">{desk.blurb}</p>
+        <div className="shot-grid desks">
+          {desk.shots.map((s) => <ShotFrame key={s.src} shot={s} />)}
+        </div>
       </div>
-      <p className="shot-note">Imagens ilustrativas de ambientes de demonstração · dados fictícios</p>
     </div>
   );
 }
