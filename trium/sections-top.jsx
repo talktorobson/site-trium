@@ -3,7 +3,7 @@
 function Header({ onWa, onPortal, onMenu, scrolled }) {
   const I = window.TriumIcons;
   const links = [
-  ['Serviços', '#servicos'], ['Como funciona', '#como-funciona'],
+  ['Serviços', '#servicos'], ['Módulos', '#modulos'], ['Como funciona', '#como-funciona'],
   ['Segmentos', '#segmentos'], ['Equipe', '#equipe'], ['Perguntas', '#faq']];
 
   return (
@@ -125,15 +125,15 @@ function PanelViz() {
 
 function Hero({ onWa, heroViz }) {
   const I = window.TriumIcons;
-  const points = ['Implantação em até 60 dias', 'Portal do colaborador incluído', '100% aderente ao eSocial'];
+  const points = ['Implantação em até 60 dias', 'Portal e app do colaborador incluídos', 'Módulos no mesmo ambiente (ponto, NR-1, denúncias…)'];
   const Viz = heroViz === 'holerite' ? HoleriteViz : heroViz === 'panel' ? PanelViz : DeviceViz;
   return (
     <section className="hero" id="topo">
       <div className="wrap-wide hero-grid">
         <div>
-          <span className="tag on-navy">BPO de folha de pagamento e departamento pessoal</span>
+          <span className="tag on-navy">BPO de folha e departamento pessoal · plataforma digital incluída</span>
           <h1>Sua folha sem erro, sem multa e <em>sem ocupar o seu dia</em></h1>
-          <p className="lead">A TRIUM assume a folha de pagamento e o departamento pessoal da sua empresa com compliance garantido, eSocial nativo e portal digital incluído. Você cuida do negócio. A burocracia fica com a gente.</p>
+          <p className="lead">A TRIUM assume a folha de pagamento e o departamento pessoal com compliance e eSocial sob controle — e um portal digital onde o gestor, o colaborador e os módulos opcionais (ponto, recrutamento, denúncias, NR-1, PJs) convivem. Você cuida do negócio. A burocracia fica com a gente.</p>
           <div className="hero-ctas">
             <a className="btn btn-primary" href="#contato">Pedir diagnóstico gratuito</a>
             <button className="btn btn-ghost" onClick={onWa}><I.whatsapp size={17} />Falar no WhatsApp</button>
@@ -165,18 +165,19 @@ function NumbersStrip() {
 function Pain() {
   const I = window.TriumIcons;
   const cards = [
-  [<I.alert color="#D98E1B" />, 'Risco de multa silencioso', 'Prazos de eSocial, FGTS Digital e obrigações mensais mudam o tempo todo. Quando o erro aparece, a multa já é retroativa e o problema virou seu.'],
-  [<I.clock color="#D98E1B" />, 'Seu tempo escorrendo pelo ralo', 'Admissão, férias, atestado, rescisão, benefício. Sem um DP estruturado, tudo isso para na mesa do dono ou de um administrativo sobrecarregado.'],
-  [<I.monitor color="#D98E1B" />, 'Zero visibilidade', 'Você recebe a folha pronta, sem prévia para conferir e sem relatório de custo. O colaborador pede holerite por mensagem e espera dias pela resposta.']];
+  [<I.alert color="#D98E1B" />, 'Risco de multa silencioso', 'Prazos de eSocial, FGTS Digital, NR-1 e obrigações mensais mudam o tempo todo. Quando o erro aparece, a multa já é retroativa e o problema virou seu.'],
+  [<I.clock color="#D98E1B" />, 'Seu tempo escorrendo pelo ralo', 'Admissão, férias, atestado, rescisão, benefício, ponto. Sem um DP estruturado, tudo isso para na mesa do dono ou de um administrativo sobrecarregado.'],
+  [<I.monitor color="#D98E1B" />, 'Zero visibilidade', 'Você recebe a folha pronta, sem prévia para conferir e sem relatório de custo. O colaborador pede holerite por mensagem e espera dias pela resposta.'],
+  [<I.flag color="#D98E1B" />, 'Ferramentas soltas demais', 'Ponto num sistema, denúncia em planilha, recrutamento em e-mail, PJs no WhatsApp. Cada demanda vira um sistema novo — e ninguém enxerga o quadro inteiro.']];
 
   return (
     <section className="sec" id="dores"><div className="wrap reveal">
       <div className="sec-head center">
         <span className="tag">O problema</span>
         <h2>A folha da sua empresa merece mais que um anexo de planilha</h2>
-        <p>Na maioria das empresas do nosso porte, a folha é um serviço agregado do escritório contábil. Feita no prazo apertado, sem prévia, sem portal e sem ninguém monitorando o que muda na lei.</p>
+        <p>Na maioria das empresas do nosso porte, a folha é um serviço agregado do escritório contábil. Feita no prazo apertado, sem prévia, sem portal e sem ninguém monitorando o que muda na lei — nem o resto da rotina de gente.</p>
       </div>
-      <div className="pain-grid">
+      <div className="pain-grid pain-grid-4">
         {cards.map(([ic, h, p]) =>
           <div className="pain" key={h}><div className="ico">{ic}</div><h3>{h}</h3><p>{p}</p></div>
           )}

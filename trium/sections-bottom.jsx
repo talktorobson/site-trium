@@ -44,12 +44,14 @@ function Team({ teamStyle }) {
 function Faq() {
   const I = window.TriumIcons;
   const qa = [
-  ['Preciso trocar de contador para contratar a TRIUM?', 'Não. A TRIUM assume apenas a folha e o departamento pessoal. Seu contador continua cuidando da contabilidade e do fiscal, e nós entregamos a ele todos os relatórios e integrações que precisar. Na prática, o trabalho dele fica mais fácil.'],
+  ['Preciso trocar de contador para contratar a TRIUM?', 'Não. A TRIUM assume a folha e o departamento pessoal. Seu contador continua cuidando da contabilidade e do fiscal, e nós entregamos a ele todos os relatórios e integrações que precisar. Na prática, o trabalho dele fica mais fácil.'],
   ['Minha empresa é pequena. Vale a pena terceirizar?', 'Nosso foco são empresas a partir de 10 colaboradores, justamente as que não têm RH interno ou têm uma equipe pequena. É nesse porte que a terceirização traz mais retorno, porque o custo de um erro de folha ou de uma multa é proporcionalmente muito maior.'],
-  ['Como funciona o preço?', 'O valor é por colaborador ativo por mês, com o portal digital já incluído, sem cobranças surpresa. Cada proposta é montada sob medida após o diagnóstico gratuito, de acordo com o porte e a complexidade da sua operação.'],
-  ['O que é o Portal do Cliente?', 'É o ambiente digital onde você acompanha sua folha: prévia para aprovação, relatórios de custo, documentos, solicitações e calendário de obrigações. Seu colaborador também acessa holerites e informes pelo celular. O acesso é liberado na implantação do contrato.'],
-  ['Meus dados e os dos colaboradores ficam seguros?', 'Sim. Dados de folha são dados sensíveis pela LGPD e tratamos como tal. Operamos com acordo de tratamento de dados em todos os contratos, acesso segregado por cliente e processos desenhados para a lei brasileira de proteção de dados.'],
-  ['E se eu já tiver um sistema de folha?', 'Sem problema. No diagnóstico avaliamos o que você já usa e definimos juntos o melhor caminho. Podemos operar a folha no nosso ambiente ou avaliar a operação sobre a sua ferramenta atual.']];
+  ['Como funciona o preço?', 'O valor é por colaborador ativo por mês (e, em alguns módulos, por prestador), com o portal digital já incluído no FOPA. Cada proposta é montada sob medida após o diagnóstico gratuito, de acordo com o porte, a complexidade e os módulos que você quiser ativar. Não publicamos tabela fixa no site.'],
+  ['O que é o Portal do Cliente?', 'É o ambiente digital (portal.triumbpo.com.br) onde o gestor acompanha a folha: prévia, custos, documentos, solicitações e obrigações. O colaborador usa o app para holerites, documentos e, se contratados, ponto e canal de denúncias. Módulos opcionais entram no mesmo login.'],
+  ['Quais módulos além da folha vocês oferecem?', 'No mesmo portal: Solução de Ponto (Portaria 671), Recrutamento (da vaga à admissão), Canal de Denúncias (Lei 14.457), Gestão de Riscos NR-1 (PGR com psicossocial) e Gestão de PJs (prestadores em trilho separado do CLT). Você contrata o que precisa; o FOPA é o núcleo.'],
+  ['Posso contratar só o ponto, a denúncia ou a NR-1?', 'Sim para ponto, denúncias e NR-1 como módulos no desenho da TRIUM — o diagnóstico define se entram com o FOPA ou em configuração específica. Recrutamento roda sobre a relação de folha/DP (não vendemos um ATS solto). Em todos os casos o ambiente é o mesmo portal.'],
+  ['Meus dados e os dos colaboradores ficam seguros?', 'Sim. Dados de folha e de gente são sensíveis pela LGPD e tratamos como tal. Operamos com acordo de tratamento de dados em todos os contratos, acesso segregado por cliente e processos desenhados para a lei brasileira de proteção de dados. No canal de denúncias, o conteúdo da apuração fica restrito ao ouvidor autorizado.'],
+  ['E se eu já tiver um sistema de folha?', 'Sem problema. No diagnóstico avaliamos o que você já usa e definimos juntos o melhor caminho. Podemos operar a folha no nosso ambiente ou avaliar a operação sobre a sua ferramenta atual; módulos como ponto e portal do colaborador também se encaixam nesse desenho.']];
 
   const [open, setOpen] = useStateB(0);
   return (
@@ -64,7 +66,7 @@ function Faq() {
             <button className="faq-q" onClick={() => setOpen(open === i ? -1 : i)} aria-expanded={open === i}>
               {q}<I.plus size={18} />
             </button>
-            <div className="faq-a" style={{ maxHeight: open === i ? 260 : 0 }}><p>{a}</p></div>
+            <div className="faq-a" style={{ maxHeight: open === i ? 420 : 0 }}><p>{a}</p></div>
           </div>
           )}
       </div>
@@ -159,7 +161,7 @@ function Contact({ onWa }) {
                 <option>Menos de 10</option><option>10 a 30</option><option>31 a 60</option><option>61 a 99</option><option>100 ou mais</option>
               </select>
             </div>
-            <div className="field"><label>Conte rapidamente como é sua folha hoje</label><textarea value={form.msg} onChange={set('msg')} rows="3" placeholder="Ex: contador cuida da folha, 45 funcionários, sem portal"></textarea></div>
+            <div className="field"><label>Conte rapidamente como é sua folha e a rotina de gente hoje</label><textarea value={form.msg} onChange={set('msg')} rows="3" placeholder="Ex: contador cuida da folha, 45 CLT, sem portal; preciso de ponto e denúncias"></textarea></div>
             <label className="consent"><input type="checkbox" checked={form.lgpd} onChange={set('lgpd')} style={errs.lgpd ? { outline: '2px solid #B8552F' } : {}} /><span>Autorizo o uso dos meus dados apenas para este contato, conforme a LGPD.</span></label>
             <button type="submit" className="btn btn-navy" disabled={busy}>{busy ? 'Enviando…' : 'Quero meu diagnóstico gratuito'}</button>
             <p className="form-note">Você também pode enviar os mesmos dados direto pelo WhatsApp.</p>
@@ -185,12 +187,13 @@ function Footer({ onWa, onPortal }) {
             <window.TriumLogo size={32} />
             <span className="word" style={{ fontSize: '1.05rem' }}>TRIUM<small>B P O</small></span>
           </div>
-          <p style={{ maxWidth: 300 }}>Terceirização de folha de pagamento e departamento pessoal para empresas que não têm RH interno. Tecnologia premium incluída.</p>
+          <p style={{ maxWidth: 320 }}>Terceirização de folha e departamento pessoal (FOPA) para empresas que não têm RH interno. Portal digital incluído e módulos opcionais no mesmo ambiente.</p>
         </div>
         <div>
           <h4>Serviços</h4>
-          <a href="#servicos">FOPA Folha de pagamento</a><a href="#servicos">Departamento pessoal</a>
-          <a href="#servicos">eSocial e obrigações</a><a href="#portal">Portal digital</a>
+          <a href="#servicos">FOPA · Folha e DP</a><a href="#servicos">eSocial e obrigações</a>
+          <a href="#portal">Portal e app do colaborador</a><a href="#modulos">Ponto · Recrutamento</a>
+          <a href="#modulos">Denúncias · NR-1 · Gestão de PJs</a>
         </div>
         <div>
           <h4>A TRIUM</h4>

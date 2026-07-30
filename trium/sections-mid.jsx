@@ -1,31 +1,46 @@
-/* TRIUM BPO — mid sections: Services + Industries, Steps, Compare */
+/* TRIUM BPO — mid sections: Services + Modules + Industries, Steps, Compare */
 
 const SERVS = [
   ['fileText', 'Folha de pagamento', 'Cálculo mensal completo, com prévia para sua aprovação antes do fechamento.',
     ['Salários, horas extras, adicionais e descontos', 'Décimo terceiro, férias e médias', 'INSS, FGTS, IRRF e demais encargos', 'Relatório gerencial de custo de pessoal']],
   ['users', 'Departamento pessoal', 'Toda a rotina do colaborador, da admissão ao desligamento, sem parar na sua mesa.',
-    ['Admissão digital com documentos pelo celular', 'Férias, afastamentos e controle de prazos', 'Rescisões, homologações e cálculos finais', 'Gestão de benefícios como VT, VR e plano de saúde']],
+    ['Admissão digital com documentos pelo celular', 'Férias, afastamentos e controle de prazos', 'Rescisões, homologações e cálculos finais', 'Rotina de benefícios: VT, VR, plano de saúde e similares']],
   ['shield', 'eSocial e obrigações', 'Compliance trabalhista monitorado todos os dias, não só no fechamento.',
     ['Envio de todos os eventos do eSocial no prazo', 'FGTS Digital e DCTFWeb sob controle', 'Acompanhamento de convenções coletivas', 'Alertas de mudança na legislação que afeta sua folha']],
-  ['smartphone', 'Portal digital incluído', 'Tecnologia premium sem custo à parte. Seu colaborador resolve sozinho pelo celular.',
-    ['Holerite e informe de rendimentos no celular', 'Solicitações de férias e documentos online', 'Comunicação direta pelo WhatsApp', 'Painel do gestor com custos e indicadores']],
+  ['smartphone', 'Portal digital incluído', 'Portal do gestor e app do colaborador no mesmo contrato — sem software à parte.',
+    ['Holerite e informe de rendimentos no celular', 'Solicitações de férias e documentos online', 'Comunicação e comunicados pelo canal digital', 'Painel do gestor com custos, obrigações e status']],
+];
+
+/* Sellable modules (trium-portal ModuleKey) — optional expanders on FOPA */
+const MODULES = [
+  ['clock', 'Solução de Ponto', 'Coleta e tratamento de jornada desenhados sobre a Portaria 671, com espelho e exportação para a folha.',
+    ['Batida no app ou quiosque, com comprovante', 'Apuração de HE, noturno, banco de horas e faltas', 'Espelho de ponto e fechamento da competência', 'Exportação para o motor de folha (sem retrabalho manual)']],
+  ['userPlus', 'Recrutamento', 'Da vaga à admissão no mesmo cadastro da folha — sem ATS solto e sem re-digitação.',
+    ['Página de carreiras e candidatura com LGPD', 'Pipeline de triagem e entrevistas', 'Proposta e aceite com trilha auditável', 'Convergência oferta → admissão no DP']],
+  ['flag', 'Canal de Denúncias', 'Canal confidencial alinhado à Lei 14.457/2022, com protocolo e ouvidoria dedicada.',
+    ['Denúncia anônima pelo app do colaborador', 'Protocolo e chave de acompanhamento', 'Apuração com prazos e trilha de acesso', 'Visão gerencial agregada, sem expor o conteúdo']],
+  ['activity', 'Gestão de Riscos NR-1', 'Adequação do PGR com fatores psicossociais: pesquisa, matriz, planos e dossiê para fiscalização.',
+    ['Coleta com instrumento validado (ex.: COPSOQ)', 'Matriz de risco por célula organizacional', 'Planos de ação com vínculo ao inventário', 'Dossiê exportável para o auditor — sem expor pessoa']],
+  ['building', 'Gestão de PJs', 'Prestadores e contratos em trilho separado do CLT, com guardrails contra pejotização irregular.',
+    ['Cadastro de prestadores e contratos', 'Fluxo de NF e documentos do prestador', 'App próprio do prestador (magic link)', 'Alertas de risco de mascaramento de vínculo']],
 ];
 
 const SEGS = [
+  ['factory', 'Indústria', 'Turnos, insalubridade, periculosidade e adicionais calculados sem erro.'],
   ['store', 'Comércio e varejo', 'Escalas, domingos e feriados, comissões e alta rotatividade sob controle.'],
   ['briefcase', 'Serviços e escritórios', 'Da agência à prestadora técnica, com benefícios e jornadas bem definidos.'],
   ['activity', 'Clínicas e saúde', 'Plantões, adicionais noturnos e categorias profissionais com piso próprio.'],
   ['utensils', 'Restaurantes e food service', 'Escala 6x1, gorjetas, turnos quebrados e a convenção do setor em dia.'],
-  ['factory', 'Indústria', 'Turnos, insalubridade, periculosidade e adicionais calculados sem erro.'],
   ['truck', 'Transporte e logística', 'Jornadas especiais, diárias e horas de espera tratadas conforme a lei.'],
 ];
 
-function ServCard({ s }) {
+function ServCard({ s, badge }) {
   const I = window.TriumIcons;
   const [, h, p, items] = s;
   const Ic = I[s[0]];
   return (
     <div className="serv">
+      {badge ? <span className="serv-badge">{badge}</span> : null}
       <div className="ico"><Ic color="#00C896" size={26} /></div>
       <h3>{h}</h3><p>{p}</p>
       <ul>{items.map((it) => <li key={it}>{it}</li>)}</ul>
@@ -54,6 +69,21 @@ function IndustriesCard() {
   );
 }
 
+function ModulesBlock() {
+  return (
+    <div className="modules-block reveal" id="modulos">
+      <div className="sec-head center modules-head">
+        <div className="fopa-badge"><b>Módulos</b><span>completam a operação no mesmo portal</span></div>
+        <h2>O que sobe no mesmo ambiente, quando a sua empresa precisa</h2>
+        <p>Além do FOPA, a TRIUM opera módulos contratáveis no portal.triumbpo.com.br — ponto, recrutamento, denúncias, NR-1 e gestão de PJs. Você ativa o que faz sentido; o time e o colaborador usam o mesmo login.</p>
+      </div>
+      <div className="serv-grid modules-grid">
+        {MODULES.map((s) => <ServCard key={s[1]} s={s} badge="Módulo opcional" />)}
+      </div>
+    </div>
+  );
+}
+
 function Services({ servicesLayout }) {
   if (servicesLayout === 'split') {
     return (
@@ -61,14 +91,15 @@ function Services({ servicesLayout }) {
         <div className="sec-head left" style={{ maxWidth: 760 }}>
           <div className="fopa-badge"><b>FOPA</b><span>o serviço de folha da TRIUM</span></div>
           <h2>Folha e departamento pessoal completos, de ponta a ponta</h2>
-          <p>FOPA é a primeira linha de serviços da TRIUM. Tudo que envolve o ciclo do colaborador, operado por especialistas — com a tecnologia premium incluída no contrato e os segmentos que dominamos.</p>
+          <p>FOPA é o núcleo da TRIUM: folha, DP, eSocial e portal digital. Em cima disso, módulos opcionais cobrem ponto, recrutamento, denúncias, riscos NR-1 e gestão de prestadores — no mesmo ambiente.</p>
         </div>
         <div className="svc-split">
           <div className="serv-grid">
-            {SERVS.map((s) => <ServCard key={s[1]} s={s} />)}
+            {SERVS.map((s) => <ServCard key={s[1]} s={s} badge="Núcleo FOPA" />)}
           </div>
           <IndustriesCard />
         </div>
+        <ModulesBlock />
       </div></section>
     );
   }
@@ -77,11 +108,12 @@ function Services({ servicesLayout }) {
       <div className="sec-head center">
         <div className="fopa-badge"><b>FOPA</b><span>o serviço de folha da TRIUM</span></div>
         <h2>Folha e departamento pessoal completos, de ponta a ponta</h2>
-        <p>FOPA é a primeira linha de serviços da TRIUM. Tudo que envolve o ciclo do colaborador na sua empresa, operado por especialistas com tecnologia premium incluída no contrato.</p>
+        <p>FOPA é o núcleo da TRIUM: folha, DP, eSocial e portal digital incluídos. Módulos opcionais completam a operação no mesmo portal — sem trocar de sistema a cada demanda.</p>
       </div>
       <div className="serv-grid">
-        {SERVS.map((s) => <ServCard key={s[1]} s={s} />)}
+        {SERVS.map((s) => <ServCard key={s[1]} s={s} badge="Núcleo FOPA" />)}
       </div>
+      <ModulesBlock />
     </div></section>
   );
 }
@@ -90,15 +122,18 @@ function PortalShowcase() {
   const I = window.TriumIcons;
   const points = [
     ['fileText', 'Aprovação da folha em 1 clique', 'Revise a prévia, confira custos e encargos e aprove o fechamento sem trocar planilha por e-mail.'],
-    ['clock', 'Calendário de obrigações', 'eSocial, FGTS Digital, DCTFWeb e pagamentos com os prazos sempre à vista, nada passa batido.'],
-    ['users', 'Portal do colaborador', 'Holerites, informes e documentos disponíveis para o seu time, sem sobrecarregar o seu dia.'],
+    ['clock', 'Ponto e calendário de obrigações', 'Jornada, eSocial, FGTS Digital e pagamentos com prazos à vista — nada passa batido.'],
+    ['users', 'App do colaborador', 'Holerites, documentos, férias e, quando contratados, ponto e canal de denúncias no celular.'],
+    ['flag', 'Compliance no dia a dia', 'Denúncias (Lei 14.457), riscos NR-1 e documentos do DP no mesmo ambiente do gestor.'],
+    ['userPlus', 'Recrutamento até a admissão', 'Vaga, pipeline e oferta convergem para o cadastro de DP — sem re-digitação.'],
+    ['building', 'Prestadores e PJs', 'Contratos e fluxo de NF de prestadores em trilho separado do CLT, com visão do gestor.'],
   ];
   return (
     <section className="sec portal-show" id="portal"><div className="wrap-wide">
       <div className="sec-head center reveal">
         <span className="tag">Conheça o portal</span>
-        <h2>Toda a sua folha em um só lugar</h2>
-        <p>O portal digital vem incluído no contrato. Você acompanha o fechamento, aprova a folha e dá acesso ao time — sem instalar nada.</p>
+        <h2>Folha, gente e compliance em um só lugar</h2>
+        <p>O portal do cliente e o app do colaborador vêm com o FOPA. Módulos opcionais entram no mesmo ambiente — sem instalar nada e sem planilha paralela.</p>
       </div>
       <div className="portal-frame reveal">
         <div className="pf-bar">
@@ -109,7 +144,7 @@ function PortalShowcase() {
           alt="Tela do portal do cliente TRIUM: prévia da folha de pagamento com custos, encargos, líquido a pagar e calendário de obrigações." />
         <span className="pf-tagimg">Imagem ilustrativa</span>
       </div>
-      <div className="portal-points reveal">
+      <div className="portal-points portal-points-6 reveal">
         {points.map(([ic, t, d]) => {
           const Ico = I[ic];
           return (
@@ -148,16 +183,16 @@ function Segments() {
 
 function Steps() {
   const steps = [
-    ['Gratuito', '01', 'Diagnóstico da sua folha', 'Analisamos sua folha atual e apontamos riscos de compliance, erros de cálculo e oportunidades de economia. Você recebe o relatório mesmo se não fechar com a gente.'],
-    ['Até 60 dias', '02', 'Implantação assistida', 'Migramos cadastros, históricos e rodamos uma folha em paralelo com a atual para validar tudo. Sem interrupção, sem retrabalho para o seu time.'],
-    ['Mês a mês', '03', 'Operação contínua', 'Calendário mensal definido, prévia para aprovação, fechamento no prazo e canal direto no WhatsApp com quem realmente opera a sua folha.'],
+    ['Gratuito', '01', 'Diagnóstico da sua folha', 'Analisamos sua folha atual e apontamos riscos de compliance, erros de cálculo e oportunidades de economia. Também enxergamos se ponto, denúncias, NR-1 ou PJs entram no desenho. Você recebe o relatório mesmo se não fechar com a gente.'],
+    ['Até 60 dias', '02', 'Implantação assistida', 'Migramos cadastros, históricos e rodamos uma folha em paralelo com a atual. O portal do cliente e o app do colaborador sobem juntos; módulos opcionais ativam no mesmo ambiente.'],
+    ['Mês a mês', '03', 'Operação contínua', 'Calendário mensal, prévia para aprovação, fechamento no prazo e canal direto no WhatsApp com quem opera a sua carteira — com os módulos contratados no mesmo portal.'],
   ];
   return (
     <section className="sec navy-sec" id="como-funciona"><div className="wrap reveal">
       <div className="sec-head center">
         <span className="tag on-navy">Como funciona</span>
         <h2>Da primeira conversa à folha rodando em três passos</h2>
-        <p>Migrar de fornecedor de folha parece arriscado. Nosso processo foi desenhado para a transição acontecer sem nenhum colaborador perceber.</p>
+        <p>Migrar de fornecedor de folha parece arriscado. Nosso processo foi desenhado para a transição acontecer sem nenhum colaborador perceber — e para módulos extras entrarem sem novo projeto de zero.</p>
       </div>
       <div className="steps">
         {steps.map(([badge, num, h, p], i) => (
@@ -173,7 +208,8 @@ function Steps() {
 
 const CMP_ROWS = [
   ['Prévia da folha antes do fechamento', 'Sempre, todo mês', 'Raramente'],
-  ['Portal e holerite digital para o colaborador', 'Incluído no contrato', 'Não oferece ou cobra à parte'],
+  ['Portal do gestor + app do colaborador', 'Incluído no FOPA', 'Não oferece ou cobra à parte'],
+  ['Ponto, denúncias, NR-1 e PJs no mesmo ambiente', 'Módulos no mesmo portal', 'Ferramentas soltas ou inexistentes'],
   ['Monitoramento de prazos e legislação', 'Diário e proativo', 'Reativo, no fechamento'],
   ['Acompanhamento de convenção coletiva', 'Por sindicato e categoria', 'Quando o cliente avisa'],
   ['Canal de atendimento', 'WhatsApp direto com o especialista', 'Email com fila de espera'],
@@ -256,4 +292,4 @@ function Compare({ compareStyle }) {
   );
 }
 
-Object.assign(window, { Services, Segments, Steps, Compare });
+Object.assign(window, { Services, PortalShowcase, Segments, Steps, Compare });

@@ -1,6 +1,8 @@
 # Site TRIUM BPO
 
-Landing page e Portal do Cliente da TRIUM BPO (triumbpo.com.br). Terceirização de folha de pagamento e departamento pessoal para empresas de 10 a 99 colaboradores. FOPA é a linha de serviço de folha.
+Landing page e prévia do Portal do Cliente da TRIUM BPO (triumbpo.com.br).
+
+**Escopo de conteúdo (v3 + módulos):** FOPA (folha, DP, eSocial, portal digital) como núcleo; módulos opcionais alinhados ao `trium-portal` — Solução de Ponto, Recrutamento, Canal de Denúncias, Gestão de Riscos NR-1 e Gestão de PJs. Sem tabela de preços pública (PEPM/tiers ficam só na proposta).
 
 ## Estrutura (v3)
 

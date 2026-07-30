@@ -161,6 +161,7 @@
 .portal-frame img{display:block;width:100%;height:auto;border-top:1px solid rgba(255,255,255,.06)}
 .pf-tagimg{position:absolute;right:14px;bottom:13px;font-size:.68rem;color:#fff;background:rgba(11,34,57,.72);padding:.26rem .66rem;border-radius:999px;backdrop-filter:blur(4px)}
 .portal-points{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap);max-width:1060px;margin:44px auto 0}
+.portal-points.portal-points-6{grid-template-columns:repeat(3,1fr);max-width:1100px}
 .portal-points .pp{display:flex;gap:.9rem;align-items:flex-start}
 .portal-points .pp-ico{width:42px;height:42px;border-radius:11px;background:var(--teal-tint-14);display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .portal-points .pp h4{font-size:1rem;color:var(--navy);margin-bottom:.3rem}
@@ -169,6 +170,7 @@
 
 /* PAIN */
 .pain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap)}
+.pain-grid.pain-grid-4{grid-template-columns:repeat(2,1fr);max-width:920px;margin:0 auto}
 .pain{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:2rem 1.8rem;transition:transform .25s,box-shadow .25s}
 .pain:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
 .pain .ico{width:48px;height:48px;border-radius:13px;background:var(--amber-tint);display:flex;align-items:center;justify-content:center;margin-bottom:1.2rem}
@@ -182,14 +184,20 @@
 
 /* service cards (navy glass) */
 .serv-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--gap)}
-.serv{background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.10);border-radius:var(--radius);padding:1.9rem;transition:border-color .25s,background .25s,transform .25s}
+.serv{position:relative;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.10);border-radius:var(--radius);padding:1.9rem;transition:border-color .25s,background .25s,transform .25s}
 .serv:hover{border-color:rgba(0,200,150,.5);background:rgba(255,255,255,.07);transform:translateY(-4px)}
+.serv .serv-badge{position:absolute;top:1rem;right:1rem;font-size:.68rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:rgba(255,255,255,.78);background:rgba(0,200,150,.16);border:1px solid rgba(0,200,150,.35);border-radius:999px;padding:.22rem .65rem}
 .serv .ico{width:50px;height:50px;border-radius:13px;background:var(--teal-tint-14);display:flex;align-items:center;justify-content:center;margin-bottom:1.1rem}
-.serv h3{color:#fff;font-size:1.16rem;margin-bottom:.6rem}
+.serv h3{color:#fff;font-size:1.16rem;margin-bottom:.6rem;padding-right:5.5rem}
 .serv p{color:rgba(255,255,255,.72);font-size:.92rem;margin-bottom:.9rem}
 .serv ul{list-style:none;padding:0;margin:0}
 .serv ul li{font-size:.86rem;color:rgba(255,255,255,.85);padding:.3rem 0 .3rem 1.6rem;position:relative}
 .serv ul li::before{content:"";position:absolute;left:0;top:.6rem;width:14px;height:14px;background:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%2300C896" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>') no-repeat center/contain}
+
+/* modules block inside #servicos */
+.modules-block{margin-top:64px;padding-top:48px;border-top:1px solid rgba(255,255,255,.12)}
+.modules-head{margin-bottom:36px}
+.modules-grid{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
 
 /* ---------- SERVICES + INDUSTRIES editorial split ---------- */
 .svc-split{display:grid;grid-template-columns:1.12fr .88fr;gap:30px;align-items:start}
@@ -367,7 +375,9 @@
   .devices{min-height:380px;margin-top:10px}
 }
 @media(max-width:860px){
-  .serv-grid,.pain-grid,.steps,.seg-grid,.team-grid,.ind-grid,.portal-points{grid-template-columns:1fr}
+  .serv-grid,.pain-grid,.pain-grid.pain-grid-4,.steps,.seg-grid,.team-grid,.ind-grid,.portal-points,.portal-points.portal-points-6{grid-template-columns:1fr}
+  .serv h3{padding-right:0}
+  .serv .serv-badge{position:static;display:inline-block;margin-bottom:.8rem}
   .strip .wrap{grid-template-columns:repeat(2,1fr)}
   .strip .item:nth-child(2)::after{display:none}
   .contact-grid{grid-template-columns:1fr}
