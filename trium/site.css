@@ -545,11 +545,12 @@
 }
 @media(max-width:860px){
   .serv-grid,.pain-grid,.pain-grid.pain-grid-4,.steps,.seg-grid,.team-grid,.ind-grid,.portal-points,.portal-points.portal-points-6{grid-template-columns:1fr}
-  .serv h3{padding-right:0}
-  .serv .serv-badge{position:static;display:inline-block;margin-bottom:.8rem}
   .shot-grid.desks{grid-template-columns:1fr;max-width:420px}
-  .journey-pair{grid-template-columns:1fr;gap:48px;max-width:360px}
-  .phone-chrome,.journey-phone{width:min(280px,100%);margin:0 auto}
+  .journey-pair{grid-template-columns:1fr;gap:18px;max-width:420px}
+  .journey-card{grid-template-columns:1fr}
+  .journey-stage{padding:32px 20px 28px}
+  .journey-phone{width:min(200px,58%)}
+  .journey-meta{padding:1.35rem 1.3rem 1.5rem}
   .shot-tabs{gap:8px}
   .shot-tab{font-size:.8rem;padding:.45rem .85rem}
   .strip .wrap{grid-template-columns:repeat(2,1fr)}
