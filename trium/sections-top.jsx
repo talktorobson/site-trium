@@ -1,6 +1,6 @@
 /* TRIUM BPO — top sections: Header, Hero (3 visual variants), NumbersStrip, Pain */
 
-function Header({ onWa, onPortal, onMenu, scrolled }) {
+function Header({ onWa, onPortal, onMenu, scrolled, menuOpen }) {
   const I = window.TriumIcons;
   const links = [
   ['Serviços', '#servicos'], ['Módulos', '#modulos'], ['Apps', '#telas'], ['Como funciona', '#como-funciona'],
@@ -18,8 +18,15 @@ function Header({ onWa, onPortal, onMenu, scrolled }) {
           <button className="btn btn-portal" onClick={onPortal}><I.user size={15} sw={2.2} />Portal do Cliente</button>
           <a href="#contato" className="btn btn-primary">Diagnóstico gratuito</a>
         </nav>
-        <button className="burger" onClick={onMenu} aria-label="Menu"><span></span><span></span><span></span></button>
+        <button className={'burger' + (menuOpen ? ' open' : '')} onClick={onMenu} aria-label="Menu" aria-expanded={menuOpen}><span></span><span></span><span></span></button>
       </div>
+      <nav className={'mnav' + (menuOpen ? ' open' : '')}>
+        {links.map(([t, h]) => <a key={t} href={h} onClick={onMenu}>{t}</a>)}
+        <div className="mnav-ctas">
+          <button className="btn btn-portal" onClick={onPortal}><I.user size={15} sw={2.2} />Portal do Cliente</button>
+          <a href="#contato" className="btn btn-primary" onClick={onMenu}>Diagnóstico gratuito</a>
+        </div>
+      </nav>
     </header>);
 
 }
@@ -111,14 +118,28 @@ function PanelViz() {
   ['Holerites no portal', 'Publicados']];
 
   return (
-    <div className="panelviz">
-      <h4><I.shield size={18} color="#00C896" />Status de conformidade · junho</h4>
-      {rows.map(([a, b]) =>
-      <div className="prow" key={a}>
-          <span className="chk"><span className="ring"><I.check size={15} color="#00A87E" /></span>{a}</span>
-          <span className="st">{b}</span>
+    <div className="heroviz">
+      <div className="float f1">
+        <div className="dotok"><I.check size={17} color="#00A87E" /></div>
+        <div><b>eSocial enviado</b><br />Todos os eventos no prazo</div>
+      </div>
+      <div className="panelviz">
+        <div className="pv-head">
+          <span className="pv-ico"><I.shield size={20} color="#00C896" /></span>
+          <div className="pv-title"><h4>Status de conformidade</h4><span>Painel do gestor</span></div>
+          <span className="pv-month">junho</span>
         </div>
-      )}
+        {rows.map(([a, b]) =>
+        <div className="prow" key={a}>
+            <span className="chk"><span className="ring"><I.check size={15} color="#00C896" /></span>{a}</span>
+            <span className="st">{b}</span>
+          </div>
+        )}
+      </div>
+      <div className="float f2">
+        <div className="dotok"><I.message size={17} color="#00A87E" sw={2.2} /></div>
+        <div><b>Holerite no WhatsApp</b><br />Colaborador recebe no celular</div>
+      </div>
     </div>);
 
 }
@@ -129,6 +150,7 @@ function Hero({ onWa, heroViz }) {
   const Viz = heroViz === 'holerite' ? HoleriteViz : heroViz === 'panel' ? PanelViz : DeviceViz;
   return (
     <section className="hero" id="topo">
+      <div className="glow2"></div>
       <div className="wrap-wide hero-grid">
         <div>
           <span className="tag on-navy">BPO de folha e departamento pessoal · plataforma digital incluída</span>

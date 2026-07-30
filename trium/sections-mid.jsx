@@ -346,9 +346,9 @@ function Steps() {
     ['Mês a mês', '03', 'Operação contínua', 'Calendário mensal, prévia para aprovação, fechamento no prazo e canal direto no WhatsApp com quem opera a sua carteira — com os módulos contratados no mesmo portal.'],
   ];
   return (
-    <section className="sec navy-sec" id="como-funciona"><div className="wrap reveal">
+    <section className="sec" id="como-funciona"><div className="wrap reveal">
       <div className="sec-head center">
-        <span className="tag on-navy">Como funciona</span>
+        <span className="tag">Como funciona</span>
         <h2>Da primeira conversa à folha rodando em três passos</h2>
         <p>Migrar de fornecedor de folha parece arriscado. Nosso processo foi desenhado para a transição acontecer sem nenhum colaborador perceber — e para módulos extras entrarem sem novo projeto de zero.</p>
       </div>

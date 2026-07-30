@@ -5,7 +5,7 @@ const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
   "heroViz": "panel",
   "servicesLayout": "stacked",
   "teamStyle": "navy",
-  "compareStyle": "cards",
+  "compareStyle": "table",
   "density": "comfortable"
 }/*EDITMODE-END*/;
 
@@ -26,6 +26,7 @@ function App() {
   const t = TWEAK_DEFAULTS;
   const [toast, setToast] = useStateA('');
   const [scrolled, setScrolled] = useStateA(false);
+  const [menuOpen, setMenuOpen] = useStateA(false);
 
   useEffectA(() => {
     if (!toast) return;
@@ -42,13 +43,14 @@ function App() {
 
   useReveal([t.heroViz, t.servicesLayout, t.teamStyle, t.compareStyle, t.density]);
 
-  const onWa = () => { window.open(window.TRIUM.waLink(), '_blank'); };
+  const onWa = () => { setMenuOpen(false); window.open(window.TRIUM.waLink(), '_blank'); };
   const onPortal = () => {
+    setMenuOpen(false);
     const url = window.TRIUM.PORTAL_URL;
     if (url && url !== '#') { window.open(url, '_blank', 'noopener'); }
     else { setToast('Portal do Cliente em implantação. Clientes recebem o acesso na ativação do contrato.'); }
   };
-  const onMenu = () => setToast('Menu mobile — navegue pelas seções rolando a página.');
+  const onMenu = () => setMenuOpen((v) => !v);
 
   const {
     Header, Hero, NumbersStrip, EngineStrip, Pain, Services, PortalShowcase, Segments, Steps, Compare, Team, Faq, Contact, Footer,
@@ -56,7 +58,7 @@ function App() {
 
   return (
     <div className="site" data-density={t.density}>
-      <Header onWa={onWa} onPortal={onPortal} onMenu={onMenu} scrolled={scrolled} />
+      <Header onWa={onWa} onPortal={onPortal} onMenu={onMenu} scrolled={scrolled} menuOpen={menuOpen} />
       <Hero onWa={onWa} heroViz={t.heroViz} />
       <NumbersStrip />
       <EngineStrip />
