@@ -201,6 +201,20 @@
   .phone-chrome video{display:none}
 }
 
+/* TOTVS Protheus engine strip */
+.engine-strip{background:#fff;border-bottom:1px solid var(--line);padding:48px 0}
+.engine-inner{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center}
+.engine-kicker{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--teal-dark);margin-bottom:.7rem}
+.engine-copy h2{font-size:clamp(1.35rem,2.2vw,1.75rem);color:var(--navy);margin-bottom:.75rem;text-wrap:balance}
+.engine-copy h2 em{font-style:normal;color:#0070C0}
+.engine-copy p{font-size:1rem;color:var(--grey);line-height:1.6;margin-bottom:1rem;max-width:36rem}
+.engine-points{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:.45rem}
+.engine-points li{font-size:.9rem;color:var(--navy);padding-left:1.5rem;position:relative}
+.engine-points li::before{content:"";position:absolute;left:0;top:.35rem;width:14px;height:14px;background:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%2300A87E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>') no-repeat center/contain}
+.engine-logo-card{background:linear-gradient(160deg,#f7fafc,#eef5fb);border:1px solid var(--line);border-radius:var(--radius);padding:2rem 1.8rem;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;box-shadow:var(--shadow)}
+.engine-logo-card img{display:block;width:min(280px,100%);height:auto}
+.engine-logo-cap{font-size:.78rem;color:var(--grey);text-align:center;max-width:16rem;line-height:1.4}
+
 /* PAIN */
 .pain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap)}
 .pain-grid.pain-grid-4{grid-template-columns:repeat(2,1fr);max-width:920px;margin:0 auto}
@@ -406,6 +420,8 @@
   .svc-split{grid-template-columns:1fr;gap:24px}
   .ind-card{position:static}
   .devices{min-height:380px;margin-top:10px}
+  .engine-inner{grid-template-columns:1fr;gap:28px}
+  .engine-logo-card{order:-1}
 }
 @media(max-width:860px){
   .serv-grid,.pain-grid,.pain-grid.pain-grid-4,.steps,.seg-grid,.team-grid,.ind-grid,.portal-points,.portal-points.portal-points-6{grid-template-columns:1fr}

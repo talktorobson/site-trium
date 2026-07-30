@@ -51,7 +51,7 @@ function App() {
   const onMenu = () => setToast('Menu mobile — navegue pelas seções rolando a página.');
 
   const {
-    Header, Hero, NumbersStrip, Pain, Services, PortalShowcase, Segments, Steps, Compare, Team, Faq, Contact, Footer,
+    Header, Hero, NumbersStrip, EngineStrip, Pain, Services, PortalShowcase, Segments, Steps, Compare, Team, Faq, Contact, Footer,
   } = window;
 
   return (
@@ -59,6 +59,7 @@ function App() {
       <Header onWa={onWa} onPortal={onPortal} onMenu={onMenu} scrolled={scrolled} />
       <Hero onWa={onWa} heroViz={t.heroViz} />
       <NumbersStrip />
+      <EngineStrip />
       <Pain />
       <Services servicesLayout={t.servicesLayout} />
       <Steps />

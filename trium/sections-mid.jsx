@@ -2,8 +2,8 @@
 const { useState: useStateM, useEffect: useEffectM } = React;
 
 const SERVS = [
-  ['fileText', 'Folha de pagamento', 'Cálculo mensal completo, com prévia para sua aprovação antes do fechamento.',
-    ['Salários, horas extras, adicionais e descontos', 'Décimo terceiro, férias e médias', 'INSS, FGTS, IRRF e demais encargos', 'Relatório gerencial de custo de pessoal']],
+  ['fileText', 'Folha de pagamento', 'Cálculo mensal completo no motor TOTVS Protheus, com prévia para sua aprovação antes do fechamento.',
+    ['Motor TOTVS Protheus (cálculo, encargos e eSocial)', 'Salários, horas extras, adicionais e descontos', 'Décimo terceiro, férias e médias', 'Relatório gerencial de custo de pessoal']],
   ['users', 'Departamento pessoal', 'Toda a rotina do colaborador, da admissão ao desligamento, sem parar na sua mesa.',
     ['Admissão digital com documentos pelo celular', 'Férias, afastamentos e controle de prazos', 'Rescisões, homologações e cálculos finais', 'Rotina de benefícios: VT, VR, plano de saúde e similares']],
   ['shield', 'eSocial e obrigações', 'Compliance trabalhista monitorado todos os dias, não só no fechamento.',
@@ -15,7 +15,7 @@ const SERVS = [
 /* Sellable modules (trium-portal ModuleKey) — optional expanders on FOPA */
 const MODULES = [
   ['clock', 'Solução de Ponto', 'Coleta e tratamento de jornada desenhados sobre a Portaria 671, com espelho e exportação para a folha.',
-    ['Batida no app ou quiosque, com comprovante', 'Apuração de HE, noturno, banco de horas e faltas', 'Espelho de ponto e fechamento da competência', 'Exportação para o motor de folha (sem retrabalho manual)']],
+    ['Batida no app ou quiosque, com comprovante', 'Apuração de HE, noturno, banco de horas e faltas', 'Espelho de ponto e fechamento da competência', 'Exportação para o TOTVS Protheus (sem retrabalho manual)']],
   ['userPlus', 'Recrutamento', 'Da vaga à admissão no mesmo cadastro da folha — sem ATS solto e sem re-digitação.',
     ['Página de carreiras e candidatura com LGPD', 'Pipeline de triagem e entrevistas', 'Proposta e aceite com trilha auditável', 'Convergência oferta → admissão no DP']],
   ['flag', 'Canal de Denúncias', 'Canal confidencial alinhado à Lei 14.457/2022, com protocolo e ouvidoria dedicada.',
@@ -358,6 +358,7 @@ function Steps() {
 
 const CMP_ROWS = [
   ['Prévia da folha antes do fechamento', 'Sempre, todo mês', 'Raramente'],
+  ['Motor de folha de mercado', 'TOTVS Protheus', 'Planilha ou sistema genérico'],
   ['Portal do gestor + app do colaborador', 'Incluído no FOPA', 'Não oferece ou cobra à parte'],
   ['Ponto, denúncias, NR-1 e PJs no mesmo ambiente', 'Módulos no mesmo portal', 'Ferramentas soltas ou inexistentes'],
   ['Monitoramento de prazos e legislação', 'Diário e proativo', 'Reativo, no fechamento'],

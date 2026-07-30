@@ -125,7 +125,7 @@ function PanelViz() {
 
 function Hero({ onWa, heroViz }) {
   const I = window.TriumIcons;
-  const points = ['Implantação em até 60 dias', 'Portal e app do colaborador incluídos', 'Módulos no mesmo ambiente (ponto, NR-1, denúncias…)'];
+  const points = ['Implantação em até 60 dias', 'Portal e app do colaborador incluídos', 'Motor de folha TOTVS Protheus'];
   const Viz = heroViz === 'holerite' ? HoleriteViz : heroViz === 'panel' ? PanelViz : DeviceViz;
   return (
     <section className="hero" id="topo">
@@ -133,7 +133,7 @@ function Hero({ onWa, heroViz }) {
         <div>
           <span className="tag on-navy">BPO de folha e departamento pessoal · plataforma digital incluída</span>
           <h1>Sua folha sem erro, sem multa e <em>sem ocupar o seu dia</em></h1>
-          <p className="lead">A TRIUM assume a folha de pagamento e o departamento pessoal com compliance e eSocial sob controle — e um portal digital onde o gestor, o colaborador e os módulos opcionais (ponto, recrutamento, denúncias, NR-1, PJs) convivem. Você cuida do negócio. A burocracia fica com a gente.</p>
+          <p className="lead">A TRIUM assume a folha de pagamento e o departamento pessoal com compliance e eSocial sob controle — motor de cálculo em <strong>TOTVS Protheus</strong> — e um portal digital onde o gestor, o colaborador e os módulos opcionais (ponto, recrutamento, denúncias, NR-1, PJs) convivem. Você cuida do negócio. A burocracia fica com a gente.</p>
           <div className="hero-ctas">
             <a className="btn btn-primary" href="#contato">Pedir diagnóstico gratuito</a>
             <button className="btn btn-ghost" onClick={onWa}><I.whatsapp size={17} />Falar no WhatsApp</button>
@@ -162,6 +162,36 @@ function NumbersStrip() {
 
 }
 
+function EngineStrip() {
+  return (
+    <div className="engine-strip" id="motor">
+      <div className="wrap-wide engine-inner">
+        <div className="engine-copy">
+          <span className="engine-kicker">Motor de folha</span>
+          <h2>Cálculo e eSocial sobre <em>TOTVS Protheus</em></h2>
+          <p>A TRIUM opera a sua folha em motor de mercado: o <strong>TOTVS Protheus</strong> (SIGAGPE). Nossa plataforma orquestra entrada, prévia, portal e compliance — o engine cuida do cálculo, dos encargos e da trilha de obrigações com a solidez que a indústria já conhece.</p>
+          <ul className="engine-points">
+            <li>Cálculo mensal, 13º, férias e médias no Protheus</li>
+            <li>eSocial, FGTS e obrigações com engine de referência</li>
+            <li>Portal TRIUM por cima: prévia, apps e módulos no mesmo lugar</li>
+          </ul>
+        </div>
+        <div className="engine-logo-card">
+          <img
+            src="trium/brand/totvs-protheus.png"
+            alt="TOTVS Protheus — motor de folha de pagamento"
+            width="476"
+            height="223"
+            loading="lazy"
+            decoding="async"
+          />
+          <span className="engine-logo-cap">Engine de folha utilizado na operação TRIUM</span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function Pain() {
   const I = window.TriumIcons;
   const cards = [
@@ -186,4 +216,4 @@ function Pain() {
 
 }
 
-Object.assign(window, { Header, Hero, NumbersStrip, Pain });
+Object.assign(window, { Header, Hero, NumbersStrip, EngineStrip, Pain });
