@@ -48,8 +48,9 @@ function Faq() {
   ['Minha empresa é pequena. Vale a pena terceirizar?', 'Nosso foco são empresas a partir de 10 colaboradores, justamente as que não têm RH interno ou têm uma equipe pequena. É nesse porte que a terceirização traz mais retorno, porque o custo de um erro de folha ou de uma multa é proporcionalmente muito maior.'],
   ['Como funciona o preço?', 'O valor é por colaborador ativo por mês (e, em alguns módulos, por prestador), com o portal digital já incluído no FOPA. Cada proposta é montada sob medida após o diagnóstico gratuito, de acordo com o porte, a complexidade e os módulos que você quiser ativar. Não publicamos tabela fixa no site.'],
   ['O que é o Portal do Cliente?', 'É o ambiente digital (portal.triumbpo.com.br) onde o gestor acompanha a folha: prévia, custos, documentos, solicitações e obrigações. O colaborador usa o app para holerites, documentos e, se contratados, ponto e canal de denúncias. Módulos opcionais entram no mesmo login.'],
-  ['Quais módulos além da folha vocês oferecem?', 'No mesmo portal: Solução de Ponto (Portaria 671), Recrutamento (da vaga à admissão), Canal de Denúncias (Lei 14.457), Gestão de Riscos NR-1 (PGR com psicossocial) e Gestão de PJs (prestadores em trilho separado do CLT). Você contrata o que precisa; o FOPA é o núcleo.'],
+  ['Quais módulos além da folha vocês oferecem?', 'No mesmo portal: Solução de Ponto (Portaria 671), Recrutamento (da vaga à admissão), Canal de Denúncias (Lei 14.457), Gestão de Riscos NR-1 (Portaria MTE 1.419/2024 — psicossocial no PGR) e Gestão de PJs (prestadores em trilho separado do CLT). Você contrata o que precisa; o FOPA é o núcleo.'],
   ['Posso contratar só o ponto, a denúncia ou a NR-1?', 'Sim para ponto, denúncias e NR-1 como módulos no desenho da TRIUM — o diagnóstico define se entram com o FOPA ou em configuração específica. Recrutamento roda sobre a relação de folha/DP (não vendemos um ATS solto). Em todos os casos o ambiente é o mesmo portal.'],
+  ['O que a NR-1 cobre na prática e preciso de psicólogo?', 'A Portaria MTE 1.419/2024 exige gestão de riscos psicossociais no PGR. No módulo você escolhe o instrumento científico (COPSOQ III-BR ou HSE Indicator Tool), roda o ciclo com anonimato por desenho, gera inventário, planos e dossiê. A TRIUM/plataforma não substitui o profissional: você nomeia responsável técnico e, quando preciso, psicólogo independente para relatos críticos e revisão do inventário — a ferramenta organiza, documenta e evidencia.'],
   ['Meus dados e os dos colaboradores ficam seguros?', 'Sim. Dados de folha e de gente são sensíveis pela LGPD e tratamos como tal. Operamos com acordo de tratamento de dados em todos os contratos, acesso segregado por cliente e processos desenhados para a lei brasileira de proteção de dados. No canal de denúncias, o conteúdo da apuração fica restrito ao ouvidor autorizado.'],
   ['E se eu já tiver um sistema de folha?', 'Sem problema. No diagnóstico avaliamos o que você já usa e definimos juntos o melhor caminho. Podemos operar a folha no nosso ambiente ou avaliar a operação sobre a sua ferramenta atual; módulos como ponto e portal do colaborador também se encaixam nesse desenho.']];
 
@@ -66,7 +67,7 @@ function Faq() {
             <button className="faq-q" onClick={() => setOpen(open === i ? -1 : i)} aria-expanded={open === i}>
               {q}<I.plus size={18} />
             </button>
-            <div className="faq-a" style={{ maxHeight: open === i ? 420 : 0 }}><p>{a}</p></div>
+            <div className="faq-a" style={{ maxHeight: open === i ? 520 : 0 }}><p>{a}</p></div>
           </div>
           )}
       </div>

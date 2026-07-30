@@ -19,8 +19,8 @@ const MODULES = [
     ['Página de carreiras e candidatura com LGPD', 'Pipeline de triagem e entrevistas', 'Proposta e aceite com trilha auditável', 'Convergência oferta → admissão no DP']],
   ['flag', 'Canal de Denúncias', 'Canal confidencial alinhado à Lei 14.457/2022, com protocolo e ouvidoria dedicada.',
     ['Denúncia anônima pelo app do colaborador', 'Protocolo e chave de acompanhamento', 'Apuração com prazos e trilha de acesso', 'Visão gerencial agregada, sem expor o conteúdo']],
-  ['activity', 'Gestão de Riscos NR-1', 'Adequação do PGR com fatores psicossociais: pesquisa, matriz, planos e dossiê para fiscalização.',
-    ['Coleta com instrumento validado (ex.: COPSOQ)', 'Matriz de risco por célula organizacional', 'Planos de ação com vínculo ao inventário', 'Dossiê exportável para o auditor — sem expor pessoa']],
+  ['activity', 'Gestão de Riscos NR-1', 'Adequação à Portaria MTE 1.419/2024 (NR-1): fatores psicossociais no PGR, com pesquisa, matriz, planos e dossiê para fiscalização.',
+    ['Instrumentos científicos à escolha: COPSOQ III-BR ou HSE Indicator Tool (HSE-IT)', 'Matriz de risco por célula organizacional (avalia o trabalho, não a pessoa)', 'Planos de ação com vínculo ao inventário e dossiê para o auditor', 'Atuação de psicólogo ou responsável técnico independente nomeado por você — a plataforma organiza; a responsabilidade técnica é do profissional']],
   ['building', 'Gestão de PJs', 'Prestadores e contratos em trilho separado do CLT, com guardrails contra pejotização irregular.',
     ['Cadastro de prestadores e contratos', 'Fluxo de NF e documentos do prestador', 'App próprio do prestador (magic link)', 'Alertas de risco de mascaramento de vínculo']],
 ];
@@ -124,7 +124,7 @@ function PortalShowcase() {
     ['fileText', 'Aprovação da folha em 1 clique', 'Revise a prévia, confira custos e encargos e aprove o fechamento sem trocar planilha por e-mail.'],
     ['clock', 'Ponto e calendário de obrigações', 'Jornada, eSocial, FGTS Digital e pagamentos com prazos à vista — nada passa batido.'],
     ['users', 'App do colaborador', 'Holerites, documentos, férias e, quando contratados, ponto e canal de denúncias no celular.'],
-    ['flag', 'Compliance no dia a dia', 'Denúncias (Lei 14.457), riscos NR-1 e documentos do DP no mesmo ambiente do gestor.'],
+    ['flag', 'Compliance no dia a dia', 'Denúncias (Lei 14.457), riscos psicossociais NR-1 (Portaria MTE 1.419/2024) e documentos do DP no mesmo ambiente do gestor.'],
     ['userPlus', 'Recrutamento até a admissão', 'Vaga, pipeline e oferta convergem para o cadastro de DP — sem re-digitação.'],
     ['building', 'Prestadores e PJs', 'Contratos e fluxo de NF de prestadores em trilho separado do CLT, com visão do gestor.'],
   ];
