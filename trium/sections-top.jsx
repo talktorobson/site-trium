@@ -164,31 +164,32 @@ function NumbersStrip() {
 
 function EngineStrip() {
   return (
-    <div className="engine-strip" id="motor">
-      <div className="wrap-wide engine-inner">
-        <div className="engine-copy">
-          <span className="engine-kicker">Motor de folha</span>
-          <h2>Cálculo e eSocial sobre <em>TOTVS Protheus</em></h2>
-          <p>A TRIUM opera a sua folha em motor de mercado: o <strong>TOTVS Protheus</strong> (SIGAGPE). Nossa plataforma orquestra entrada, prévia, portal e compliance — o engine cuida do cálculo, dos encargos e da trilha de obrigações com a solidez que a indústria já conhece.</p>
-          <ul className="engine-points">
-            <li>Cálculo mensal, 13º, férias e médias no Protheus</li>
-            <li>eSocial, FGTS e obrigações com engine de referência</li>
-            <li>Portal TRIUM por cima: prévia, apps e módulos no mesmo lugar</li>
-          </ul>
+    <section className="engine-rail" id="motor" aria-label="Motor de folha TOTVS Protheus">
+      <div className="wrap-wide engine-rail-inner">
+        <div className="engine-rail-label">
+          <span className="engine-rail-mark" aria-hidden="true" />
+          <div>
+            <span className="engine-rail-kicker">Motor de folha</span>
+            <p className="engine-rail-title">Cálculo e eSocial no <strong>TOTVS Protheus</strong></p>
+          </div>
         </div>
-        <div className="engine-logo-card">
+
+        <div className="engine-rail-logo" role="img" aria-label="TOTVS Protheus">
           <img
             src="trium/brand/totvs-protheus.png"
-            alt="TOTVS Protheus — motor de folha de pagamento"
+            alt="TOTVS Protheus"
             width="476"
             height="223"
             loading="lazy"
             decoding="async"
           />
-          <span className="engine-logo-cap">Engine de folha utilizado na operação TRIUM</span>
         </div>
+
+        <p className="engine-rail-thesis">
+          A TRIUM orquestra portal, prévia e módulos. O <strong>Protheus</strong> calcula a folha, encargos e a trilha de obrigações — engine de mercado, operação boutique.
+        </p>
       </div>
-    </div>
+    </section>
   );
 }
 

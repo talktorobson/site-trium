@@ -169,34 +169,38 @@ const DESK_TABS = [
 
 function JourneyPhone({ j, active }) {
   return (
-    <figure className="journey-card">
+    <article className={'journey-card journey-' + j.id}>
+      <div className="journey-stage">
+        <div className="phone-chrome journey-phone">
+          <span className="phone-notch" aria-hidden="true"></span>
+          {active ? (
+            <video
+              key={j.video}
+              src={j.video}
+              poster={j.poster}
+              playsInline
+              muted
+              loop
+              autoPlay
+              preload="metadata"
+              aria-label={j.aria}
+            />
+          ) : (
+            <img src={j.poster} alt={j.aria} loading="lazy" decoding="async" />
+          )}
+        </div>
+      </div>
       <div className="journey-meta">
         <span className="journey-badge">{j.badge}</span>
         <h3>{j.title}</h3>
         <p>{j.blurb}</p>
-        <ul className="journey-steps" aria-label="Passos da jornada">
-          {j.steps.map((s) => <li key={s}>{s}</li>)}
-        </ul>
+        <ol className="journey-steps" aria-label="Passos da jornada">
+          {j.steps.map((s, i) => (
+            <li key={s}><span className="js-n">{String(i + 1).padStart(2, '0')}</span>{s}</li>
+          ))}
+        </ol>
       </div>
-      <div className="phone-chrome journey-phone">
-        <span className="phone-notch" aria-hidden="true"></span>
-        {active ? (
-          <video
-            key={j.video}
-            src={j.video}
-            poster={j.poster}
-            playsInline
-            muted
-            loop
-            autoPlay
-            preload="metadata"
-            aria-label={j.aria}
-          />
-        ) : (
-          <img src={j.poster} alt={j.aria} loading="lazy" decoding="async" />
-        )}
-      </div>
-    </figure>
+    </article>
   );
 }
 
@@ -233,9 +237,9 @@ function PersonaGallery() {
   return (
     <div className="persona-gallery reveal" id="telas">
       <div className="sec-head center">
-        <span className="tag">Apps e portal em ação</span>
-        <h2>Jornadas reais: colaborador PF e prestador PJ</h2>
-        <p>Vídeos gravados no produto (ambiente de demonstração). Dois apps no celular — CLT e PJ — e o portal web do gestor no mesmo ecossistema.</p>
+        <span className="tag">Apps no celular</span>
+        <h2>Duas jornadas. Um ecossistema.</h2>
+        <p>Colaborador CLT e prestador PJ — cada um no seu app. Gravado no produto, dados de demonstração.</p>
       </div>
 
       <div className="journey-pair">
@@ -243,9 +247,13 @@ function PersonaGallery() {
           <JourneyPhone key={j.id} j={j} active={journeysOn} />
         ))}
       </div>
-      <p className="shot-note">Jornadas em loop, sem áudio · dados fictícios de demonstração</p>
+      <p className="shot-note">Loop silencioso · ambiente de demonstração</p>
 
       <div className="desk-block">
+        <div className="desk-block-head">
+          <span className="tag">Portal web</span>
+          <h3 className="desk-block-title">O que o gestor vê no desktop</h3>
+        </div>
         <div className="shot-tabs" role="tablist" aria-label="Portal web">
           {DESK_TABS.map((t) => (
             <button
