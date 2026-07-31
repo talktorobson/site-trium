@@ -16,6 +16,8 @@ const SERVS = [
 const MODULES = [
   ['clock', 'Solução de Ponto', 'Coleta e tratamento de jornada desenhados sobre a Portaria 671, com espelho e exportação para a folha.',
     ['Batida no app ou quiosque, com comprovante', 'Apuração de HE, noturno, banco de horas e faltas', 'Espelho de ponto e fechamento da competência', 'Exportação para o TOTVS Protheus (sem retrabalho manual)']],
+  ['heartPulse', 'Gestão de Benefícios', 'VT, VR/VA, plano de saúde e demais benefícios administrados no mesmo ambiente da folha — do desenho do pacote à parada certa no holerite.',
+    ['Catálogo de benefícios da empresa, com regras por convenção, cargo ou filial', 'Adesões, alterações e cancelamentos com trilha auditável', 'Descontos e coparticipações calculados direto na folha, sem planilha paralela', 'Colaborador consulta o que tem e solicita pelo app']],
   ['userPlus', 'Recrutamento', 'Da vaga à admissão no mesmo cadastro da folha — sem ATS solto e sem re-digitação.',
     ['Página de carreiras e candidatura com LGPD', 'Pipeline de triagem e entrevistas', 'Proposta e aceite com trilha auditável', 'Convergência oferta → admissão no DP']],
   ['flag', 'Canal de Denúncias', 'Canal confidencial alinhado à Lei 14.457/2022, com protocolo e ouvidoria dedicada.',
@@ -76,7 +78,7 @@ function ModulesBlock() {
       <div className="sec-head center modules-head">
         <div className="fopa-badge"><b>Módulos</b><span>completam a operação no mesmo portal</span></div>
         <h2>O que sobe no mesmo ambiente, quando a sua empresa precisa</h2>
-        <p>Além do FOPA, a TRIUM opera módulos contratáveis no portal.triumbpo.com.br — ponto, recrutamento, denúncias, NR-1 e gestão de PJs. Você ativa o que faz sentido; o time e o colaborador usam o mesmo login.</p>
+        <p>Além do FOPA, a TRIUM opera módulos contratáveis no portal.triumbpo.com.br — ponto, benefícios, recrutamento, denúncias, NR-1 e gestão de PJs. Você ativa o que faz sentido; o time e o colaborador usam o mesmo login.</p>
       </div>
       <div className="serv-grid modules-grid">
         {MODULES.map((s) => <ServCard key={s[1]} s={s} badge="Módulo opcional" />)}
@@ -385,7 +387,7 @@ const CMP_ROWS = [
   ['Prévia da folha antes do fechamento', 'Sempre, todo mês', 'Raramente'],
   ['Motor de folha de mercado', 'TOTVS Protheus', 'Planilha ou sistema genérico'],
   ['Portal do gestor + app do colaborador', 'Incluído no FOPA', 'Não oferece ou cobra à parte'],
-  ['Ponto, denúncias, NR-1 e PJs no mesmo ambiente', 'Módulos no mesmo portal', 'Ferramentas soltas ou inexistentes'],
+  ['Ponto, benefícios, denúncias, NR-1 e PJs no mesmo ambiente', 'Módulos no mesmo portal', 'Ferramentas soltas ou inexistentes'],
   ['Monitoramento de prazos e legislação', 'Diário e proativo', 'Reativo, no fechamento'],
   ['Acompanhamento de convenção coletiva', 'Por sindicato e categoria', 'Quando o cliente avisa'],
   ['Canal de atendimento', 'Chat direto com o especialista', 'Email com fila de espera'],
