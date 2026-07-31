@@ -176,6 +176,7 @@ function JourneyPhone({ j, active }) {
           {active ? (
             <video
               key={j.video}
+              ref={(v) => { if (v) { v.muted = true; v.play().catch(() => {}); } }}
               src={j.video}
               poster={j.poster}
               playsInline
@@ -359,7 +360,7 @@ function Steps() {
   const steps = [
     ['Gratuito', '01', 'Diagnóstico da sua folha', 'Analisamos sua folha atual e apontamos riscos de compliance, erros de cálculo e oportunidades de economia. Também enxergamos se ponto, denúncias, NR-1 ou PJs entram no desenho. Você recebe o relatório mesmo se não fechar com a gente.'],
     ['Até 60 dias', '02', 'Implantação assistida', 'Migramos cadastros, históricos e rodamos uma folha em paralelo com a atual. O portal do cliente e o app do colaborador sobem juntos; módulos opcionais ativam no mesmo ambiente.'],
-    ['Mês a mês', '03', 'Operação contínua', 'Calendário mensal, prévia para aprovação, fechamento no prazo e canal direto no WhatsApp com quem opera a sua carteira — com os módulos contratados no mesmo portal.'],
+    ['Mês a mês', '03', 'Operação contínua', 'Calendário mensal, prévia para aprovação, fechamento no prazo e chat direto com quem opera a sua carteira — com os módulos contratados no mesmo portal.'],
   ];
   return (
     <section className="sec" id="como-funciona"><div className="wrap reveal">
@@ -387,7 +388,8 @@ const CMP_ROWS = [
   ['Ponto, denúncias, NR-1 e PJs no mesmo ambiente', 'Módulos no mesmo portal', 'Ferramentas soltas ou inexistentes'],
   ['Monitoramento de prazos e legislação', 'Diário e proativo', 'Reativo, no fechamento'],
   ['Acompanhamento de convenção coletiva', 'Por sindicato e categoria', 'Quando o cliente avisa'],
-  ['Canal de atendimento', 'WhatsApp direto com o especialista', 'Email com fila de espera'],
+  ['Canal de atendimento', 'Chat direto com o especialista', 'Email com fila de espera'],
+  ['Assistente de IA para dúvidas de folha', 'EVA, no portal e no app', 'Não existe'],
   ['Relatório gerencial de custo de pessoal', 'Todo mês', 'Sob demanda'],
 ];
 
@@ -467,4 +469,75 @@ function Compare({ compareStyle }) {
   );
 }
 
-Object.assign(window, { Services, PortalShowcase, Segments, Steps, Compare });
+/* ---- EVA: assistente de IA da plataforma ---- */
+function Eva() {
+  const I = window.TriumIcons;
+  const [motionOk, setMotionOk] = useStateM(true);
+  const [inView, setInView] = useStateM(false);
+  const vizRef = useRefM(null);
+
+  useEffectM(() => {
+    if (!window.matchMedia) return;
+    const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const apply = () => setMotionOk(!mq.matches);
+    apply();
+    mq.addEventListener?.('change', apply);
+    return () => mq.removeEventListener?.('change', apply);
+  }, []);
+
+  useEffectM(() => {
+    const el = vizRef.current;
+    if (!el) return;
+    if (!('IntersectionObserver' in window)) { setInView(true); return; }
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((en) => setInView(en.isIntersecting));
+    }, { rootMargin: '240px 0px' });
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
+  const points = [
+    'Responde em segundos, 24 horas por dia, no portal e no app',
+    'Sabe da sua folha: saldo de férias, holerite, prazos e benefícios',
+    'Abre solicitações na própria conversa, sem formulário',
+    'Quando o assunto pede gente, aciona o analista da sua carteira'];
+
+  return (
+    <section className="sec navy-sec eva-sec" id="eva"><div className="wrap-wide reveal">
+      <div className="eva-grid">
+        <div>
+          <span className="tag on-navy"><I.sparkles size={13} sw={2.2} style={{ verticalAlign: '-2px', marginRight: '.45rem' }} />Inteligência artificial · incluída no FOPA</span>
+          <h2>Conheça a EVA. Sua folha, com quem responde na hora.</h2>
+          <p className="eva-lead">A EVA é a assistente de IA da plataforma TRIUM. Ela conhece a folha da sua empresa e resolve na conversa o que hoje vira chamado: dúvida de holerite, saldo de férias, prazo de obrigação, documento. E quando o assunto precisa de um humano, ela chama o analista da sua carteira — sem fila, sem formulário.</p>
+          <ul className="eva-points">
+            {points.map((p) => <li key={p}><I.check size={16} color="#00C896" />{p}</li>)}
+          </ul>
+          <div className="eva-ctas">
+            <a className="btn btn-primary" href="#contato">Ver a EVA no diagnóstico</a>
+            <span className="eva-note">Disponível para gestores e colaboradores · dados tratados conforme a LGPD</span>
+          </div>
+        </div>
+        <div className="eva-viz" ref={vizRef} style={{ maxWidth: 280, marginLeft: 'auto', marginRight: 'auto' }}>
+          <div className="float f1"><div className="dotok"><I.sparkles size={16} color="#00A87E" sw={2} /></div><div><b>EVA respondeu</b><br />Saldo de férias em 4 segundos</div></div>
+          <div className="phone-chrome eva-phone">
+            <span className="phone-notch" aria-hidden="true"></span>
+            {motionOk && inView ? (
+              <video
+                ref={(v) => { if (v) { v.muted = true; v.play().catch(() => {}); } }}
+                src="trium/video/eva-demo.webm"
+                poster="trium/video/eva-poster.jpg"
+                playsInline muted loop autoPlay preload="metadata"
+                aria-label="Demonstração da EVA respondendo um colaborador no app da TRIUM"
+              />
+            ) : (
+              <img src="trium/video/eva-poster.jpg" alt="EVA respondendo um colaborador no app da TRIUM" loading="lazy" decoding="async" />
+            )}
+          </div>
+        </div>
+      </div>
+      <p className="shot-note eva-shot-note">Loop silencioso · ambiente de demonstração</p>
+    </div></section>
+  );
+}
+
+Object.assign(window, { Services, PortalShowcase, Segments, Steps, Compare, Eva });

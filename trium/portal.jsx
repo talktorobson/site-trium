@@ -144,7 +144,7 @@ function Portal() {
               <div className="pmsg">
                 <h4><I.message size={18} sw={2.2} color="#00C896" />Seu analista de folha</h4>
                 <p>A prévia de junho está pronta. Qualquer ajuste de horas extras ou benefícios, me chame antes do fechamento em 05/jun.</p>
-                <a className="wa" href="#" onClick={(e) => { e.preventDefault(); window.open(window.TRIUM.waLink(), '_blank'); }}><I.whatsapp size={16} color="#fff" />Falar com a Roberta</a>
+                <a className="wa" href="mailto:contato@triumbpo.com.br"><I.message size={16} color="#fff" sw={2.2} />Falar com a Roberta</a>
               </div>
             </div>
           </div>

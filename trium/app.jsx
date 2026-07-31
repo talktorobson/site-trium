@@ -43,7 +43,6 @@ function App() {
 
   useReveal([t.heroViz, t.servicesLayout, t.teamStyle, t.compareStyle, t.density]);
 
-  const onWa = () => { setMenuOpen(false); window.open(window.TRIUM.waLink(), '_blank'); };
   const onPortal = () => {
     setMenuOpen(false);
     const url = window.TRIUM.PORTAL_URL;
@@ -53,27 +52,27 @@ function App() {
   const onMenu = () => setMenuOpen((v) => !v);
 
   const {
-    Header, Hero, NumbersStrip, EngineStrip, Pain, Services, PortalShowcase, Segments, Steps, Compare, Team, Faq, Contact, Footer,
+    Header, Hero, NumbersStrip, EngineStrip, Pain, Services, PortalShowcase, Segments, Steps, Compare, Team, Faq, Contact, Footer, Eva,
   } = window;
 
   return (
     <div className="site" data-density={t.density}>
-      <Header onWa={onWa} onPortal={onPortal} onMenu={onMenu} scrolled={scrolled} menuOpen={menuOpen} />
-      <Hero onWa={onWa} heroViz={t.heroViz} />
+      <Header onPortal={onPortal} onMenu={onMenu} scrolled={scrolled} menuOpen={menuOpen} />
+      <Hero heroViz={t.heroViz} />
       <NumbersStrip />
       <EngineStrip />
       <Pain />
       <Services servicesLayout={t.servicesLayout} />
       <Steps />
       <PortalShowcase />
+      <Eva />
       <Compare compareStyle={t.compareStyle} />
       {t.servicesLayout !== 'split' && <Segments />}
       <Team teamStyle={t.teamStyle} />
       <Faq />
-      <Contact onWa={onWa} />
-      <Footer onWa={onWa} onPortal={onPortal} />
+      <Contact />
+      <Footer onPortal={onPortal} />
 
-      <button className="wa-float" onClick={onWa} aria-label="WhatsApp"><I.whatsapp size={30} color="#fff" /></button>
       <div className={'toast' + (toast ? ' show' : '')}>{toast}</div>
     </div>
   );

@@ -1,6 +1,6 @@
 /* TRIUM BPO — top sections: Header, Hero (3 visual variants), NumbersStrip, Pain */
 
-function Header({ onWa, onPortal, onMenu, scrolled, menuOpen }) {
+function Header({ onPortal, onMenu, scrolled, menuOpen }) {
   const I = window.TriumIcons;
   const links = [
   ['Serviços', '#servicos'], ['Módulos', '#modulos'], ['Apps', '#telas'], ['Como funciona', '#como-funciona'],
@@ -75,9 +75,9 @@ function DeviceViz() {
       </div>
       <div className="phone">
         <div className="phone-screen">
-          <div className="phone-bar"><span className="av"><I.whatsapp size={11} color="#fff" /></span>TRIUM · DP</div>
+          <div className="phone-bar"><span className="av"><I.message size={11} color="#fff" sw={2.4} /></span>TRIUM · App do colaborador</div>
           <div className="phone-body">
-            <div className="bubble">Seu holerite de junho já está disponível 👇</div>
+            <div className="bubble">Seu holerite de junho já está disponível</div>
             <div className="bubble"><div className="doc"><I.fileText size={13} color="#00A87E" />Holerite_junho.pdf</div></div>
             <div className="bubble me">Recebido, obrigado!</div>
           </div>
@@ -85,7 +85,7 @@ function DeviceViz() {
       </div>
       <div className="float f2">
         <div className="dotok"><I.message size={17} color="#00A87E" sw={2.2} /></div>
-        <div><b>Holerite no WhatsApp</b><br />Colaborador recebe no celular</div>
+        <div><b>Holerite no App</b><br />Colaborador recebe no celular</div>
       </div>
     </div>);
 
@@ -104,7 +104,7 @@ function HoleriteViz() {
         <div className="hrow"><span>Encargos calculados</span><b>INSS FGTS IRRF</b></div>
         <div className="hrow"><span>Holerites no portal</span><b style={{ color: '#00A87E' }}>Disponíveis</b></div>
       </div>
-      <div className="float f2"><div className="dotok"><I.message size={18} color="#00A87E" sw={2.4} /></div><div><b>Holerite no WhatsApp</b><br />Colaborador recebe no celular</div></div>
+      <div className="float f2"><div className="dotok"><I.message size={18} color="#00A87E" sw={2.4} /></div><div><b>Holerite no App</b><br />Colaborador recebe no celular</div></div>
     </div>);
 
 }
@@ -138,15 +138,15 @@ function PanelViz() {
       </div>
       <div className="float f2">
         <div className="dotok"><I.message size={17} color="#00A87E" sw={2.2} /></div>
-        <div><b>Holerite no WhatsApp</b><br />Colaborador recebe no celular</div>
+        <div><b>Holerite no App</b><br />Colaborador recebe no celular</div>
       </div>
     </div>);
 
 }
 
-function Hero({ onWa, heroViz }) {
+function Hero({ heroViz }) {
   const I = window.TriumIcons;
-  const points = ['Implantação em até 60 dias', 'Portal e app do colaborador incluídos', 'Motor de folha TOTVS Protheus'];
+  const points = ['Implantação em até 60 dias', 'Portal e app do colaborador incluídos', 'Motor de folha TOTVS Protheus', 'EVA, assistente de IA, incluída'];
   const Viz = heroViz === 'holerite' ? HoleriteViz : heroViz === 'panel' ? PanelViz : DeviceViz;
   return (
     <section className="hero" id="topo">
@@ -158,7 +158,7 @@ function Hero({ onWa, heroViz }) {
           <p className="lead">A TRIUM assume a folha de pagamento e o departamento pessoal com compliance e eSocial sob controle — motor de cálculo em <strong>TOTVS Protheus</strong> — e um portal digital onde o gestor, o colaborador e os módulos opcionais (ponto, recrutamento, denúncias, NR-1, PJs) convivem. Você cuida do negócio. A burocracia fica com a gente.</p>
           <div className="hero-ctas">
             <a className="btn btn-primary" href="#contato">Pedir diagnóstico gratuito</a>
-            <button className="btn btn-ghost" onClick={onWa}><I.whatsapp size={17} />Falar no WhatsApp</button>
+            <a className="btn btn-ghost" href="#portal"><I.monitor size={17} />Conhecer a plataforma</a>
           </div>
           <div className="hero-points">
             {points.map((p) => <div key={p}><I.check size={16} color="#00C896" />{p}</div>)}
@@ -221,7 +221,7 @@ function Pain() {
   [<I.alert color="#D98E1B" />, 'Risco de multa silencioso', 'Prazos de eSocial, FGTS Digital, NR-1 e obrigações mensais mudam o tempo todo. Quando o erro aparece, a multa já é retroativa e o problema virou seu.'],
   [<I.clock color="#D98E1B" />, 'Seu tempo escorrendo pelo ralo', 'Admissão, férias, atestado, rescisão, benefício, ponto. Sem um DP estruturado, tudo isso para na mesa do dono ou de um administrativo sobrecarregado.'],
   [<I.monitor color="#D98E1B" />, 'Zero visibilidade', 'Você recebe a folha pronta, sem prévia para conferir e sem relatório de custo. O colaborador pede holerite por mensagem e espera dias pela resposta.'],
-  [<I.flag color="#D98E1B" />, 'Ferramentas soltas demais', 'Ponto num sistema, denúncia em planilha, recrutamento em e-mail, PJs no WhatsApp. Cada demanda vira um sistema novo — e ninguém enxerga o quadro inteiro.']];
+  [<I.flag color="#D98E1B" />, 'Ferramentas soltas demais', 'Ponto num sistema, denúncia em planilha, recrutamento em e-mail, PJs em conversas soltas. Cada demanda vira um sistema novo — e ninguém enxerga o quadro inteiro.']];
 
   return (
     <section className="sec" id="dores"><div className="wrap reveal">

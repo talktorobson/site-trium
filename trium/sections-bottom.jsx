@@ -49,6 +49,7 @@ function Faq() {
   ['Como funciona o preço?', 'O valor é por colaborador ativo por mês (e, em alguns módulos, por prestador), com o portal digital já incluído no FOPA. Cada proposta é montada sob medida após o diagnóstico gratuito, de acordo com o porte, a complexidade e os módulos que você quiser ativar. Não publicamos tabela fixa no site.'],
   ['O que é o Portal do Cliente?', 'É o ambiente digital (portal.triumbpo.com.br) onde o gestor acompanha a folha: prévia, custos, documentos, solicitações e obrigações. O colaborador usa o app para holerites, documentos e, se contratados, ponto e canal de denúncias. Módulos opcionais entram no mesmo login.'],
   ['Quais módulos além da folha vocês oferecem?', 'No mesmo portal: Solução de Ponto (Portaria 671), Recrutamento (da vaga à admissão), Canal de Denúncias (Lei 14.457), Gestão de Riscos NR-1 (Portaria MTE 1.419/2024 — psicossocial no PGR) e Gestão de PJs (prestadores em trilho separado do CLT). Você contrata o que precisa; o FOPA é o núcleo.'],
+  ['O que é a EVA?', 'A EVA é a assistente de inteligência artificial da plataforma TRIUM, disponível no portal e no app. Ela conhece a folha da sua empresa e responde na hora: saldo de férias, holerite, prazos, benefícios e documentos. Também abre solicitações na própria conversa e, quando o assunto precisa de um humano, aciona o analista da sua carteira. Vem incluída no FOPA, sem custo à parte, com dados tratados conforme a LGPD.'],
   ['Posso contratar só o ponto, a denúncia ou a NR-1?', 'Sim para ponto, denúncias e NR-1 como módulos no desenho da TRIUM — o diagnóstico define se entram com o FOPA ou em configuração específica. Recrutamento roda sobre a relação de folha/DP (não vendemos um ATS solto). Em todos os casos o ambiente é o mesmo portal.'],
   ['O que a NR-1 cobre na prática e preciso de psicólogo?', 'A Portaria MTE 1.419/2024 exige gestão de riscos psicossociais no PGR. No módulo você escolhe o instrumento científico (COPSOQ III-BR ou HSE Indicator Tool), roda o ciclo com anonimato por desenho, gera inventário, planos e dossiê. A TRIUM/plataforma não substitui o profissional: você nomeia responsável técnico e, quando preciso, psicólogo independente para relatos críticos e revisão do inventário — a ferramenta organiza, documenta e evidencia.'],
   ['Meus dados e os dos colaboradores ficam seguros?', 'Sim. Dados de folha e de gente são sensíveis pela LGPD e tratamos como tal. Operamos com acordo de tratamento de dados em todos os contratos, acesso segregado por cliente e processos desenhados para a lei brasileira de proteção de dados. No canal de denúncias, o conteúdo da apuração fica restrito ao ouvidor autorizado.'],
@@ -76,7 +77,7 @@ function Faq() {
 
 }
 
-function Contact({ onWa }) {
+function Contact() {
   const I = window.TriumIcons;
   const [sent, setSent] = useStateB(false);
   const [busy, setBusy] = useStateB(false);
@@ -99,36 +100,50 @@ function Contact({ onWa }) {
 
     const cfg = window.TRIUM;
     setBusy(true);
-    const payload = {
+    const dados = {
       Nome: form.nome,
       Empresa: form.empresa,
-      WhatsApp: form.whats,
+      Celular: form.whats,
       Email: form.email || 'nao informado',
       Colaboradores: form.porte,
       Situacao: form.msg || 'nao informado',
+    };
+    const payload = {
+      ...dados,
       _subject: 'Novo lead site TRIUM: ' + form.empresa,
       _template: 'table',
       _captcha: 'false',
     };
+    const post = (dest, body) => fetch('https://formsubmit.co/ajax/' + dest, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(body),
+    });
     try {
-      const r = await fetch('https://formsubmit.co/ajax/' + cfg.FORM_EMAIL, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify(payload),
-      });
+      const r = await post(cfg.FORM_EMAIL, payload);
       if (!r.ok) throw new Error('fail');
+      // notificação para o comercial (cc Robson) — não bloqueia o envio principal
+      post(cfg.LEAD_NOTIFY_EMAIL, {
+        ...dados,
+        _subject: 'Novo lead criado no site: ' + form.empresa,
+        _template: 'table',
+        _captcha: 'false',
+        _cc: cfg.LEAD_NOTIFY_CC,
+      }).catch(() => {});
       setSent(true);
     } catch (err) {
-      // fallback: abre o WhatsApp já com os dados preenchidos
+      // fallback: abre o email já com os dados preenchidos
       const text =
         'Olá! Quero um diagnóstico gratuito de folha.\n' +
         'Nome: ' + form.nome + '\n' +
         'Empresa: ' + form.empresa + '\n' +
-        'WhatsApp: ' + form.whats + '\n' +
+        'Celular: ' + form.whats + '\n' +
         (form.email ? 'Email: ' + form.email + '\n' : '') +
         'Colaboradores: ' + form.porte +
         (form.msg ? '\nSituação atual: ' + form.msg : '');
-      window.open(cfg.waLink(text), '_blank');
+      window.location.href = 'mailto:' + cfg.FORM_EMAIL +
+        '?subject=' + encodeURIComponent('Diagnóstico gratuito de folha — ' + form.empresa) +
+        '&body=' + encodeURIComponent(text);
     } finally {
       setBusy(false);
     }
@@ -142,7 +157,7 @@ function Contact({ onWa }) {
         <ul className="contact-points">
           {points.map((p) => <li key={p}><I.check size={18} color="#00C896" />{p}</li>)}
         </ul>
-        <button className="wa-direct" onClick={onWa}><I.whatsapp size={20} />Chamar no WhatsApp agora</button>
+        <a className="btn btn-ghost mail-cta" href="mailto:contato@triumbpo.com.br"><I.mail size={18} />contato@triumbpo.com.br</a>
       </div>
       <div className="lead-form">
         {!sent ?
@@ -153,7 +168,7 @@ function Contact({ onWa }) {
               <div className={'field' + (errs.empresa ? ' err' : '')}><label>Empresa</label><input value={form.empresa} onChange={set('empresa')} placeholder="Nome da empresa" /></div>
             </div>
             <div className="two-col">
-              <div className={'field' + (errs.whats ? ' err' : '')}><label>WhatsApp</label><input value={form.whats} onChange={set('whats')} type="tel" placeholder="(15) 99999 9999" /></div>
+              <div className={'field' + (errs.whats ? ' err' : '')}><label>Celular</label><input value={form.whats} onChange={set('whats')} type="tel" placeholder="(15) 99999 9999" /></div>
               <div className="field"><label>Email</label><input value={form.email} onChange={set('email')} type="email" placeholder="voce@empresa.com.br" /></div>
             </div>
             <div className={'field' + (errs.porte ? ' err' : '')}>
@@ -166,13 +181,13 @@ function Contact({ onWa }) {
             <div className="field"><label>Conte rapidamente como é sua folha e a rotina de gente hoje</label><textarea value={form.msg} onChange={set('msg')} rows="3" placeholder="Ex: contador cuida da folha, 45 CLT, sem portal; preciso de ponto e denúncias"></textarea></div>
             <label className="consent"><input type="checkbox" checked={form.lgpd} onChange={set('lgpd')} style={errs.lgpd ? { outline: '2px solid #B8552F' } : {}} /><span>Autorizo o uso dos meus dados apenas para este contato, conforme a LGPD.</span></label>
             <button type="submit" className="btn btn-navy" disabled={busy}>{busy ? 'Enviando…' : 'Quero meu diagnóstico gratuito'}</button>
-            <p className="form-note">Você também pode enviar os mesmos dados direto pelo WhatsApp.</p>
+            <p className="form-note">Preferindo email, escreva para contato@triumbpo.com.br.</p>
           </form> :
 
           <div className="form-ok">
             <I.checkCircle size={52} color="#00A87E" />
             <h3>Recebemos seu pedido</h3>
-            <p>Vamos chamar você em até 1 dia útil, {form.nome ? form.nome.split(' ')[0] : ''}. Se preferir adiantar, é só clicar no botão do WhatsApp.</p>
+            <p>Vamos chamar você em até 1 dia útil, {form.nome ? form.nome.split(' ')[0] : ''}. Se preferir adiantar, escreva para contato@triumbpo.com.br.</p>
           </div>
           }
       </div>
@@ -180,7 +195,7 @@ function Contact({ onWa }) {
 
 }
 
-function Footer({ onWa, onPortal }) {
+function Footer({ onPortal }) {
   return (
     <footer className="ft"><div className="wrap-wide">
       <div className="foot-grid">
@@ -195,6 +210,7 @@ function Footer({ onWa, onPortal }) {
           <h4>Serviços</h4>
           <a href="#servicos">FOPA · Folha e DP</a><a href="#servicos">eSocial e obrigações</a>
           <a href="#portal">Portal do cliente</a><a href="#telas">Apps PF e PJ</a>
+          <a href="#eva">EVA · assistente de IA</a>
           <a href="#modulos">Ponto · Recrutamento · Denúncias · NR-1 · PJs</a>
         </div>
         <div>
@@ -204,7 +220,6 @@ function Footer({ onWa, onPortal }) {
         </div>
         <div>
           <h4>Contato</h4>
-          <a href="#" onClick={(e) => {e.preventDefault();onWa();}}>WhatsApp</a>
           <a href="mailto:contato@triumbpo.com.br">contato@triumbpo.com.br</a>
           <a href="#contato">Diagnóstico gratuito</a>
         </div>
