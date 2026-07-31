@@ -8,6 +8,10 @@ window.TRIUM = {
   PORTAL_URL: "https://portal.triumbpo.com.br",
   // Destino do formulário via FormSubmit (confirmar e-mail no primeiro envio).
   FORM_EMAIL: "contato@triumbpo.com.br",
+  // Notificação de novo lead para o comercial (com cópia). Também via FormSubmit;
+  // o endereço LEAD_NOTIFY_EMAIL precisa ser ativado no primeiro envio.
+  LEAD_NOTIFY_EMAIL: "comercial@triumbpo.com.br",
+  LEAD_NOTIFY_CC: "talktorobson@gmail.com",
   waLink: function (text) {
     return "https://wa.me/" + this.WA_NUMBER + "?text=" + encodeURIComponent(text || this.WA_GREETING);
   },
