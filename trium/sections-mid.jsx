@@ -16,7 +16,7 @@ const SERVS = [
 const MODULES = [
   ['clock', 'Solução de Ponto', 'Coleta e tratamento de jornada desenhados sobre a Portaria 671, com espelho e exportação para a folha.',
     ['Batida no app ou quiosque, com comprovante', 'Apuração de HE, noturno, banco de horas e faltas', 'Espelho de ponto e fechamento da competência', 'Exportação para o TOTVS Protheus (sem retrabalho manual)']],
-  ['heartPulse', 'Gestão de Benefícios', 'VT, VR/VA, plano de saúde e demais benefícios administrados no mesmo ambiente da folha — do desenho do pacote à parada certa no holerite.',
+  ['heartPulse', 'Gestão de Benefícios', 'VT, VR/VA, plano de saúde e demais benefícios administrados no mesmo ambiente da folha — do desenho do pacote ao desconto certo no holerite.',
     ['Catálogo de benefícios da empresa, com regras por convenção, cargo ou filial', 'Adesões, alterações e cancelamentos com trilha auditável', 'Descontos e coparticipações calculados direto na folha, sem planilha paralela', 'Colaborador consulta o que tem e solicita pelo app']],
   ['userPlus', 'Recrutamento', 'Da vaga à admissão no mesmo cadastro da folha — sem ATS solto e sem re-digitação.',
     ['Página de carreiras e candidatura com LGPD', 'Pipeline de triagem e entrevistas', 'Proposta e aceite com trilha auditável', 'Convergência oferta → admissão no DP']],
