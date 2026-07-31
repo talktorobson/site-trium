@@ -517,7 +517,7 @@ function Eva() {
             <span className="eva-note">Disponível para gestores e colaboradores · dados tratados conforme a LGPD</span>
           </div>
         </div>
-        <div className="eva-viz" ref={vizRef}>
+        <div className="eva-viz" ref={vizRef} style={{ maxWidth: 280, marginLeft: 'auto', marginRight: 'auto' }}>
           <div className="float f1"><div className="dotok"><I.sparkles size={16} color="#00A87E" sw={2} /></div><div><b>EVA respondeu</b><br />Saldo de férias em 4 segundos</div></div>
           <div className="phone-chrome eva-phone">
             <span className="phone-notch" aria-hidden="true"></span>
