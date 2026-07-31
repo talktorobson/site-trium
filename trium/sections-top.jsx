@@ -155,7 +155,7 @@ function Hero({ heroViz }) {
         <div>
           <span className="tag on-navy">BPO de folha e departamento pessoal · plataforma digital incluída</span>
           <h1>Sua folha sem erro, sem multa e <em>sem ocupar o seu dia</em></h1>
-          <p className="lead">A TRIUM assume a folha de pagamento e o departamento pessoal com compliance e eSocial sob controle — motor de cálculo em <strong>TOTVS Protheus</strong> — e um portal digital onde o gestor, o colaborador e os módulos opcionais (ponto, recrutamento, denúncias, NR-1, PJs) convivem. Você cuida do negócio. A burocracia fica com a gente.</p>
+          <p className="lead">A TRIUM assume a folha de pagamento e o departamento pessoal com compliance e eSocial sob controle — motor de cálculo em <strong>TOTVS Protheus</strong> — e um portal digital onde o gestor, o colaborador e os módulos opcionais (ponto, benefícios, recrutamento, denúncias, NR-1, PJs) convivem. Você cuida do negócio. A burocracia fica com a gente.</p>
           <div className="hero-ctas">
             <a className="btn btn-primary" href="#contato">Pedir diagnóstico gratuito</a>
             <a className="btn btn-ghost" href="#portal"><I.monitor size={17} />Conhecer a plataforma</a>
@@ -221,7 +221,7 @@ function Pain() {
   [<I.alert color="#D98E1B" />, 'Risco de multa silencioso', 'Prazos de eSocial, FGTS Digital, NR-1 e obrigações mensais mudam o tempo todo. Quando o erro aparece, a multa já é retroativa e o problema virou seu.'],
   [<I.clock color="#D98E1B" />, 'Seu tempo escorrendo pelo ralo', 'Admissão, férias, atestado, rescisão, benefício, ponto. Sem um DP estruturado, tudo isso para na mesa do dono ou de um administrativo sobrecarregado.'],
   [<I.monitor color="#D98E1B" />, 'Zero visibilidade', 'Você recebe a folha pronta, sem prévia para conferir e sem relatório de custo. O colaborador pede holerite por mensagem e espera dias pela resposta.'],
-  [<I.flag color="#D98E1B" />, 'Ferramentas soltas demais', 'Ponto num sistema, denúncia em planilha, recrutamento em e-mail, PJs em conversas soltas. Cada demanda vira um sistema novo — e ninguém enxerga o quadro inteiro.']];
+  [<I.flag color="#D98E1B" />, 'Ferramentas soltas demais', 'Ponto num sistema, benefícios e denúncias em planilha, recrutamento em e-mail, PJs em conversas soltas. Cada demanda vira um sistema novo — e ninguém enxerga o quadro inteiro.']];
 
   return (
     <section className="sec" id="dores"><div className="wrap reveal">
