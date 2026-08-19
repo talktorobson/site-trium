@@ -4,21 +4,332 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>TRIUM BPO — Folha, DP e plataforma digital para PME</title>
+<link rel="canonical" href="https://triumbpo.com.br/">
+<meta name="robots" content="index, follow">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='10' fill='%230B2239'/%3E%3Crect x='5' y='9' width='9' height='30' rx='3' fill='%23FFFFFF'/%3E%3Crect x='19.5' y='9' width='9' height='30' rx='3' fill='%2300C896'/%3E%3Crect x='34' y='9' width='9' height='30' rx='3' fill='%23F2B441'/%3E%3C/svg%3E">
 <meta name="theme-color" content="#0B2239">
 <meta name="description" content="BPO de folha e departamento pessoal (FOPA) com portal digital incluído. Módulos no mesmo ambiente: ponto, benefícios, recrutamento, canal de denúncias, NR-1 e gestão de PJs. Para empresas a partir de 10 colaboradores.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:url" content="https://triumbpo.com.br/">
+<meta property="og:site_name" content="TRIUM BPO">
+<meta property="og:title" content="TRIUM BPO — Folha, DP e plataforma digital para PME">
+<meta property="og:description" content="BPO de folha e departamento pessoal (FOPA) com portal digital incluído. Módulos no mesmo ambiente: ponto, benefícios, recrutamento, canal de denúncias, NR-1 e gestão de PJs. Para empresas a partir de 10 colaboradores.">
+<meta property="og:image" content="https://triumbpo.com.br/trium/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="TRIUM BPO — Folha, DP e plataforma digital para PME">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="TRIUM BPO — Folha, DP e plataforma digital para PME">
+<meta name="twitter:description" content="BPO de folha e departamento pessoal (FOPA) com portal digital incluído. Módulos no mesmo ambiente: ponto, benefícios, recrutamento, canal de denúncias, NR-1 e gestão de PJs. Para empresas a partir de 10 colaboradores.">
+<meta name="twitter:image" content="https://triumbpo.com.br/trium/og.png">
+<link rel="alternate" type="text/markdown" href="https://triumbpo.com.br/llms.txt" title="Índice para agentes de IA">
 <link rel="stylesheet" href="_ds/trium-bpo-design-system-1afe42f3-13e7-4d37-bdcd-1a7c93703da6/styles.css?v=20260731">
 <link rel="stylesheet" href="trium/site.css?v=20260731">
 <style>
   html, body { margin: 0; background: var(--bg); }
   #app { position: relative; min-height: 100vh; }
+  .seo-shell dt { font-family: var(--font-display); font-weight: 600; color: var(--navy); margin: 1.2rem 0 .35rem; }
+  .seo-shell dd { margin: 0; color: var(--grey); }
+  .seo-shell .seo-list { margin: 0; padding-left: 1.15rem; color: var(--grey); }
+  .navy-sec .seo-shell dt, .navy-sec .seo-list, .hero .seo-list { color: rgba(255,255,255,.82); }
+  .navy-sec .seo-shell dt { color: #fff; }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://triumbpo.com.br/#org",
+      "name": "TRIUM BPO",
+      "alternateName": "TRIUM",
+      "url": "https://triumbpo.com.br/",
+      "logo": "https://triumbpo.com.br/trium/og.png",
+      "image": "https://triumbpo.com.br/trium/og.png",
+      "email": "contato@triumbpo.com.br",
+      "description": "BPO de folha e departamento pessoal (FOPA) com portal digital incluído. Módulos no mesmo ambiente: ponto, benefícios, recrutamento, canal de denúncias, NR-1 e gestão de PJs. Para empresas a partir de 10 colaboradores.",
+      "areaServed": {
+        "@type": "Country",
+        "name": "Brazil"
+      },
+      "availableLanguage": [
+        "pt-BR"
+      ],
+      "knowsAbout": [
+        "FOPA",
+        "folha de pagamento",
+        "departamento pessoal",
+        "eSocial",
+        "TOTVS Protheus",
+        "FGTS Digital",
+        "NR-1",
+        "Lei 14.457",
+        "BPO",
+        "portal do colaborador",
+        "EVA"
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Serviços TRIUM BPO",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "FOPA",
+              "description": "Folha de pagamento, departamento pessoal, eSocial e portal digital — o núcleo da TRIUM."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Solução de Ponto",
+              "description": "Jornada alinhada à Portaria 671, com exportação para o TOTVS Protheus."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Gestão de Benefícios",
+              "description": "VT, VR/VA, plano de saúde e similares, com desconto direto na folha."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Recrutamento",
+              "description": "Da vaga à admissão no mesmo cadastro da folha."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Canal de Denúncias",
+              "description": "Canal confidencial alinhado à Lei 14.457/2022."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Gestão de Riscos NR-1",
+              "description": "Riscos psicossociais no PGR, Portaria MTE 1.419/2024."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Gestão de PJs",
+              "description": "Prestadores em trilho separado do CLT."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://triumbpo.com.br/#website",
+      "url": "https://triumbpo.com.br/",
+      "name": "TRIUM BPO",
+      "inLanguage": "pt-BR",
+      "publisher": {
+        "@id": "https://triumbpo.com.br/#org"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://triumbpo.com.br/#webpage",
+      "url": "https://triumbpo.com.br/",
+      "name": "TRIUM BPO — Folha, DP e plataforma digital para PME",
+      "isPartOf": {
+        "@id": "https://triumbpo.com.br/#website"
+      },
+      "about": {
+        "@id": "https://triumbpo.com.br/#org"
+      },
+      "inLanguage": "pt-BR",
+      "description": "BPO de folha e departamento pessoal (FOPA) com portal digital incluído. Módulos no mesmo ambiente: ponto, benefícios, recrutamento, canal de denúncias, NR-1 e gestão de PJs. Para empresas a partir de 10 colaboradores."
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://triumbpo.com.br/#faq",
+      "isPartOf": {
+        "@id": "https://triumbpo.com.br/#webpage"
+      },
+      "inLanguage": "pt-BR",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Preciso trocar de contador para contratar a TRIUM?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Não. A TRIUM assume a folha e o departamento pessoal. Seu contador continua cuidando da contabilidade e do fiscal, e nós entregamos a ele todos os relatórios e integrações que precisar. Na prática, o trabalho dele fica mais fácil."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Minha empresa é pequena. Vale a pena terceirizar?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nosso foco são empresas a partir de 10 colaboradores, justamente as que não têm RH interno ou têm uma equipe pequena. É nesse porte que a terceirização traz mais retorno, porque o custo de um erro de folha ou de uma multa é proporcionalmente muito maior."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Como funciona o preço?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "O valor é por colaborador ativo por mês (e, em alguns módulos, por prestador), com o portal digital já incluído no FOPA. Cada proposta é montada sob medida após o diagnóstico gratuito, de acordo com o porte, a complexidade e os módulos que você quiser ativar. Não publicamos tabela fixa no site."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "O que é o Portal do Cliente?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "É o ambiente digital (portal.triumbpo.com.br) onde o gestor acompanha a folha: prévia, custos, documentos, solicitações e obrigações. O colaborador usa o app para holerites, documentos e, se contratados, ponto, benefícios e canal de denúncias. Módulos opcionais entram no mesmo login."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quais módulos além da folha vocês oferecem?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No mesmo portal: Solução de Ponto (Portaria 671), Gestão de Benefícios (VT, VR/VA, plano de saúde e similares, com desconto direto na folha), Recrutamento (da vaga à admissão), Canal de Denúncias (Lei 14.457), Gestão de Riscos NR-1 (Portaria MTE 1.419/2024 — psicossocial no PGR) e Gestão de PJs (prestadores em trilho separado do CLT). Você contrata o que precisa; o FOPA é o núcleo."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "O que é a EVA?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A EVA é a assistente de inteligência artificial da plataforma TRIUM, disponível no portal e no app. Ela conhece a folha da sua empresa e responde na hora: saldo de férias, holerite, prazos, benefícios e documentos. Também abre solicitações na própria conversa e, quando o assunto precisa de um humano, aciona o analista da sua carteira. Vem incluída no FOPA, sem custo à parte, com dados tratados conforme a LGPD."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Posso contratar só o ponto, os benefícios, a denúncia ou a NR-1?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sim para ponto, benefícios, denúncias e NR-1 como módulos no desenho da TRIUM — o diagnóstico define se entram com o FOPA ou em configuração específica. Recrutamento roda sobre a relação de folha/DP (não vendemos um ATS solto). Em todos os casos o ambiente é o mesmo portal."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "O que a NR-1 cobre na prática e preciso de psicólogo?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A Portaria MTE 1.419/2024 exige gestão de riscos psicossociais no PGR. No módulo você escolhe o instrumento científico (COPSOQ III-BR ou HSE Indicator Tool), roda o ciclo com anonimato por desenho, gera inventário, planos e dossiê. A TRIUM/plataforma não substitui o profissional: você nomeia responsável técnico e, quando preciso, psicólogo independente para relatos críticos e revisão do inventário — a ferramenta organiza, documenta e evidencia."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Meus dados e os dos colaboradores ficam seguros?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sim. Dados de folha e de gente são sensíveis pela LGPD e tratamos como tal. Operamos com acordo de tratamento de dados em todos os contratos, acesso segregado por cliente e processos desenhados para a lei brasileira de proteção de dados. No canal de denúncias, o conteúdo da apuração fica restrito ao ouvidor autorizado."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Em qual sistema a folha é calculada?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No motor TOTVS Protheus — o engine de folha de mercado que a TRIUM opera. Nossa plataforma cuida do portal, da prévia, dos apps e dos módulos (ponto, denúncias, NR-1, PJs); o Protheus faz o cálculo, os encargos e a trilha de eSocial/obrigações."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "E se eu já tiver um sistema de folha?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sem problema. No diagnóstico avaliamos o que você já usa e definimos juntos o melhor caminho. Podemos migrar a operação para o TOTVS Protheus com a TRIUM ou avaliar a operação sobre a sua ferramenta atual; módulos como ponto e portal do colaborador também se encaixam nesse desenho."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
 </head>
 <body>
-<div id="app"></div>
+<noscript>
+  <p>A TRIUM assume a folha de pagamento e o departamento pessoal (FOPA) com portal digital incluído, motor TOTVS Protheus e a EVA. Empresas a partir de 10 colaboradores. <a href="https://triumbpo.com.br/llms.txt">Resumo em Markdown</a> · <a href="mailto:contato@triumbpo.com.br">contato@triumbpo.com.br</a></p>
+</noscript>
+<div id="app">
+<main class="seo-shell">
+  <section class="hero" id="topo">
+    <div class="wrap-wide">
+      <span class="tag on-navy">BPO de folha e departamento pessoal · plataforma digital incluída</span>
+      <h1>Sua folha sem erro, sem multa e <em>sem ocupar o seu dia</em></h1>
+      <p class="lead">A TRIUM assume a folha de pagamento e o departamento pessoal com compliance e eSocial sob controle — motor de cálculo em <strong>TOTVS Protheus</strong> — e um portal digital onde o gestor, o colaborador e os módulos opcionais (ponto, benefícios, recrutamento, denúncias, NR-1, PJs) convivem. Você cuida do negócio. A burocracia fica com a gente.</p>
+      <p><a class="btn btn-primary" href="#contato">Pedir diagnóstico gratuito</a></p>
+      <ul class="seo-list">
+        <li>Implantação em até 60 dias</li>
+        <li>Portal e app do colaborador incluídos</li>
+        <li>Motor de folha TOTVS Protheus</li>
+        <li>EVA, assistente de IA, incluída</li>
+      </ul>
+    </div>
+  </section>
+  <section class="sec navy-sec" id="servicos">
+    <div class="wrap">
+      <h2>FOPA — o serviço de folha da TRIUM</h2>
+      <p>Folha, DP, eSocial e portal digital incluídos. Módulos opcionais no mesmo ambiente.</p>
+      <ul class="seo-list">
+        <li>Folha de pagamento — cálculo no TOTVS Protheus, com prévia antes do fechamento</li>
+        <li>Departamento pessoal — da admissão ao desligamento</li>
+        <li>eSocial e obrigações — FGTS Digital, DCTFWeb, convenções coletivas</li>
+        <li>Portal digital incluído — gestor e app do colaborador, sem software à parte</li>
+      </ul>
+      <h2 id="modulos">Módulos no mesmo portal</h2>
+      <ul class="seo-list">
+        <li>Solução de Ponto (Portaria 671)</li>
+        <li>Gestão de Benefícios (VT, VR/VA, plano de saúde)</li>
+        <li>Recrutamento (da vaga à admissão)</li>
+        <li>Canal de Denúncias (Lei 14.457)</li>
+        <li>Gestão de Riscos NR-1 (Portaria MTE 1.419/2024)</li>
+        <li>Gestão de PJs (prestadores em trilho separado do CLT)</li>
+      </ul>
+    </div>
+  </section>
+  <section class="sec" id="faq">
+    <div class="wrap">
+      <h2>O que todo mundo pergunta antes de contratar</h2>
+      <dl>
+        <dt>Preciso trocar de contador para contratar a TRIUM?</dt>
+        <dd>Não. A TRIUM assume a folha e o DP; o contador segue com contabilidade e fiscal.</dd>
+        <dt>Minha empresa é pequena. Vale a pena terceirizar?</dt>
+        <dd>Foco em empresas a partir de 10 colaboradores, sem RH interno ou com equipe pequena.</dd>
+        <dt>Como funciona o preço?</dt>
+        <dd>Por colaborador ativo por mês (e, em alguns módulos, por prestador). Sem tabela pública; proposta após diagnóstico gratuito.</dd>
+        <dt>O que é o Portal do Cliente?</dt>
+        <dd>portal.triumbpo.com.br — prévia da folha, custos, documentos e obrigações. App do colaborador no mesmo contrato.</dd>
+        <dt>O que é a EVA?</dt>
+        <dd>Assistente de IA no portal e no app, incluída no FOPA, com dados tratados conforme a LGPD.</dd>
+        <dt>Em qual sistema a folha é calculada?</dt>
+        <dd>TOTVS Protheus. A plataforma TRIUM cuida do portal, da prévia, dos apps e dos módulos.</dd>
+      </dl>
+    </div>
+  </section>
+  <section class="sec contact" id="contato">
+    <div class="wrap">
+      <h2>Diagnóstico gratuito</h2>
+      <p>Em uma conversa de 30 minutos, entendemos sua operação e devolvemos um relatório com riscos, custos e o que dá para melhorar.</p>
+      <p><a href="mailto:contato@triumbpo.com.br">contato@triumbpo.com.br</a></p>
+    </div>
+  </section>
+</main>
+</div>
 
-<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js" integrity="sha384-DGyLxAyjq0f9SPpVevD6IgztCFlnMF6oW/XQGmfe+IsZ8TqEiDrcHkMLKI6fiB/Z" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" integrity="sha384-gTGxhz21lVGYNMcdJOyq01Edg0jhn/c22nsx0kyqP0TxaV5WVdsSH1fSDUf5YJj1" crossorigin="anonymous"></script>
 <script src="_ds/trium-bpo-design-system-1afe42f3-13e7-4d37-bdcd-1a7c93703da6/_ds_bundle.js"></script>
 <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
 

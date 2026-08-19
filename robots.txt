@@ -1,0 +1,9 @@
+# TRIUM BPO — crawlers (Google, Bing, GPTBot, OAI-SearchBot, ClaudeBot, PerplexityBot, Google-Extended)
+User-agent: *
+Allow: /
+Disallow: /client-portal.html
+Disallow: /index-v1-backup.html
+Disallow: /index-v2-backup.html
+Disallow: /memory/
+
+Sitemap: https://triumbpo.com.br/sitemap.xml

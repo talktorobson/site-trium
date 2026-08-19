@@ -43,6 +43,7 @@ function Team({ teamStyle }) {
 
 function Faq() {
   const I = window.TriumIcons;
+  /* Keep Q&A in sync with index.html JSON-LD / seo-shell and /llms.txt. */
   const qa = [
   ['Preciso trocar de contador para contratar a TRIUM?', 'Não. A TRIUM assume a folha e o departamento pessoal. Seu contador continua cuidando da contabilidade e do fiscal, e nós entregamos a ele todos os relatórios e integrações que precisar. Na prática, o trabalho dele fica mais fácil.'],
   ['Minha empresa é pequena. Vale a pena terceirizar?', 'Nosso foco são empresas a partir de 10 colaboradores, justamente as que não têm RH interno ou têm uma equipe pequena. É nesse porte que a terceirização traz mais retorno, porque o custo de um erro de folha ou de uma multa é proporcionalmente muito maior.'],

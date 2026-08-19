@@ -1,0 +1,10 @@
+{
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "www.triumbpo.com.br" }],
+      "destination": "https://triumbpo.com.br/$1",
+      "permanent": true
+    }
+  ]
+}
