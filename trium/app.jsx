@@ -13,9 +13,10 @@ function useReveal(deps) {
   useEffectA(() => {
     const els = Array.from(document.querySelectorAll('.reveal'));
     if (!('IntersectionObserver' in window)) { els.forEach((e) => e.classList.add('in')); return; }
+    // threshold 0: some .reveal wrappers are 5–8× viewport on mobile; 0.12 of that never fits on screen.
     const io = new IntersectionObserver((entries) => {
       entries.forEach((en) => { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
-    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+    }, { threshold: 0, rootMargin: '80px 0px' });
     els.forEach((e) => io.observe(e));
     return () => io.disconnect();
   }, deps);

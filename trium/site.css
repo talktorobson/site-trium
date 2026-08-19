@@ -23,7 +23,7 @@ section[id]{scroll-margin-top:calc(var(--header-h) + 12px)}
 .site[data-density="compact"]{--sec-pad:72px;--gap:20px;--h1:clamp(1.9rem,3.8vw,2.85rem);--h2:clamp(1.5rem,2.6vw,2.05rem);--lead:1.05rem}
 .site[data-density="spacious"]{--sec-pad:132px;--gap:30px;--h1:clamp(2.3rem,4.8vw,3.7rem);--h2:clamp(1.8rem,3.3vw,2.7rem);--lead:1.2rem}
 
-.site{font-family:var(--font-text);color:var(--ink);background:var(--bg);line-height:var(--lh-body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.site{font-family:var(--font-text);color:var(--ink);background:var(--bg);line-height:var(--lh-body);-webkit-font-smoothing:antialiased;overflow-x:clip}
 .site h1,.site h2,.site h3,.site h4{font-family:var(--font-display);line-height:var(--lh-tight);color:var(--navy);margin:0}
 .site h1{letter-spacing:-.025em}
 .site h2{letter-spacing:-.015em}
