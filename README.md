@@ -27,11 +27,11 @@ Prestador PJ: use / regrave o fluxo do portal do prestador (ver `demo/*gestao-pj
 
 ## Estrutura (v3)
 
-Site React renderizado no navegador (sem etapa de build), via React 18 + Babel standalone carregados por CDN. Sem `npm install`.
+Site React. JSX em `trium/*.jsx` é pré-compilado para `trium/build/*.js` (sem Babel no navegador). Servir a raiz continua sem `npm install`. Depois de editar JSX: `./scripts/build.sh`.
 
-- `index.html` — landing page (monta `trium/app.jsx` e as seções).
+- `index.html` — landing (HTML pré-renderizado + `trium/build/landing.js`).
 - `client-portal.html` — prévia do Portal do Cliente (demo).
-- `trium/` — componentes JSX (`app.jsx`, `sections-top/mid/bottom.jsx`, `icons.jsx`, `portal.jsx`), estilos (`site.css`, `portal.css`), ícones PNG e `config.js`.
+- `trium/` — componentes JSX, bundle em `trium/build/`, estilos, mídia e `config.js`.
 - `_ds/` — design system TRIUM (tokens, estilos e bundle com `TriumLogo`).
 - `index-v2-backup.html` / `index-v1-backup.html` — versões anteriores (single-file), mantidas só como referência.
 
@@ -49,7 +49,7 @@ Placeholders no conteúdo: sobrenomes e minibios das sócias na seção Equipe.
 
 ## Notas de produção
 
-React e Babel são carregados em modo de desenvolvimento via CDN e o JSX é transpilado no navegador. Funciona, mas para máxima performance/SEO o ideal é pré-compilar os JSX num bundle estático no futuro.
+JSX é pré-compilado (`trium/build/`) e a landing traz HTML estático no `#app` para crawlers que não executam JS. React no CDN é o build de produção.
 
 ## Deploy
 

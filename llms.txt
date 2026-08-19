@@ -5,6 +5,7 @@
 - Site: https://triumbpo.com.br/
 - Portal do cliente: https://portal.triumbpo.com.br
 - Contato: contato@triumbpo.com.br
+- CNPJ: 67.643.860/0001-14
 - Idioma: pt-BR
 - Porte: empresas a partir de 10 colaboradores
 

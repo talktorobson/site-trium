@@ -226,7 +226,7 @@ function Footer({ onPortal }) {
         </div>
       </div>
       <div className="foot-bottom">
-        <span>© 2026 TRIUM BPO. Todos os direitos reservados.</span>
+        <span>© 2026 TRIUM BPO. CNPJ 67.643.860/0001-14. Todos os direitos reservados.</span>
         <span>triumbpo.com.br · fopa.com.br · Comprometidos com a LGPD</span>
       </div>
     </div></footer>);
