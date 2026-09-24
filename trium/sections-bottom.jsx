@@ -222,7 +222,10 @@ function Footer({ onPortal }) {
         <div>
           <h4>Contato</h4>
           <a href="mailto:contato@triumbpo.com.br">contato@triumbpo.com.br</a>
+          <a href="tel:+551533844013">(15) 3384-4013</a>
+          <a href="https://www.linkedin.com/company/triumbpo/" target="_blank" rel="noopener">LinkedIn</a>
           <a href="#contato">Diagnóstico gratuito</a>
+          <address className="ft-addr">Av. Dr. Vinício Gagliardi, 675<br />Centro, Cerquilho/SP</address>
         </div>
       </div>
       <div className="foot-bottom">

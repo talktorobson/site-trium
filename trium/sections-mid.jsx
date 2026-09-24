@@ -130,7 +130,7 @@ const JOURNEYS = [
     blurb: 'Acesso sem senha, holerites, documentos, férias e perfil — instalável no celular.',
     steps: ['Acesso', 'Holerites', 'Documentos', 'Férias', 'Perfil'],
     video: 'trium/video/colab-pf.webm',
-    poster: 'trium/video/colab-pf-poster.jpg',
+    poster: 'trium/video/colab-pf-poster.jpg', posterW: 390, posterH: 844,
     aria: 'Jornada no app do colaborador CLT: acesso, holerites, documentos e férias',
   },
   {
@@ -140,7 +140,7 @@ const JOURNEYS = [
     blurb: 'Trilho separado do CLT: contratos, financeiro e documentos no PWA do prestador.',
     steps: ['Acesso', 'Home', 'Contratos', 'Financeiro'],
     video: 'trium/video/prestador-pj.webm',
-    poster: 'trium/video/prestador-pj-poster.jpg',
+    poster: 'trium/video/prestador-pj-poster.jpg', posterW: 390, posterH: 816,
     aria: 'Jornada no app do prestador PJ: acesso, contratos e financeiro',
   },
 ];
@@ -151,10 +151,10 @@ const DESK_TABS = [
     label: 'Gestor RH',
     blurb: 'Portal web do cliente: home, folha, recrutamento e NR-1 no mesmo login.',
     shots: [
-      { src: 'trium/shots/web-rh-home.png', alt: 'Home do portal do gestor RH', cap: 'Home do gestor', kind: 'desktop' },
-      { src: 'trium/shots/web-rh-folha.png', alt: 'Prévia da folha no portal do cliente', cap: 'Prévia da folha', kind: 'desktop' },
-      { src: 'trium/shots/web-rh-nr1-hub.png', alt: 'Hub NR-1 com checklist de adequação', cap: 'Hub NR-1', kind: 'desktop' },
-      { src: 'trium/shots/web-rh-recrutamento.png', alt: 'Recrutamento no portal do cliente', cap: 'Recrutamento', kind: 'desktop' },
+      { src: 'trium/shots/web-rh-home.png', w: 1280, h: 800, alt: 'Home do portal do gestor RH', cap: 'Home do gestor', kind: 'desktop' },
+      { src: 'trium/shots/web-rh-folha.png', w: 1280, h: 858, alt: 'Prévia da folha no portal do cliente', cap: 'Prévia da folha', kind: 'desktop' },
+      { src: 'trium/shots/web-rh-nr1-hub.png', w: 1280, h: 800, alt: 'Hub NR-1 com checklist de adequação', cap: 'Hub NR-1', kind: 'desktop' },
+      { src: 'trium/shots/web-rh-recrutamento.png', w: 1280, h: 800, alt: 'Recrutamento no portal do cliente', cap: 'Recrutamento', kind: 'desktop' },
     ],
   },
   {
@@ -162,9 +162,9 @@ const DESK_TABS = [
     label: 'Ouvidor e psicólogo',
     blurb: 'Canal de denúncias (Lei 14.457) e NR-1 com RT/psicólogo independente nomeado pelo cliente.',
     shots: [
-      { src: 'trium/shots/web-ouvidor-acompanhar.png', alt: 'Acompanhar denúncia com protocolo e chave', cap: 'Acompanhar denúncia', kind: 'desktop' },
-      { src: 'trium/shots/web-psi-responsaveis.png', alt: 'Nomeação de RT e psicólogo independente na NR-1', cap: 'Psicólogo / RT independente', kind: 'desktop' },
-      { src: 'trium/shots/web-rh-relatos.png', alt: 'Relatos NR-1 vs canal de denúncias', cap: 'Relatos × denúncias', kind: 'desktop' },
+      { src: 'trium/shots/web-ouvidor-acompanhar.png', w: 1280, h: 900, alt: 'Acompanhar denúncia com protocolo e chave', cap: 'Acompanhar denúncia', kind: 'desktop' },
+      { src: 'trium/shots/web-psi-responsaveis.png', w: 1280, h: 800, alt: 'Nomeação de RT e psicólogo independente na NR-1', cap: 'Psicólogo / RT independente', kind: 'desktop' },
+      { src: 'trium/shots/web-rh-relatos.png', w: 1280, h: 800, alt: 'Relatos NR-1 vs canal de denúncias', cap: 'Relatos × denúncias', kind: 'desktop' },
     ],
   },
 ];
@@ -189,7 +189,7 @@ function JourneyPhone({ j, active }) {
               aria-label={j.aria}
             />
           ) : (
-            <img src={j.poster} alt={j.aria} loading="lazy" decoding="async" />
+            <img src={j.poster} width={j.posterW} height={j.posterH} alt={j.aria} loading="lazy" decoding="async" />
           )}
         </div>
       </div>
@@ -215,7 +215,7 @@ function ShotFrame({ shot }) {
           <span className="pf-dot"></span><span className="pf-dot"></span><span className="pf-dot"></span>
           <span className="pf-url">portal.triumbpo.com.br</span>
         </div>
-        <img src={shot.src} loading="lazy" decoding="async" alt={shot.alt} />
+        <img src={shot.src} width={shot.w} height={shot.h} loading="lazy" decoding="async" alt={shot.alt} />
       </div>
       <figcaption>{shot.cap}</figcaption>
     </figure>
@@ -532,7 +532,7 @@ function Eva() {
                 aria-label="Demonstração da EVA respondendo um colaborador no app da TRIUM"
               />
             ) : (
-              <img src="trium/video/eva-poster.jpg" alt="EVA respondendo um colaborador no app da TRIUM" loading="lazy" decoding="async" />
+              <img src="trium/video/eva-poster.jpg" width="390" height="844" alt="EVA respondendo um colaborador no app da TRIUM" loading="lazy" decoding="async" />
             )}
           </div>
         </div>

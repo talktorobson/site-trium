@@ -1,0 +1,17 @@
+# Keep source, tooling and internal notes off the public site.
+CLAUDE.md
+AGENTS.md
+README.md
+memory/
+scripts/
+index-v1-backup.html
+index-v2-backup.html
+trium/*.jsx
+trium/*_check.png
+trium/*_chk.png
+trium/portal-shot.png
+_ds/*/_adherence.oxlintrc.json
+_ds/*/_ds_manifest.json
+_ds/*/readme.md
+*.local
+*.jsonl

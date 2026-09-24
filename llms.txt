@@ -4,7 +4,9 @@
 
 - Site: https://triumbpo.com.br/
 - Portal do cliente: https://portal.triumbpo.com.br
-- Contato: contato@triumbpo.com.br
+- Contato: contato@triumbpo.com.br · (15) 3384-4013
+- Endereço: Av. Dr. Vinício Gagliardi, 675, Centro, Cerquilho/SP
+- LinkedIn: https://www.linkedin.com/company/triumbpo/
 - CNPJ: 67.643.860/0001-14
 - Idioma: pt-BR
 - Porte: empresas a partir de 10 colaboradores
@@ -39,4 +41,5 @@ Assistente de IA no portal e no app. Consulta folha (férias, holerite, prazos, 
 ## Páginas
 
 - [Landing](https://triumbpo.com.br/): oferta, módulos, FAQ, contato
+- [Conteúdo completo em Markdown](https://triumbpo.com.br/llms-full.txt): a página inteira, incluindo comparativo, segmentos, equipe e FAQ completo
 - [Índice deste arquivo](https://triumbpo.com.br/llms.txt)
