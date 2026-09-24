@@ -477,6 +477,7 @@ section[id]{scroll-margin-top:calc(var(--header-h) + 12px)}
 .ft h4{color:#fff;font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:1.1rem}
 .ft a{display:block;padding:.28rem 0;color:rgba(255,255,255,.6);transition:color .2s}
 .ft a:hover{color:var(--teal)}
+.ft-addr{font-style:normal;color:rgba(255,255,255,.6);padding:.28rem 0;line-height:1.5}
 .foot-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:.8rem;font-size:.8rem}
 
 /* ---- Toast ---- */

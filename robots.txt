@@ -1,9 +1,7 @@
-# TRIUM BPO — crawlers (Google, Bing, GPTBot, OAI-SearchBot, ClaudeBot, PerplexityBot, Google-Extended)
+# TRIUM BPO — buscadores e agentes de IA são bem-vindos.
+# Resumo para agentes: https://triumbpo.com.br/llms.txt
+# Conteúdo completo em Markdown: https://triumbpo.com.br/llms-full.txt
 User-agent: *
 Allow: /
-Disallow: /client-portal.html
-Disallow: /index-v1-backup.html
-Disallow: /index-v2-backup.html
-Disallow: /memory/
 
 Sitemap: https://triumbpo.com.br/sitemap.xml

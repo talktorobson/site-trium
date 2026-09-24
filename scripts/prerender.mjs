@@ -70,6 +70,42 @@ await page.evaluate(() => {
   document.querySelectorAll('.faq-q').forEach((el) => el.setAttribute('aria-expanded', 'true'));
 });
 const snapshot = await page.$eval('.site', (el) => el.outerHTML);
+// Markdown twin of the rendered page for AI agents (llms-full.txt), so it never drifts from the HTML.
+const markdown = await page.$eval('.site', (site) => {
+  const SKIP = 'nav, header, footer, svg, video, script, style, form, .skip, .shot-note, [aria-hidden="true"]';
+  const clean = (s) => s.replace(/\s+/g, ' ').trim();
+  const out = [];
+  const walk = (el) => {
+    if (el.matches(SKIP)) return;
+    const tag = el.tagName;
+    if (/^H[1-4]$/.test(tag)) {
+      const t = clean(el.textContent);
+      if (t) out.push('', '#'.repeat(Number(tag[1]) + 1) + ' ' + t, '');
+      return;
+    }
+    if (el.classList.contains('faq-q')) {
+      out.push('', '#### ' + clean(el.textContent), '');
+      return;
+    }
+    if (tag === 'TABLE') {
+      const rows = [...el.rows].map((r) => [...r.cells].map((c) => clean(c.textContent).replace(/\|/g, '/')));
+      if (rows.length) {
+        out.push('', '| ' + rows[0].join(' | ') + ' |', '|' + rows[0].map(() => ' --- |').join(''));
+        rows.slice(1).forEach((r) => out.push('| ' + r.join(' | ') + ' |'));
+        out.push('');
+      }
+      return;
+    }
+    if (tag === 'P' || tag === 'LI' || tag === 'BLOCKQUOTE') {
+      const t = clean(el.innerText || el.textContent);
+      if (t) out.push((tag === 'LI' ? '- ' : '') + t);
+      return;
+    }
+    for (const c of el.children) walk(c);
+  };
+  walk(site);
+  return out.join('\n').replace(/\n{3,}/g, '\n\n').trim();
+});
 await browser.close();
 server.close();
 
@@ -93,3 +129,10 @@ const next =
   html.slice(i1);
 writeFileSync(indexPath, next);
 console.log('prerendered', snapshot.length, 'chars into index.html');
+
+const llmsHead = readFileSync(join(root, 'llms.txt'), 'utf8').split('\n## ')[0].trim();
+writeFileSync(
+  join(root, 'llms-full.txt'),
+  `${llmsHead}\n\nConteúdo completo da página https://triumbpo.com.br/ em Markdown, gerado a partir do HTML publicado.\n\n${markdown}\n`
+);
+console.log('wrote llms-full.txt', markdown.length, 'chars');

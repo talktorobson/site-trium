@@ -223,6 +223,8 @@
       steps: ["Acesso", "Holerites", "Documentos", "F\xE9rias", "Perfil"],
       video: "trium/video/colab-pf.webm",
       poster: "trium/video/colab-pf-poster.jpg",
+      posterW: 390,
+      posterH: 844,
       aria: "Jornada no app do colaborador CLT: acesso, holerites, documentos e f\xE9rias"
     },
     {
@@ -233,6 +235,8 @@
       steps: ["Acesso", "Home", "Contratos", "Financeiro"],
       video: "trium/video/prestador-pj.webm",
       poster: "trium/video/prestador-pj-poster.jpg",
+      posterW: 390,
+      posterH: 816,
       aria: "Jornada no app do prestador PJ: acesso, contratos e financeiro"
     }
   ];
@@ -242,10 +246,10 @@
       label: "Gestor RH",
       blurb: "Portal web do cliente: home, folha, recrutamento e NR-1 no mesmo login.",
       shots: [
-        { src: "trium/shots/web-rh-home.png", alt: "Home do portal do gestor RH", cap: "Home do gestor", kind: "desktop" },
-        { src: "trium/shots/web-rh-folha.png", alt: "Pr\xE9via da folha no portal do cliente", cap: "Pr\xE9via da folha", kind: "desktop" },
-        { src: "trium/shots/web-rh-nr1-hub.png", alt: "Hub NR-1 com checklist de adequa\xE7\xE3o", cap: "Hub NR-1", kind: "desktop" },
-        { src: "trium/shots/web-rh-recrutamento.png", alt: "Recrutamento no portal do cliente", cap: "Recrutamento", kind: "desktop" }
+        { src: "trium/shots/web-rh-home.png", w: 1280, h: 800, alt: "Home do portal do gestor RH", cap: "Home do gestor", kind: "desktop" },
+        { src: "trium/shots/web-rh-folha.png", w: 1280, h: 858, alt: "Pr\xE9via da folha no portal do cliente", cap: "Pr\xE9via da folha", kind: "desktop" },
+        { src: "trium/shots/web-rh-nr1-hub.png", w: 1280, h: 800, alt: "Hub NR-1 com checklist de adequa\xE7\xE3o", cap: "Hub NR-1", kind: "desktop" },
+        { src: "trium/shots/web-rh-recrutamento.png", w: 1280, h: 800, alt: "Recrutamento no portal do cliente", cap: "Recrutamento", kind: "desktop" }
       ]
     },
     {
@@ -253,9 +257,9 @@
       label: "Ouvidor e psic\xF3logo",
       blurb: "Canal de den\xFAncias (Lei 14.457) e NR-1 com RT/psic\xF3logo independente nomeado pelo cliente.",
       shots: [
-        { src: "trium/shots/web-ouvidor-acompanhar.png", alt: "Acompanhar den\xFAncia com protocolo e chave", cap: "Acompanhar den\xFAncia", kind: "desktop" },
-        { src: "trium/shots/web-psi-responsaveis.png", alt: "Nomea\xE7\xE3o de RT e psic\xF3logo independente na NR-1", cap: "Psic\xF3logo / RT independente", kind: "desktop" },
-        { src: "trium/shots/web-rh-relatos.png", alt: "Relatos NR-1 vs canal de den\xFAncias", cap: "Relatos \xD7 den\xFAncias", kind: "desktop" }
+        { src: "trium/shots/web-ouvidor-acompanhar.png", w: 1280, h: 900, alt: "Acompanhar den\xFAncia com protocolo e chave", cap: "Acompanhar den\xFAncia", kind: "desktop" },
+        { src: "trium/shots/web-psi-responsaveis.png", w: 1280, h: 800, alt: "Nomea\xE7\xE3o de RT e psic\xF3logo independente na NR-1", cap: "Psic\xF3logo / RT independente", kind: "desktop" },
+        { src: "trium/shots/web-rh-relatos.png", w: 1280, h: 800, alt: "Relatos NR-1 vs canal de den\xFAncias", cap: "Relatos \xD7 den\xFAncias", kind: "desktop" }
       ]
     }
   ];
@@ -280,10 +284,10 @@
         preload: "metadata",
         "aria-label": j.aria
       }
-    ) : /* @__PURE__ */ React.createElement("img", { src: j.poster, alt: j.aria, loading: "lazy", decoding: "async" }))), /* @__PURE__ */ React.createElement("div", { className: "journey-meta" }, /* @__PURE__ */ React.createElement("span", { className: "journey-badge" }, j.badge), /* @__PURE__ */ React.createElement("h3", null, j.title), /* @__PURE__ */ React.createElement("p", null, j.blurb), /* @__PURE__ */ React.createElement("ol", { className: "journey-steps", "aria-label": "Passos da jornada" }, j.steps.map((s, i) => /* @__PURE__ */ React.createElement("li", { key: s }, /* @__PURE__ */ React.createElement("span", { className: "js-n" }, String(i + 1).padStart(2, "0")), s)))));
+    ) : /* @__PURE__ */ React.createElement("img", { src: j.poster, width: j.posterW, height: j.posterH, alt: j.aria, loading: "lazy", decoding: "async" }))), /* @__PURE__ */ React.createElement("div", { className: "journey-meta" }, /* @__PURE__ */ React.createElement("span", { className: "journey-badge" }, j.badge), /* @__PURE__ */ React.createElement("h3", null, j.title), /* @__PURE__ */ React.createElement("p", null, j.blurb), /* @__PURE__ */ React.createElement("ol", { className: "journey-steps", "aria-label": "Passos da jornada" }, j.steps.map((s, i) => /* @__PURE__ */ React.createElement("li", { key: s }, /* @__PURE__ */ React.createElement("span", { className: "js-n" }, String(i + 1).padStart(2, "0")), s)))));
   }
   function ShotFrame({ shot }) {
-    return /* @__PURE__ */ React.createElement("figure", { className: "shot-card desktop" }, /* @__PURE__ */ React.createElement("div", { className: "desk-chrome" }, /* @__PURE__ */ React.createElement("div", { className: "pf-bar" }, /* @__PURE__ */ React.createElement("span", { className: "pf-dot" }), /* @__PURE__ */ React.createElement("span", { className: "pf-dot" }), /* @__PURE__ */ React.createElement("span", { className: "pf-dot" }), /* @__PURE__ */ React.createElement("span", { className: "pf-url" }, "portal.triumbpo.com.br")), /* @__PURE__ */ React.createElement("img", { src: shot.src, loading: "lazy", decoding: "async", alt: shot.alt })), /* @__PURE__ */ React.createElement("figcaption", null, shot.cap));
+    return /* @__PURE__ */ React.createElement("figure", { className: "shot-card desktop" }, /* @__PURE__ */ React.createElement("div", { className: "desk-chrome" }, /* @__PURE__ */ React.createElement("div", { className: "pf-bar" }, /* @__PURE__ */ React.createElement("span", { className: "pf-dot" }), /* @__PURE__ */ React.createElement("span", { className: "pf-dot" }), /* @__PURE__ */ React.createElement("span", { className: "pf-dot" }), /* @__PURE__ */ React.createElement("span", { className: "pf-url" }, "portal.triumbpo.com.br")), /* @__PURE__ */ React.createElement("img", { src: shot.src, width: shot.w, height: shot.h, loading: "lazy", decoding: "async", alt: shot.alt })), /* @__PURE__ */ React.createElement("figcaption", null, shot.cap));
   }
   function PersonaGallery() {
     const [deskTab, setDeskTab] = useStateM("rh");
@@ -447,7 +451,7 @@
         preload: "metadata",
         "aria-label": "Demonstra\xE7\xE3o da EVA respondendo um colaborador no app da TRIUM"
       }
-    ) : /* @__PURE__ */ React.createElement("img", { src: "trium/video/eva-poster.jpg", alt: "EVA respondendo um colaborador no app da TRIUM", loading: "lazy", decoding: "async" })))), /* @__PURE__ */ React.createElement("p", { className: "shot-note eva-shot-note" }, "Loop silencioso \xB7 ambiente de demonstra\xE7\xE3o")));
+    ) : /* @__PURE__ */ React.createElement("img", { src: "trium/video/eva-poster.jpg", width: "390", height: "844", alt: "EVA respondendo um colaborador no app da TRIUM", loading: "lazy", decoding: "async" })))), /* @__PURE__ */ React.createElement("p", { className: "shot-note eva-shot-note" }, "Loop silencioso \xB7 ambiente de demonstra\xE7\xE3o")));
   }
   Object.assign(window, { Services, PortalShowcase, Segments, Steps, Compare, Eva });
   const { useState: useStateB } = React;
@@ -552,7 +556,7 @@
     return /* @__PURE__ */ React.createElement("footer", { className: "ft" }, /* @__PURE__ */ React.createElement("div", { className: "wrap-wide" }, /* @__PURE__ */ React.createElement("div", { className: "foot-grid" }, /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("div", { className: "logo", style: { marginBottom: "1rem" } }, /* @__PURE__ */ React.createElement(window.TriumLogo, { size: 32 }), /* @__PURE__ */ React.createElement("span", { className: "word", style: { fontSize: "1.05rem" } }, "TRIUM", /* @__PURE__ */ React.createElement("small", null, "B P O"))), /* @__PURE__ */ React.createElement("p", { style: { maxWidth: 320 } }, "Terceiriza\xE7\xE3o de folha e departamento pessoal (FOPA) para empresas que n\xE3o t\xEAm RH interno. Portal digital inclu\xEDdo e m\xF3dulos opcionais no mesmo ambiente.")), /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("h4", null, "Servi\xE7os"), /* @__PURE__ */ React.createElement("a", { href: "#servicos" }, "FOPA \xB7 Folha e DP"), /* @__PURE__ */ React.createElement("a", { href: "#servicos" }, "eSocial e obriga\xE7\xF5es"), /* @__PURE__ */ React.createElement("a", { href: "#portal" }, "Portal do cliente"), /* @__PURE__ */ React.createElement("a", { href: "#telas" }, "Apps PF e PJ"), /* @__PURE__ */ React.createElement("a", { href: "#eva" }, "EVA \xB7 assistente de IA"), /* @__PURE__ */ React.createElement("a", { href: "#modulos" }, "Ponto \xB7 Benef\xEDcios \xB7 Recrutamento \xB7 Den\xFAncias \xB7 NR-1 \xB7 PJs")), /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("h4", null, "A TRIUM"), /* @__PURE__ */ React.createElement("a", { href: "#equipe" }, "Equipe"), /* @__PURE__ */ React.createElement("a", { href: "#segmentos" }, "Segmentos atendidos"), /* @__PURE__ */ React.createElement("a", { href: "#faq" }, "Perguntas frequentes"), /* @__PURE__ */ React.createElement("a", { href: "#", onClick: (e) => {
       e.preventDefault();
       onPortal();
-    } }, "Portal do Cliente")), /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("h4", null, "Contato"), /* @__PURE__ */ React.createElement("a", { href: "mailto:contato@triumbpo.com.br" }, "contato@triumbpo.com.br"), /* @__PURE__ */ React.createElement("a", { href: "#contato" }, "Diagn\xF3stico gratuito"))), /* @__PURE__ */ React.createElement("div", { className: "foot-bottom" }, /* @__PURE__ */ React.createElement("span", null, "\xA9 2026 TRIUM BPO. CNPJ 67.643.860/0001-14. Todos os direitos reservados."), /* @__PURE__ */ React.createElement("span", null, "triumbpo.com.br \xB7 fopa.com.br \xB7 Comprometidos com a LGPD"))));
+    } }, "Portal do Cliente")), /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("h4", null, "Contato"), /* @__PURE__ */ React.createElement("a", { href: "mailto:contato@triumbpo.com.br" }, "contato@triumbpo.com.br"), /* @__PURE__ */ React.createElement("a", { href: "tel:+551533844013" }, "(15) 3384-4013"), /* @__PURE__ */ React.createElement("a", { href: "https://www.linkedin.com/company/triumbpo/", target: "_blank", rel: "noopener" }, "LinkedIn"), /* @__PURE__ */ React.createElement("a", { href: "#contato" }, "Diagn\xF3stico gratuito"), /* @__PURE__ */ React.createElement("address", { className: "ft-addr" }, "Av. Dr. Vin\xEDcio Gagliardi, 675", /* @__PURE__ */ React.createElement("br", null), "Centro, Cerquilho/SP", /* @__PURE__ */ React.createElement("br", null), "CEP 18520-091"))), /* @__PURE__ */ React.createElement("div", { className: "foot-bottom" }, /* @__PURE__ */ React.createElement("span", null, "\xA9 2026 TRIUM BPO. CNPJ 67.643.860/0001-14. Todos os direitos reservados."), /* @__PURE__ */ React.createElement("span", null, "triumbpo.com.br \xB7 fopa.com.br \xB7 Comprometidos com a LGPD"))));
   }
   Object.assign(window, { Team, Faq, Contact, Footer });
   const { useState: useStateA, useEffect: useEffectA } = React;
