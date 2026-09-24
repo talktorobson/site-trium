@@ -1,0 +1,45 @@
+# TRIUM BPO
+
+> BPO de folha de pagamento e departamento pessoal para PME no Brasil, com portal digital incluído.
+
+- Site: https://triumbpo.com.br/
+- Portal do cliente: https://portal.triumbpo.com.br
+- Contato: contato@triumbpo.com.br · (15) 3384-4013
+- Endereço: Av. Dr. Vinício Gagliardi, 675, Centro, Cerquilho/SP, CEP 18520-091
+- LinkedIn: https://www.linkedin.com/company/triumbpo/
+- CNPJ: 67.643.860/0001-14
+- Idioma: pt-BR
+- Porte: empresas a partir de 10 colaboradores
+
+A TRIUM assume a folha e o DP com compliance e eSocial sob controle. Motor de cálculo: TOTVS Protheus. Portal e app do colaborador vêm no contrato. EVA (assistente de IA) incluída no FOPA. Diagnóstico gratuito; sem tabela pública de preços.
+
+## FOPA (núcleo)
+
+Folha de pagamento, departamento pessoal, eSocial/obrigações e portal digital. Um contrato, um ambiente.
+
+## Módulos opcionais (mesmo portal)
+
+- Solução de Ponto — Portaria 671; exportação para o Protheus
+- Gestão de Benefícios — VT, VR/VA, plano de saúde; desconto na folha
+- Recrutamento — da vaga à admissão (não é ATS solto)
+- Canal de Denúncias — Lei 14.457/2022
+- Gestão de Riscos NR-1 — Portaria MTE 1.419/2024; psicossocial no PGR
+- Gestão de PJs — prestadores em trilho separado do CLT
+
+## EVA
+
+Assistente de IA no portal e no app. Consulta folha (férias, holerite, prazos, benefícios), abre solicitações e aciona o analista da carteira quando precisa de humano. Incluída no FOPA. LGPD.
+
+## FAQ
+
+- Trocar de contador? Não. TRIUM faz folha/DP; contador segue com contabilidade e fiscal.
+- Empresa pequena? Foco a partir de 10 colaboradores.
+- Preço? Por colaborador ativo/mês (e, em alguns módulos, por prestador). Proposta após diagnóstico.
+- NR-1 substitui psicólogo? Não. A plataforma organiza; responsabilidade técnica é do profissional nomeado pelo cliente.
+- Sistema de folha atual? Diagnóstico define migrar para Protheus ou operar sobre a ferramenta existente.
+
+## Páginas
+
+- [Landing](https://triumbpo.com.br/): oferta, módulos, FAQ, contato
+- [Conteúdo completo em Markdown](https://triumbpo.com.br/llms-full.txt): a página inteira, incluindo comparativo, segmentos, equipe e FAQ completo
+- [Índice deste arquivo](https://triumbpo.com.br/llms.txt)

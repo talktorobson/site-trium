@@ -1,0 +1,7 @@
+# TRIUM BPO — buscadores e agentes de IA são bem-vindos.
+# Resumo para agentes: https://triumbpo.com.br/llms.txt
+# Conteúdo completo em Markdown: https://triumbpo.com.br/llms-full.txt
+User-agent: *
+Allow: /
+
+Sitemap: https://triumbpo.com.br/sitemap.xml

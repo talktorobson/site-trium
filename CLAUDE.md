@@ -8,14 +8,14 @@ Landing page and Portal do Cliente (demo) for TRIUM BPO (triumbpo.com.br) — pa
 
 ## Running locally
 
-There is no build step, no `npm install`, no bundler, and no test suite. React 18 + Babel standalone are loaded from CDN and JSX is transpiled in the browser. Serve the repo root with any static server:
+Serve the repo root with any static server (no `npm install` required at runtime):
 
 ```bash
 python3 -m http.server 8000
 # then open http://localhost:8000/ (landing) and /client-portal.html (portal demo)
 ```
 
-Opening `index.html` via `file://` will not work reliably because the JSX files are fetched via `<script src>`.
+JSX in `trium/*.jsx` is the source. After editing it, run `./scripts/build.sh` (esbuild compile → Playwright snapshot into `index.html`). Do not load Babel in the browser. Opening via `file://` will not work because scripts are fetched by `src`.
 
 Deploy: publish the repo root to any static host. Production is the Vercel project `site-trium`.
 
@@ -23,8 +23,8 @@ Deploy: publish the repo root to any static host. Production is the Vercel proje
 
 There are no ES modules or imports. Each HTML entry point loads scripts in a fixed order, and files communicate exclusively through `window` globals:
 
-- `index.html` (landing) loads: design-system CSS + `trium/site.css`, React/ReactDOM/`_ds_bundle.js`/Babel from CDN, then `trium/config.js` → `icons.jsx` → `sections-top.jsx` → `sections-mid.jsx` → `sections-bottom.jsx` → `app.jsx`.
-- `client-portal.html` (portal demo) loads: design-system CSS + `trium/portal.css`, same CDN scripts, then `config.js` → `icons.jsx` → `portal.jsx`.
+- `index.html` (landing) loads: design-system CSS + `trium/site.css`, React/ReactDOM production UMD + `_ds_bundle.js` from CDN, then `trium/config.js` → `trium/build/landing.js`. `#app` contains a prerendered snapshot of `.site` (markers `<!--prerender:begin/end-->`) so crawlers that skip JS still see the page.
+- `client-portal.html` (portal demo) loads: design-system CSS + `trium/portal.css`, same React UMD, then `config.js` → `trium/build/portal.js`.
 
 Consequences of this structure:
 
@@ -40,6 +40,7 @@ Key files:
 - `trium/icons.jsx` — Lucide-style line icons (24×24, 2px stroke, round caps) exposed as `window.TriumIcons`; add new icons here in the same style, no emoji or icon fonts.
 - `trium/sections-bottom.jsx` — includes the Contact form: posts JSON to `https://formsubmit.co/ajax/<FORM_EMAIL>`; on failure it falls back to opening WhatsApp with the form data pre-filled.
 - `trium/portal.jsx` — the Portal do Cliente demo (static mock data, no backend).
+- `scripts/build.sh` — compile JSX then prerender `index.html`. Run after changing `trium/*.jsx`.
 - `index-v1-backup.html`, `index-v2-backup.html` — previous single-file versions kept for reference only; do not edit them.
 
 ## Design system (`_ds/trium-bpo-design-system-…/`)

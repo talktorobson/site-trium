@@ -43,6 +43,7 @@ function Team({ teamStyle }) {
 
 function Faq() {
   const I = window.TriumIcons;
+  /* Keep Q&A in sync with index.html JSON-LD / seo-shell and /llms.txt. */
   const qa = [
   ['Preciso trocar de contador para contratar a TRIUM?', 'Não. A TRIUM assume a folha e o departamento pessoal. Seu contador continua cuidando da contabilidade e do fiscal, e nós entregamos a ele todos os relatórios e integrações que precisar. Na prática, o trabalho dele fica mais fácil.'],
   ['Minha empresa é pequena. Vale a pena terceirizar?', 'Nosso foco são empresas a partir de 10 colaboradores, justamente as que não têm RH interno ou têm uma equipe pequena. É nesse porte que a terceirização traz mais retorno, porque o custo de um erro de folha ou de uma multa é proporcionalmente muito maior.'],
@@ -221,11 +222,14 @@ function Footer({ onPortal }) {
         <div>
           <h4>Contato</h4>
           <a href="mailto:contato@triumbpo.com.br">contato@triumbpo.com.br</a>
+          <a href="tel:+551533844013">(15) 3384-4013</a>
+          <a href="https://www.linkedin.com/company/triumbpo/" target="_blank" rel="noopener">LinkedIn</a>
           <a href="#contato">Diagnóstico gratuito</a>
+          <address className="ft-addr">Av. Dr. Vinício Gagliardi, 675<br />Centro, Cerquilho/SP<br />CEP 18520-091</address>
         </div>
       </div>
       <div className="foot-bottom">
-        <span>© 2026 TRIUM BPO. Todos os direitos reservados.</span>
+        <span>© 2026 TRIUM BPO. CNPJ 67.643.860/0001-14. Todos os direitos reservados.</span>
         <span>triumbpo.com.br · fopa.com.br · Comprometidos com a LGPD</span>
       </div>
     </div></footer>);
