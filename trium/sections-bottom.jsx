@@ -225,7 +225,7 @@ function Footer({ onPortal }) {
           <a href="tel:+551533844013">(15) 3384-4013</a>
           <a href="https://www.linkedin.com/company/triumbpo/" target="_blank" rel="noopener">LinkedIn</a>
           <a href="#contato">Diagnóstico gratuito</a>
-          <address className="ft-addr">Av. Dr. Vinício Gagliardi, 675<br />Centro, Cerquilho/SP</address>
+          <address className="ft-addr">Av. Dr. Vinício Gagliardi, 675<br />Centro, Cerquilho/SP<br />CEP 18520-091</address>
         </div>
       </div>
       <div className="foot-bottom">
